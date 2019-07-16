@@ -1,7 +1,7 @@
-diff --git a/docroot/core/modules/system/system.install b/docroot/core/modules/system/system.install
-index 2b626c590..83c9abd1d 100644
---- a/docroot/core/modules/system/system.install
-+++ b/docroot/core/modules/system/system.install
+diff --git a/core/modules/system/system.install b/core/modules/system/system.install
+index 2b626c5..83c9abd 100644
+--- a/core/modules/system/system.install
++++ b/core/modules/system/system.install
 @@ -46,7 +46,7 @@ function system_requirements($phase) {
      // is not running the default installation profile.
      $profile = drupal_get_profile();
