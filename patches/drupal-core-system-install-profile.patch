@@ -1,0 +1,13 @@
+diff --git a/docroot/core/modules/system/system.install b/docroot/core/modules/system/system.install
+index 83c9abd1d..2b626c590 100644
+--- a/docroot/core/modules/system/system.install
++++ b/docroot/core/modules/system/system.install
+@@ -46,7 +46,7 @@ function system_requirements($phase) {
+     // is not running the default installation profile.
+     $profile = drupal_get_profile();
+     if ($profile != 'standard') {
+-      $info = system_get_info('module', $profile);
++      $info = system_get_info('profile', $profile);
+       $requirements['install_profile'] = [
+         'title' => t('Installation profile'),
+         'value' => t('%profile_name (%profile-%version)', [

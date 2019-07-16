@@ -175,8 +175,8 @@
       "drupal/core": "-p2"
     },
     "patches": {
-      "drupal/config_installer": {
-        "Drush 9 runtime exception": "https://www.drupal.org/files/issues/2018-08-21/2991182-6.patch"
+      "drupal/core": {
+        "Properly target profiles in system_get_info on system.install": "./patches/drupal-core-system-install-profile.patch"
       },
       "drupal/media_entity": {
         "Allow updates to thumbnails on save": "https://www.drupal.org/files/issues/2749695_14_media_entity.patch"
