@@ -40,13 +40,6 @@ class ScriptHandler {
       $fs->copy($root . '/sites/default/default.settings.php', $root . '/sites/default/settings.php');
       require_once $root . '/core/includes/bootstrap.inc';
       require_once $root . '/core/includes/install.inc';
-      $settings['config_directories'] = [
-        CONFIG_SYNC_DIRECTORY => (object) [
-          'value' => '../config/default',
-          'required' => TRUE,
-        ],
-      ];
-      drupal_rewrite_settings($settings, $root . '/sites/default/settings.php');
       $fs->chmod($root . '/sites/default/settings.php', 0666);
       $event->getIO()->write("Create a sites/default/settings.php file with chmod 0666");
     }
