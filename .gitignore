@@ -6,11 +6,6 @@ docroot/sites/*/private
 docroot/sites/*/settings.local.php
 private
 
-# Paragon Development Files #
-###########################
-drupal-vm
-drush/sites/paragon-*.site.yml
-
 # Packages #
 ############
 *.7z
