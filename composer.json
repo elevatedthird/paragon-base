@@ -185,9 +185,6 @@
         "Thumbnail not updated": "https://www.drupal.org/files/issues/2749695_14_media_entity_image.patch",
         "Add proper image formatter for display current image": "https://www.drupal.org/files/issues/add_image_formatter-2850169-5.patch"
       },
-      "drupal/paragraphs": {
-        "Make paragraphs module working with field_group version 3.x with support for the field_layout module": "https://www.drupal.org/files/issues/2019-08-04/2907094_76.patch"
-      },
       "drupal/video_embed_field": {
         "Adds shouldUpdateThumbnail method for video embed field to update thumbnail, depends on above patch": "./patches/video_embed_field_update_thumb.patch"
       },
