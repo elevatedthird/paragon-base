@@ -1,10 +1,10 @@
 # Drupal #
 ##########
-docroot/files
-docroot/sites/*/files
-docroot/sites/*/private
+docroot/files/
+docroot/sites/*/files/
+docroot/sites/*/private/
 docroot/sites/*/settings.local.php
-private
+private/
 
 # Packages #
 ############
@@ -32,18 +32,18 @@ Thumbs.db
 .buildpath
 .cache
 .project
-.settings
+.settings/
 .tmproj
-nbproject
+nbproject/
 *.sublime-project
 *.sublime-workspace
 
 # Folders #
 ###########
-.hg
-.svn
-.CVS
-.idea
+.hg/
+.svn/
+.CVS/
+.idea/
 
 # Numerous always-ignore extensions #
 #####################################
@@ -64,7 +64,7 @@ nbproject
 
 
 # Ignore git directories/files in composer plugins #
-vendor/**/.git
-docroot/**/.git
+vendor/**/.git/
+docroot/**/.git/
 vendor/**/.gitattributes
 docroot/**/.gitattributes
