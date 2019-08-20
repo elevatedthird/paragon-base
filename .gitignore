@@ -4,6 +4,7 @@
 /docroot/sites/*/files/
 /docroot/sites/*/private/
 /docroot/sites/*/settings.local.php
+/docroot/sites/*/settings.php
 /private/
 
 # Packages #
