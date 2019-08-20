@@ -1,10 +1,10 @@
 # Drupal #
 ##########
-docroot/files/
-docroot/sites/*/files/
-docroot/sites/*/private/
-docroot/sites/*/settings.local.php
-private/
+/docroot/files/
+/docroot/sites/*/files/
+/docroot/sites/*/private/
+/docroot/sites/*/settings.local.php
+/private/
 
 # Packages #
 ############
@@ -40,10 +40,10 @@ nbproject/
 
 # Folders #
 ###########
-.hg/
-.svn/
-.CVS/
-.idea/
+/.hg/
+/.svn/
+/.CVS/
+/.idea/
 
 # Numerous always-ignore extensions #
 #####################################
@@ -60,11 +60,11 @@ nbproject/
 
 # Ignore patches not in the patches directory #
 *.patch
-!patches/*.patch
+!/patches/*.patch
 
 
 # Ignore git directories/files in composer plugins #
-vendor/**/.git/
-docroot/**/.git/
-vendor/**/.gitattributes
-docroot/**/.gitattributes
+/vendor/**/.git/
+/docroot/**/.git/
+/vendor/**/.gitattributes
+/docroot/**/.gitattributes
