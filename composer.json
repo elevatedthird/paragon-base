@@ -75,9 +75,6 @@
     "drupal/login_security": "^1.0",
     "drupal/mailsystem": "^4.0",
     "drupal/markup": "^1.0",
-    "drupal/media_entity": "^1.0",
-    "drupal/media_entity_document": "^1.0",
-    "drupal/media_entity_image": "^1.0",
     "drupal/memcache": "^2.0",
     "drupal/menu_block": "^1.0",
     "drupal/metatag": "^1.0",
@@ -106,7 +103,6 @@
     "drupal/system_status": "^2.0",
     "drupal/twig_field_value": "^1.0",
     "drupal/ultimate_cron": "^2.0",
-    "drupal/video_embed_field": "^1.0",
     "drupal/views_bulk_edit": "^2.0",
     "drupal/views_bulk_operations": "^2.0",
     "drush/drush": "~9.0",
@@ -177,16 +173,6 @@
       "drupal/core": {
         "Properly target profiles in system_get_info on system.install": "./patches/drupal-core-system-install-profile.patch",
         "Profile provided configuration entities can have unmeetable dependencies": "https://www.drupal.org/files/issues/2018-10-12/2922417-38.patch"
-      },
-      "drupal/media_entity": {
-        "Allow updates to thumbnails on save": "https://www.drupal.org/files/issues/2749695_14_media_entity.patch"
-      },
-      "drupal/media_entity_image": {
-        "Thumbnail not updated": "https://www.drupal.org/files/issues/2749695_14_media_entity_image.patch",
-        "Add proper image formatter for display current image": "https://www.drupal.org/files/issues/add_image_formatter-2850169-5.patch"
-      },
-      "drupal/video_embed_field": {
-        "Adds shouldUpdateThumbnail method for video embed field to update thumbnail, depends on above patch": "./patches/video_embed_field_update_thumb.patch"
       },
       "drupal/views_bulk_edit" : {
         "Better handling for paragraphs module": "https://www.drupal.org/files/issues/2019-02-12/2934226-15-better-reference-handling.patch"
