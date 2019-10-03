@@ -177,9 +177,6 @@
       "drupal/core": {
         "Properly target profiles in system_get_info on system.install": "./patches/drupal-core-system-install-profile.patch",
         "Profile provided configuration entities can have unmeetable dependencies": "https://www.drupal.org/files/issues/2018-10-12/2922417-38.patch"
-      },
-      "drupal/views_bulk_edit" : {
-        "Better handling for paragraphs module": "https://www.drupal.org/files/issues/2019-02-12/2934226-15-better-reference-handling.patch"
       }
     }
   },
