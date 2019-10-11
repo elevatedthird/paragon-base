@@ -1,0 +1,18 @@
+# Local development services.
+#
+# To activate this feature, follow the instructions at the top of the
+# 'example.settings.local.php' file, which sits next to this file.
+services:
+  cache.backend.null:
+    class: Drupal\Core\Cache\NullBackendFactory
+parameters:
+  twig.config:
+    # By setting 'debug: true', the 'auto_reload' and 'cache'
+    # parameters are implicitly set to their defaults (true).
+    # 'auto_reload' should handle the regeneration of twig
+    # files for debugging, while leaving 'cache' set to true
+    # will increase local performance.
+    #
+    # See https://www.drupal.org/node/1903374#options to read
+    # more about the performance benefits of these settings.
+    debug: true

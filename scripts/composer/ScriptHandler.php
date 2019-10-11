@@ -19,7 +19,8 @@ class ScriptHandler {
 
   public static function createRequiredFiles(Event $event) {
     $fs = new Filesystem();
-    $root = static::getDrupalRoot(getcwd());
+    $project_root = getcwd();
+    $drupal_root = static::getDrupalRoot($project_root);
 
     $dirs = [
       'modules',
@@ -29,32 +30,62 @@ class ScriptHandler {
 
     // Required for unit testing
     foreach ($dirs as $dir) {
-      if (!$fs->exists($root . '/'. $dir)) {
-        $fs->mkdir($root . '/'. $dir);
-        $fs->touch($root . '/'. $dir . '/.gitkeep');
+      if (!$fs->exists($drupal_root . '/'. $dir)) {
+        $fs->mkdir($drupal_root . '/'. $dir);
+        $fs->touch($drupal_root . '/'. $dir . '/.gitkeep');
       }
     }
 
+    // Copy over custom .htaccess file.
+    if (!$fs->exists($drupal_root . '/.htaccess') and $fs->exists($project_root . '/scaffold/.htaccess')) {
+      $fs->copy($project_root . '/scaffold/.htaccess', $drupal_root . '/.htaccess');
+      $event->getIO()->write("Copied custom .htaccess from scaffold into docroot.");
+    }
+
+    // Copy over robots_hidden.txt
+    if (!$fs->exists($drupal_root . '/robots_hidden.txt') and $fs->exists($project_root . '/scaffold/robots_hidden.txt')) {
+      $fs->copy($project_root . '/scaffold/robots_hidden.txt', $drupal_root . '/robots_hidden.txt');
+      $event->getIO()->write("Copied robots_hidden.txt from scaffold into docroot.");
+    }
+
+    // Copy over custom settings.php and services.yml files
+    if (!$fs->exists($drupal_root . '/sites/default/example.settings.php') and $fs->exists($project_root . '/scaffold/example.settings.php')) {
+      $fs->copy($project_root . '/scaffold/example.settings.php', $drupal_root . '/sites/default/example.settings.php');
+      $event->getIO()->write("Copied example.settings.php from scaffold into docroot.");
+    }
+    if (!$fs->exists($drupal_root . '/sites/default/local.services.yml') and $fs->exists($project_root . '/scaffold/local.services.yml')) {
+      $fs->copy($project_root . '/scaffold/local.services.yml', $drupal_root . '/sites/default/local.services.yml');
+      $event->getIO()->write("Copied local.services.yml from scaffold into docroot.");
+    }
+    if (!$fs->exists($drupal_root . '/sites/default/settings.drupalvm.php') and $fs->exists($project_root . '/scaffold/settings.drupalvm.php')) {
+      $fs->copy($project_root . '/scaffold/settings.drupalvm.php', $drupal_root . '/sites/default/settings.drupalvm.php');
+      $event->getIO()->write("Copied settings.drupalvm.php from scaffold into docroot.");
+    }
+    if (!$fs->exists($drupal_root . '/sites/default/settings.fast404.php') and $fs->exists($project_root . '/scaffold/settings.fast404.php')) {
+      $fs->copy($project_root . '/scaffold/settings.fast404.php', $drupal_root . '/sites/default/settings.fast404.php');
+      $event->getIO()->write("Copied settings.fast404.php from scaffold into docroot.");
+    }
+
     // Prepare the settings file for installation
-    if (!$fs->exists($root . '/sites/default/settings.php') and $fs->exists($root . '/sites/default/default.settings.php')) {
-      $fs->copy($root . '/sites/default/default.settings.php', $root . '/sites/default/settings.php');
-      require_once $root . '/core/includes/bootstrap.inc';
-      require_once $root . '/core/includes/install.inc';
-      $fs->chmod($root . '/sites/default/settings.php', 0666);
+    if (!$fs->exists($drupal_root . '/sites/default/settings.php') and $fs->exists($drupal_root . '/sites/default/default.settings.php')) {
+      $fs->copy($drupal_root . '/sites/default/default.settings.php', $drupal_root . '/sites/default/settings.php');
+      require_once $drupal_root . '/core/includes/bootstrap.inc';
+      require_once $drupal_root . '/core/includes/install.inc';
+      $fs->chmod($drupal_root . '/sites/default/settings.php', 0666);
       $event->getIO()->write("Create a sites/default/settings.php file with chmod 0666");
     }
 
     // Prepare the services file for installation
-    if (!$fs->exists($root . '/sites/default/services.yml') and $fs->exists($root . '/sites/default/default.services.yml')) {
-      $fs->copy($root . '/sites/default/default.services.yml', $root . '/sites/default/services.yml');
-      $fs->chmod($root . '/sites/default/services.yml', 0666);
+    if (!$fs->exists($drupal_root . '/sites/default/services.yml') and $fs->exists($drupal_root . '/sites/default/default.services.yml')) {
+      $fs->copy($drupal_root . '/sites/default/default.services.yml', $drupal_root . '/sites/default/services.yml');
+      $fs->chmod($drupal_root . '/sites/default/services.yml', 0666);
       $event->getIO()->write("Create a sites/default/services.yml file with chmod 0666");
     }
 
     // Create the files directory with chmod 0777
-    if (!$fs->exists($root . '/sites/default/files')) {
+    if (!$fs->exists($drupal_root . '/sites/default/files')) {
       $oldmask = umask(0);
-      $fs->mkdir($root . '/sites/default/files', 0777);
+      $fs->mkdir($drupal_root . '/sites/default/files', 0777);
       umask($oldmask);
       $event->getIO()->write("Create a sites/default/files directory with chmod 0777");
     }
@@ -62,15 +93,15 @@ class ScriptHandler {
 
   public static function removeGitSubmodules (Event $event) {
     exec("find " . getcwd() . "'/vendor' | grep '\.git' | xargs rm -rf");
-    exec("find " . getcwd() . "'/docroot/modules/contrib' | grep '\.git' | xargs rm -rf");
-    exec("find " . getcwd() . "'/docroot/profiles/contrib' | grep '\.git' | xargs rm -rf");
-    exec("find " . getcwd() . "'/docroot/themes/contrib' | grep '\.git' | xargs rm -rf");
+    exec("find " . getcwd() . "'/docroot/modules/contrib' | grep '\.git(?!.*ignore)' | xargs rm -rf");
+    exec("find " . getcwd() . "'/docroot/profiles/contrib' | grep '\.git(?!.*ignore)' | xargs rm -rf");
+    exec("find " . getcwd() . "'/docroot/themes/contrib' | grep '\.git(?!.*ignore)' | xargs rm -rf");
     $event->getIO()->write("Removed all .git files from vendor and contrib.");
   }
 
   public static function createPrivateTempDirectories (Event $event) {
     $fs = new Filesystem();
-    $root = '.';
+    $drupal_root = '.';
 
     $dirs = array(
       'private',
@@ -79,8 +110,8 @@ class ScriptHandler {
 
     // Required for unit testing
     foreach ($dirs as $dir) {
-      if (!$fs->exists($root . '/'. $dir)) {
-        $fs->mkdir($root . '/'. $dir);
+      if (!$fs->exists($drupal_root . '/'. $dir)) {
+        $fs->mkdir($drupal_root . '/'. $dir);
         $event->getIO()->write("Created directory \"$dir\".");
       }
     }
