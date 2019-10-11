@@ -165,6 +165,10 @@
     },
     "enable-patching": true,
     "drupal-scaffold": {
+      "excludes": [
+        ".htaccess",
+        "robots_hidden.txt"
+      ],
       "initial": {
         ".gitattributes": "../.gitattributes"
       }
