@@ -57,6 +57,10 @@ class ScriptHandler {
       $fs->copy($project_root . '/scaffold/local.services.yml', $drupal_root . '/sites/default/local.services.yml');
       $event->getIO()->write("Copied local.services.yml from scaffold into docroot.");
     }
+    if (!$fs->exists($drupal_root . '/sites/default/settings.acquia.php') and $fs->exists($project_root . '/scaffold/settings.acquia.php')) {
+      $fs->copy($project_root . '/scaffold/settings.acquia.php', $drupal_root . '/sites/default/settings.acquia.php');
+      $event->getIO()->write("Copied settings.acquia.php from scaffold into docroot.");
+    }
     if (!$fs->exists($drupal_root . '/sites/default/settings.drupalvm.php') and $fs->exists($project_root . '/scaffold/settings.drupalvm.php')) {
       $fs->copy($project_root . '/scaffold/settings.drupalvm.php', $drupal_root . '/sites/default/settings.drupalvm.php');
       $event->getIO()->write("Copied settings.drupalvm.php from scaffold into docroot.");
