@@ -6,6 +6,10 @@ docroot/sites/*/private
 docroot/sites/*/settings.local.php
 private
 
+# Node Modules #
+################
+node_modules
+
 # Packages #
 ############
 *.7z
