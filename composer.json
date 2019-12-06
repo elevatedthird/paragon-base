@@ -87,7 +87,6 @@
     "drupal/paragon_themekit": "^1.0@alpha",
     "drupal/paragraphs": "^1.0",
     "drupal/paragraphs_browser": "^1.0",
-    "drupal/paragraphs_previewer": "dev-1.x",
     "drupal/path_redirect_import": "^1.0@beta",
     "drupal/pathauto": "^1.0",
     "drupal/purge": "^3.0@beta",
