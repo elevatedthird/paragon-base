@@ -17,7 +17,7 @@ $databases['default']['default'] = array (
 // Local file directory configuration
 $settings['file_public_path'] = 'sites/default/files';
 $settings['file_private_path'] = 'sites/default/files/private';
-$config['system.file']['path']['temporary'] = 'sites/default/files/private/tmp';
+$settings['file_temp_path'] = 'sites/default/files/private/tmp';
 
 /**
  * Assertions.

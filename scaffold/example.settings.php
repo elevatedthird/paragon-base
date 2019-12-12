@@ -86,7 +86,7 @@ $settings['trusted_host_patterns'] = array(
 // Set default paths to public, private and temp directories.
 $settings['file_public_path'] = 'sites/default/files';
 $settings['file_private_path'] = '../private';
-$config['system.file']['path']['temporary'] = '../private/tmp';
+$settings['file_temp_path'] = '../private/tmp';
 
 // Remove shield print message by default.
 $config['shield.settings']['print'] = '';

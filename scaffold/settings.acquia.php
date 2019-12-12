@@ -6,7 +6,7 @@ if (file_exists('/var/www/site-php')) {
 }
 
 $settings['file_private_path'] = "/mnt/files/{$acquia_site_name}.{$_ENV['AH_SITE_ENVIRONMENT']}/files-private";
-$config['system.file']['path']['temporary'] = "/mnt/tmp/{$acquia_site_name}.{$_ENV['AH_SITE_ENVIRONMENT']}";
+$settings['file_temp_path'] = "/mnt/tmp/{$acquia_site_name}.{$_ENV['AH_SITE_ENVIRONMENT']}";
 
 // https://docs.acquia.com/article/drupal-8-cache-backend
 $settings['cache']['default'] = 'cache.backend.database';
