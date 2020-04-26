@@ -67,9 +67,15 @@ nbproject
 *.patch
 !patches/*.patch
 
-
 # Ignore git directories/files in composer plugins #
 vendor/**/.git
 docroot/**/.git
 vendor/**/.gitattributes
 docroot/**/.gitattributes
+
+# Do not ignore directories necessary for Composer-based drupal-vm
+!vendor/geerlingguy/drupal-vm/**/*.git
+!vendor/geerlingguy/drupal-vm/**/*.mysql
+
+# Ignore Vagrant configuration directories
+.vagrant*
