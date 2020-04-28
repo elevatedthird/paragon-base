@@ -17,6 +17,7 @@ drupal_core_path: '{{ drupal_composer_install_dir }}/docroot'
 
 installed_extras:
   - adminer
+  - drupalconsole
   - drush
   - mailhog
   - memcached
