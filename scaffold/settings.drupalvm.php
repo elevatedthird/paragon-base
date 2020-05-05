@@ -1,9 +1,11 @@
 <?php
 
+// @codingStandardsIgnoreFile
+
 /**
- *  Configure Drupal VM DB.
+ * Configure Drupal VM DB.
  */
-$databases['default']['default'] = array (
+$databases['default']['default'] = [
   'database' => 'drupal',
   'username' => 'drupal',
   'password' => 'drupal',
@@ -12,9 +14,11 @@ $databases['default']['default'] = array (
   'port' => '3306',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
-);
+];
 
-// Local file directory configuration
+/**
+ * Local file directory configuration
+ */
 $settings['file_public_path'] = 'sites/default/files';
 $settings['file_private_path'] = 'sites/default/files/private';
 $settings['file_temp_path'] = 'sites/default/files/private/tmp';
@@ -151,8 +155,15 @@ $settings['twig_debug'] = TRUE;
  */
 $config['google_tag.settings']['container_id'] = '';
 
-// Set logging level on drupal vm.
+/**
+ * Set logging level on drupal vm.
+ */
 $config['system.logging']['error_level'] = 'verbose';
 
-// Add drupalvm to trusted host patterns
-$settings['trusted_host_patterns'][] = '^.+\.drupalvm';
+/**
+ * Add drupalvm to trusted host patterns.
+ */
+$settings['trusted_host_patterns'] = [
+  '^.+\.drupalvm',
+  '^.+\.dvm',
+];
