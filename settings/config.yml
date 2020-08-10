@@ -1,7 +1,7 @@
 # DrupalVM project-specific configuration overrides
 vagrant_project_name: paragon
 vagrant_ip: 192.168.87.87
-vagrant_hostname: '{{ vagrant_project_name }}.dvm'
+vagrant_hostname: 'paragon.drupalvm'
 vagrant_machine_name: '{{ vagrant_project_name }}'
 
 vagrant_synced_folders:
@@ -25,6 +25,3 @@ installed_extras:
   - varnish
   - xdebug
 
-php_version: "7.3"
-php_xdebug_version: 2.9.5
-ansible_python_interpreter: /usr/bin/python
