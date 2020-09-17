@@ -48,7 +48,7 @@
     "drupal/coffee": "^1.0",
     "drupal/config_update": "^1.0",
     "drupal/console": "~1.0",
-    "drupal/core": "8.9.3",
+    "drupal/core": "8.9.6",
     "drupal/csv_serialization": "^2.0@beta",
     "drupal/embed": "^1.0",
     "drupal/entity": "^1.0",
