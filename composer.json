@@ -107,6 +107,7 @@
     "drupal/system_status": "^2.0",
     "drupal/twig_field_value": "~2.0.0",
     "drupal/ultimate_cron": "^2.0",
+    "drupal/username_enumeration_prevention": "^1.1",
     "drupal/views_bulk_edit": "^2.0",
     "drupal/views_bulk_operations": "^3.8",
     "drush/drush": "~10.0",
