@@ -28,27 +28,27 @@ $config['system.performance']['js']['preprocess'] = TRUE;
 $config['google_tag.settings']['container_id'] = '';
 
 /**
- * Environment Indicator Settings
+ * Environment Indicator Settings.
  *
  * This should be configured per environment.
  *
- * Drupal VM | #005093
+ * Local
+ * Background: #005093
+ * Foreground: #FFFFFF
  *
- * For environment with canon DB:
- * <Environment> [Master DB] | #000000
+ * Dev
+ * Background: #006002
+ * Foreground: #FFFFFF
  *
- * For environment with dispensable DB:
- * <Environment> | #930007
+ * Stage
+ * Background: #E7C600
+ * Foreground: #000000
  *
- * Available environments include:
- *
- * Acquia dev
- * Acquia test
- * Acquia prod
+ * Prod
+ * Background: #930007
+ * Foreground: #FFFFFF
  */
-$config['environment_indicator.indicator']['bg_color'] = '#930007';
-$config['environment_indicator.indicator']['fg_color'] = '#ffffff';
-$config['environment_indicator.indicator']['name'] = 'Acquia ' . $_ENV['AH_SITE_ENVIRONMENT'];
+$config['environment_indicator.indicator']['name'] = $_ENV['AH_SITE_ENVIRONMENT'] . ' environment';
 
 // Set trusted host pattern for the acquia paragon site. We need to set this because we cannot add additional
 // aliases to a free acquia account. This can be deleted for any new project created from paragon.
@@ -95,8 +95,8 @@ switch ($_ENV['AH_SITE_ENVIRONMENT']) {
      * All Master DB config must be merged into the master branch before merging new config from VCS.
      *
      */
-    $config['environment_indicator.indicator']['name'] = 'Acquia ' . $_ENV['AH_SITE_ENVIRONMENT'] . ' [Master DB]';
-    $config['environment_indicator.indicator']['bg_color'] = '#000000';
+    $config['environment_indicator.indicator']['name'] = $_ENV['AH_SITE_ENVIRONMENT'] . ' environment'  . ' [Master DB]';
+    $config['environment_indicator.indicator']['bg_color'] = '#006002';
 
     /**
      * Override robots.txt so development sites are not cralwed.
@@ -109,6 +109,9 @@ switch ($_ENV['AH_SITE_ENVIRONMENT']) {
     $config['shield.settings']['credentials']['shield']['user'] = 'paragon';
     $config['shield.settings']['credentials']['shield']['pass'] = '3ditParagon';
 
+    $config['environment_indicator.indicator']['bg_color'] = '#E7C600';
+    $config['environment_indicator.indicator']['fg_color'] = '#000000';
+
     /**
      * Override robots.txt so development sites are not cralwed.
      */
@@ -119,6 +122,8 @@ switch ($_ENV['AH_SITE_ENVIRONMENT']) {
     // TODO: Disable before site launch
     $config['shield.settings']['credentials']['shield']['user'] = 'paragon';
     $config['shield.settings']['credentials']['shield']['pass'] = '3ditParagon';
+
+    $config['environment_indicator.indicator']['bg_color'] = '#930007';
 
     // Set logging level on production.
     $config['system.logging']['error_level'] = 'hide';

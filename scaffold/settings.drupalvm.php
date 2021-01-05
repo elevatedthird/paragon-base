@@ -119,23 +119,25 @@ $settings['extension_discovery_scan_tests'] = FALSE;
 $settings['skip_permissions_hardening'] = TRUE;
 
 /**
- * Environment Indicator Settings
+ * Environment Indicator Settings.
  *
  * This should be configured per environment.
  *
- * Drupal VM | #005093
+ * Local
+ * Background: #005093
+ * Foreground: #FFFFFF
  *
- * For environment with master DB:
- * <Environment> [Master DB] | #000000
+ * Dev
+ * Background: #006002
+ * Foreground: #FFFFFF
  *
- * For environment with dispensable DB:
- * <Environment> | #930007
+ * Stage
+ * Background: #E7C600
+ * Foreground: #000000
  *
- * Available environments include:
- *
- * Acquia dev
- * Acquia test
- * Acquia prod
+ * Prod
+ * Background: #930007
+ * Foreground: #FFFFFF
  */
 $config['environment_indicator.indicator']['bg_color'] = '#005093';
 $config['environment_indicator.indicator']['fg_color'] = '#ffffff';
