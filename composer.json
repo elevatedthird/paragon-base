@@ -90,6 +90,7 @@
     "drupal/pathauto": "^1.0",
     "drupal/purge": "^3.0@beta",
     "drupal/redirect": "^1.0",
+    "drupal/robotstxt": "^1.4",
     "drupal/scheduler": "^1.0",
     "drupal/search_api": "^1.0",
     "drupal/search_api_solr": "^1.0",
@@ -164,6 +165,12 @@
     },
     "enable-patching": true,
     "drupal-scaffold": {
+      "locations": {
+        "web-root": "docroot/"
+      },
+      "file-mapping": {
+        "[web-root]/robots.txt": false
+      },
       "excludes": [
         ".htaccess"
       ],

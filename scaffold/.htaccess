@@ -109,12 +109,6 @@ AddEncoding gzip svgz
   # uncomment the following line:
   # RewriteBase /
 
-
-  # Determine whether environment is production:
-  RewriteCond %{ENV:AH_SITE_ENVIRONMENT} !^prod
-  # Then send requests to nonproduction environments to the blocking robots.txt:
-  RewriteRule ^robots.txt robots_hidden.txt [L]
-
   # Redirect common PHP files to their new locations.
   RewriteCond %{REQUEST_URI} ^(.*)?/(install.php) [OR]
   RewriteCond %{REQUEST_URI} ^(.*)?/(rebuild.php)
