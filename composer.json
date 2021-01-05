@@ -48,7 +48,7 @@
     "drupal/coffee": "^1.0",
     "drupal/config_update": "^1.0",
     "drupal/console": "~1.0",
-    "drupal/core": "8.9.6",
+    "drupal/core": "8.9.11",
     "drupal/csv_serialization": "^2.0@beta",
     "drupal/embed": "^1.0",
     "drupal/entity": "^1.0",
@@ -102,7 +102,7 @@
     "drupal/smart_trim": "^1.0",
     "drupal/svg_image_field": "^1.2",
     "drupal/svg_upload_sanitizer": "^1.0@alpha",
-    "drupal/swiftmailer": "^2.0@beta",
+    "drupal/swiftmailer": "^2.0",
     "drupal/system_status": "^2.0",
     "drupal/twig_field_value": "~2.0.0",
     "drupal/ultimate_cron": "^2.0",
@@ -178,9 +178,6 @@
     "patches": {
       "drupal/core":{
         "Field Groups marked as required are missing red asterisk": "https://www.drupal.org/files/issues/2020-09-18/required-asterisk-missing--3171835--2.patch"
-      },
-      "drupal/svg_image_field": {
-        "Allow image/svg mime-type": "https://www.drupal.org/files/issues/2018-08-09/2991650-2.patch"
       }
     }
   },
