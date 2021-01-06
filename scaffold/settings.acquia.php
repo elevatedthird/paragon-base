@@ -120,7 +120,7 @@ switch ($_ENV['AH_SITE_ENVIRONMENT']) {
     $config['system.logging']['error_level'] = 'hide';
 
     // Set GTM Code
-    // TODO: Set this to the live tag manager container ID.
-    $config['google_tag.settings']['container_id'] = '';
+    // TODO: Enable gtm before site launch
+    $config['gtm.settings']['enable'] = 0;
     break;
 }
