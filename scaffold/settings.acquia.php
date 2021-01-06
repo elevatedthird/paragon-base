@@ -74,10 +74,6 @@ if (PHP_SAPI !== 'cli') {
 
 switch ($_ENV['AH_SITE_ENVIRONMENT']) {
   case 'dev':
-    // Configure shield for dev environment.
-    $config['shield.settings']['credentials']['shield']['user'] = 'paragon';
-    $config['shield.settings']['credentials']['shield']['pass'] = '3ditParagon';
-
     /**
      * Load the development services definition file.
      */
@@ -105,10 +101,6 @@ switch ($_ENV['AH_SITE_ENVIRONMENT']) {
 
     break;
   case 'test':
-    // Configure shield for test environment.
-    $config['shield.settings']['credentials']['shield']['user'] = 'paragon';
-    $config['shield.settings']['credentials']['shield']['pass'] = '3ditParagon';
-
     $config['environment_indicator.indicator']['bg_color'] = '#E7C600';
     $config['environment_indicator.indicator']['fg_color'] = '#000000';
 
@@ -118,10 +110,9 @@ switch ($_ENV['AH_SITE_ENVIRONMENT']) {
     $config['robotstxt.settings']['content'] = "#\r\n# robots.txt\r\n#\r\n# This file is to prevent the crawling and indexing of certain parts\r\n# of your site by web crawlers and spiders run by sites like Yahoo!\r\n# and Google. By telling these \"robots\" where not to go on your site,\r\n# you save bandwidth and server resources.\r\n#\r\n# This file will be ignored unless it is at the root of your host:\r\n# Used:    http://example.com/robots.txt\r\n# Ignored: http://example.com/site/robots.txt\r\n#\r\n# For more information about the robots.txt standard, see:\r\n# http://www.robotstxt.org/robotstxt.html\r\n\r\nUser-agent: *\r\nDisallow: /\r\n";
     break;
   case 'prod':
-    // Configure shield for prod environment.
+    // Turn off shield on prod
     // TODO: Disable before site launch
-    $config['shield.settings']['credentials']['shield']['user'] = 'paragon';
-    $config['shield.settings']['credentials']['shield']['pass'] = '3ditParagon';
+    $config['shield.settings']['shield_enable'] = true;
 
     $config['environment_indicator.indicator']['bg_color'] = '#930007';
 

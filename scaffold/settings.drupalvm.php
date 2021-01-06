@@ -170,6 +170,9 @@ $settings['trusted_host_patterns'] = [
   '^.+\.dvm',
 ];
 
+// Turn off shield on local
+$config['shield.settings']['shield_enable'] = false;
+
 /**
  * Override robots.txt so development sites are not crawled.
  */
