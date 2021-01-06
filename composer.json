@@ -166,14 +166,9 @@
     },
     "enable-patching": true,
     "drupal-scaffold": {
-      "locations": {
-        "web-root": "docroot/"
-      },
-      "file-mapping": {
-        "[web-root]/robots.txt": false
-      },
       "excludes": [
-        ".htaccess"
+        ".htaccess",
+        "robots.txt"
       ],
       "initial": {
         ".gitattributes": "../.gitattributes"

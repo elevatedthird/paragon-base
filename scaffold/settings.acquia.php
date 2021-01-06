@@ -99,7 +99,7 @@ switch ($_ENV['AH_SITE_ENVIRONMENT']) {
     $config['environment_indicator.indicator']['bg_color'] = '#006002';
 
     /**
-     * Override robots.txt so development sites are not cralwed.
+     * Override robots.txt so development sites are not crawled.
      */
     $config['robotstxt.settings']['content'] = "#\r\n# robots.txt\r\n#\r\n# This file is to prevent the crawling and indexing of certain parts\r\n# of your site by web crawlers and spiders run by sites like Yahoo!\r\n# and Google. By telling these \"robots\" where not to go on your site,\r\n# you save bandwidth and server resources.\r\n#\r\n# This file will be ignored unless it is at the root of your host:\r\n# Used:    http://example.com/robots.txt\r\n# Ignored: http://example.com/site/robots.txt\r\n#\r\n# For more information about the robots.txt standard, see:\r\n# http://www.robotstxt.org/robotstxt.html\r\n\r\nUser-agent: *\r\nDisallow: /\r\n";
 
@@ -113,7 +113,7 @@ switch ($_ENV['AH_SITE_ENVIRONMENT']) {
     $config['environment_indicator.indicator']['fg_color'] = '#000000';
 
     /**
-     * Override robots.txt so development sites are not cralwed.
+     * Override robots.txt so development sites are not crawled.
      */
     $config['robotstxt.settings']['content'] = "#\r\n# robots.txt\r\n#\r\n# This file is to prevent the crawling and indexing of certain parts\r\n# of your site by web crawlers and spiders run by sites like Yahoo!\r\n# and Google. By telling these \"robots\" where not to go on your site,\r\n# you save bandwidth and server resources.\r\n#\r\n# This file will be ignored unless it is at the root of your host:\r\n# Used:    http://example.com/robots.txt\r\n# Ignored: http://example.com/site/robots.txt\r\n#\r\n# For more information about the robots.txt standard, see:\r\n# http://www.robotstxt.org/robotstxt.html\r\n\r\nUser-agent: *\r\nDisallow: /\r\n";
     break;

@@ -42,12 +42,6 @@ class ScriptHandler {
       $event->getIO()->write("Copied custom .htaccess from scaffold into docroot.");
     }
 
-    // Copy over robots_hidden.txt
-    if (!$fs->exists($drupal_root . '/robots_hidden.txt') and $fs->exists($project_root . '/scaffold/robots_hidden.txt')) {
-      $fs->copy($project_root . '/scaffold/robots_hidden.txt', $drupal_root . '/robots_hidden.txt');
-      $event->getIO()->write("Copied robots_hidden.txt from scaffold into docroot.");
-    }
-
     // Copy over custom settings.php and services.yml files
     if (!$fs->exists($drupal_root . '/sites/default/example.settings.php') and $fs->exists($project_root . '/scaffold/example.settings.php')) {
       $fs->copy($project_root . '/scaffold/example.settings.php', $drupal_root . '/sites/default/example.settings.php');
