@@ -61,6 +61,7 @@
     "drupal/field_hidden": "^1.0",
     "drupal/field_tools": "dev-1.x",
     "drupal/focal_point": "^1.0",
+    "drupal/gin": "^3.0@alpha",
     "drupal/http_cache_control": "^2.0",
     "drupal/imageapi_optimize": "~4.0.0@beta",
     "drupal/imageapi_optimize_gd": "^2.0@beta",
