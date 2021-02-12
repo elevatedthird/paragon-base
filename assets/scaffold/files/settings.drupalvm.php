@@ -153,9 +153,9 @@ $config['acquia_connector.settings']['hide_signup_messages'] = TRUE;
 $settings['twig_debug'] = TRUE;
 
 /**
- * Google Tag Manager
+ * Disable Google Tag Manager on local.
  */
-$config['google_tag.settings']['container_id'] = '';
+$config['gtm.settings']['enable'] = 0;
 
 /**
  * Set logging level on drupal vm.
@@ -170,7 +170,9 @@ $settings['trusted_host_patterns'] = [
   '^.+\.dvm',
 ];
 
-// Turn off shield on local
+/**
+ * Disable shield on local.
+ */
 $config['shield.settings']['shield_enable'] = false;
 
 /**
