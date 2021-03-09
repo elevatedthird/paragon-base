@@ -175,6 +175,11 @@
           "path": "assets/scaffold/files/htaccess",
           "overwrite": false
         },
+        "[web-root]/.editorconfig": {
+          "mode": "replace",
+          "path": "assets/scaffold/files/editorconfig",
+          "overwrite": false
+        },
         "[web-root]/.gitattributes": {
           "mode": "replace",
           "path": "assets/scaffold/files/gitattributes",
