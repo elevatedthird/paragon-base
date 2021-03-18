@@ -21,7 +21,7 @@
   ],
   "require-dev": {
     "drupal/drupal-extension": "^3.2",
-    "geerlingguy/drupal-vm": "~6.0.0",
+    "geerlingguy/drupal-vm": "~6.0.0"
   },
   "require": {
     "bower-asset/chosen": "^1.8",
