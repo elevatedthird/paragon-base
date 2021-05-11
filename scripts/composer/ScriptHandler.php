@@ -39,6 +39,7 @@ class ScriptHandler {
 
   public static function removeGitSubmodules (Event $event) {
     exec("find " . getcwd() . "'/vendor' -not -path \"*geerlingguy/drupal-vm*\" | grep '.git$' | xargs rm -rf");
+    exec("find " . getcwd() . "'/docroot/libraries' | grep '.git$' | xargs rm -rf");
     exec("find " . getcwd() . "'/docroot/modules/contrib' | grep '.git$' | xargs rm -rf");
     exec("find " . getcwd() . "'/docroot/profiles/contrib' | grep '.git$' | xargs rm -rf");
     exec("find " . getcwd() . "'/docroot/themes/contrib' | grep '.git$' | xargs rm -rf");
