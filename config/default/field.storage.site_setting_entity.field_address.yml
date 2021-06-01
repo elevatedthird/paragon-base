@@ -1,0 +1,21 @@
+uuid: 59edb2c1-78a8-4d57-a68a-d56213579c24
+langcode: en
+status: true
+dependencies:
+  module:
+    - address
+    - site_settings
+_core:
+  default_config_hash: dS27HPfdAFNUMJvn1cbmxB6IzDCc9jR1JJeoHTC20t0
+id: site_setting_entity.field_address
+field_name: field_address
+entity_type: site_setting_entity
+type: address
+settings: {  }
+module: address
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,19 @@
+uuid: cdd03f8e-eee4-465c-80bf-4b6e51416e1c
+langcode: en
+status: true
+dependencies:
+  module:
+    - purge_processor_cron
+_core:
+  default_config_hash: HllRTuF8EHHJBMj7S4YosVmJOkq3fYBlB5920oTelCg
+title: 'Default cron handler'
+id: purge_processor_cron_cron
+weight: 0
+module: purge_processor_cron
+callback: purge_processor_cron_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

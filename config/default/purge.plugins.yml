@@ -1,0 +1,7 @@
+purgers:
+  -
+    order_index: 2
+    instance_id: 92838ade93
+    plugin_id: acquia_purge
+_core:
+  default_config_hash: pHjW7aN9eRWyZHET0ZOjecGjrUxMbWcxp7ZgEDaAUWU

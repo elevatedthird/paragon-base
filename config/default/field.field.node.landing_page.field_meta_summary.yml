@@ -1,0 +1,21 @@
+uuid: ad9f8d42-6fdc-4080-b996-45faa9b5429d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_summary
+    - node.type.landing_page
+_core:
+  default_config_hash: mBGffazwz5_xAGNBCWRQvLmpUtZekRjBGoaotV-vVlo
+id: node.landing_page.field_meta_summary
+field_name: field_meta_summary
+entity_type: node
+bundle: landing_page
+label: 'Meta Summary'
+description: 'The meta summary field provides a summarized snippet of the content on this page. It may be leveraged for things like the search results teaser copy for this page and a default value for the meta summary.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

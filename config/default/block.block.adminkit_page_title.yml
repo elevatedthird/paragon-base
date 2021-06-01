@@ -1,0 +1,20 @@
+uuid: 167acc67-bf2c-4ac6-b680-eaea30c049f5
+langcode: en
+status: true
+dependencies:
+  theme:
+    - adminkit
+_core:
+  default_config_hash: lekfdIHr129C8lPWYGT9a7gSGgcLPQRhe4-ejzTWBfU
+id: adminkit_page_title
+theme: adminkit
+region: header
+weight: -30
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

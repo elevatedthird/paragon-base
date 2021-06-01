@@ -1,0 +1,30 @@
+uuid: 011a0e6b-5727-4df2-9dfd-3315cf766b9c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - seven
+_core:
+  default_config_hash: lta9eG7_La9yVxhdY3aFuCFQwX53TytzlKEIAz3_uZo
+id: sitebranding
+theme: seven
+region: content
+weight: 1
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'User Page Logo'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility:
+  request_path:
+    id: request_path
+    pages: "/user/login\r\n/user/register\r\n/user/reset\r\n/user/password"
+    negate: false
+    context_mapping: {  }

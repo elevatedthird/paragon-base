@@ -1,0 +1,10 @@
+uuid: c7bf5e61-7b6b-44f4-8152-ed0e55630369
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: yHJfkozVXtmF9qVfqt0JTEZCGyf7AHUWMKZPV8wFJa4
+id: main_phone_number
+label: 'Main Phone Number'
+fieldset: 'Phone Numbers'
+multiple: false

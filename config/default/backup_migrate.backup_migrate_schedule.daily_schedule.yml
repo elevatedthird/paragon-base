@@ -1,0 +1,15 @@
+uuid: 8480adf8-ceb4-4d9c-bb5a-e7ae88635cb2
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: _byQKGnrK3Wrczc35lJ5Wzmfk0bfapOeBcGim-Zu8Fg
+id: daily_schedule
+label: 'Daily Schedule'
+enabled: null
+keep: null
+period: null
+cron: null
+source_id: null
+destination_id: null
+settings_profile_id: null

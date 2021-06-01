@@ -1,0 +1,47 @@
+uuid: 6de0889b-eb68-453f-a9d9-9562b8ae9782
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.site_setting_entity.main_phone_number.field_phone_number
+    - site_settings.site_setting_entity_type.main_phone_number
+  module:
+    - user
+_core:
+  default_config_hash: 6hty1BLj5SsryVA27a96jLhDsy_pRipZZJ1e0AqkXIY
+id: site_setting_entity.main_phone_number.default
+targetEntityType: site_setting_entity
+bundle: main_phone_number
+mode: default
+content:
+  field_phone_number:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  fieldset:
+    label: above
+    type: string
+    weight: -4
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  name:
+    label: above
+    type: string
+    weight: -4
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }
