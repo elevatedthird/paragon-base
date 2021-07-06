@@ -1,0 +1,26 @@
+uuid: 6d2831d3-c9a3-42a7-ac22-d92dfd549927
+langcode: en
+status: true
+dependencies:
+  module:
+    - imageapi_optimize_gd
+    - imageapi_optimize_webp
+_core:
+  default_config_hash: mOdODxj8VYQN14MvsW3Dm-EjZzoC1ITFWOr3ULiysC4
+name: high_quality
+label: 'High Quality'
+processors:
+  0b6b45d4-28ce-4b70-aa33-a087429ca521:
+    uuid: 0b6b45d4-28ce-4b70-aa33-a087429ca521
+    id: imageapi_optimize_webp
+    weight: 1
+    data:
+      quality: '90'
+  a31d4659-8be4-44b9-b30b-ddeaa42800ed:
+    uuid: a31d4659-8be4-44b9-b30b-ddeaa42800ed
+    id: imageapi_optimize_gd
+    weight: 2
+    data:
+      quality: '90'
+      file_types:
+        image/jpeg: image/jpeg

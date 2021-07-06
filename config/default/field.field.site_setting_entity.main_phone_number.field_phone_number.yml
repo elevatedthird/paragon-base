@@ -1,0 +1,23 @@
+uuid: b4f2755d-8080-466b-aa9d-81569aa4d4f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.site_setting_entity.field_phone_number
+    - site_settings.site_setting_entity_type.main_phone_number
+  module:
+    - telephone
+_core:
+  default_config_hash: 0zVGDVUUn3b21i7nY5gi0coIC-v225cCB5ZUR-V6aoQ
+id: site_setting_entity.main_phone_number.field_phone_number
+field_name: field_phone_number
+entity_type: site_setting_entity
+bundle: main_phone_number
+label: 'Phone Number'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

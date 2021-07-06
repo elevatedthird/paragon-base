@@ -1,0 +1,18 @@
+features:
+  node_user_picture: true
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: 1
+favicon:
+  use_default: 1
+enable_darkmode: 0
+preset_accent_color: blue
+accent_color: ''
+preset_focus_color: gin
+focus_color: ''
+high_contrast_mode: 0
+classic_toolbar: '1'
+icon_default: 1
+icon_upload: ''
+_core:
+  default_config_hash: HE0v5fiWphCVj9H0PUGoy4xztt5f8utgAn63c8B2HCo

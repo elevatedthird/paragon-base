@@ -1,0 +1,15 @@
+uuid: 8a4ddd93-ba43-4fc9-a8c7-24256be5887d
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: y1Y4ZVpFu56RQ0a3dWjJIjVYF-xlgvH-Osvb2LuHA1k
+id: monthly_backup
+label: 'Monthly backup'
+enabled: true
+keep: 12
+period: 2419200
+cron: null
+source_id: default_db
+destination_id: private_files
+settings_profile_id: null

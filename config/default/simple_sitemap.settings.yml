@@ -1,0 +1,12 @@
+max_links: 2000
+cron_generate: true
+remove_duplicates: true
+skip_untranslated: true
+batch_process_limit: 1500
+enabled_entity_types:
+  - node
+  - taxonomy_term
+  - menu_link_content
+default_variant: default
+_core:
+  default_config_hash: 4KdfjViUO_P7OWaCIlDlyoAchi2hWscZ9OU3K8g-rf8

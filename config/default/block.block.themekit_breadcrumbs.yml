@@ -1,0 +1,27 @@
+uuid: 0296a1b8-3a91-4f88-971d-3b76da4ebaf3
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - themekit
+_core:
+  default_config_hash: paTaW7dMcKigzYok6GS-RiZ_-bDbaZt080i1b9OZ42E
+id: themekit_breadcrumbs
+theme: themekit
+region: highlighted
+weight: -8
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: "/user/login\r\n/user/register\r\n/user/reset\r\n/user/password"
+    negate: true
+    context_mapping: {  }

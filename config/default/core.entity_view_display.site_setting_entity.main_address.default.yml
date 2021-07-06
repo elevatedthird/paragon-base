@@ -1,0 +1,27 @@
+uuid: 1fa21478-1b2b-4701-b061-4f5e047124a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.site_setting_entity.main_address.field_address
+    - site_settings.site_setting_entity_type.main_address
+  module:
+    - address
+_core:
+  default_config_hash: ZAJXFf7mhZIoIlNmqfGMKMk8E5qNso8tNyzdSoSimx0
+id: site_setting_entity.main_address.default
+targetEntityType: site_setting_entity
+bundle: main_address
+mode: default
+content:
+  field_address:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+hidden:
+  fieldset: true
+  name: true
+  user_id: true

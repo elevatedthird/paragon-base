@@ -1,0 +1,22 @@
+uuid: 018b537f-280b-4ee1-ac81-f630307d0b5f
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - themekit
+_core:
+  default_config_hash: z4qApvVOZsAq6H5Fm_z3Tn0ys_eXSt2CTncoVX23M0U
+id: themekit_powered
+theme: themekit
+region: header
+weight: -3
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

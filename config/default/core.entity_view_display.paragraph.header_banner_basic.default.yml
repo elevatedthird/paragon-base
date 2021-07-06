@@ -1,0 +1,44 @@
+uuid: a2699eb4-033a-4342-828e-e21a63381987
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.header_banner_basic.field_alt_title
+    - field.field.paragraph.header_banner_basic.field_description
+    - field.field.paragraph.header_banner_basic.field_p_link
+    - paragraphs.paragraphs_type.header_banner_basic
+  module:
+    - entity_reference_revisions
+    - text
+_core:
+  default_config_hash: wfnmi-1hlROh_Y-Ji7BmT6RhfB8WB7hyErTsnyG-B4k
+id: paragraph.header_banner_basic.default
+targetEntityType: paragraph
+bundle: header_banner_basic
+mode: default
+content:
+  field_alt_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_description:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_p_link:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+hidden: {  }

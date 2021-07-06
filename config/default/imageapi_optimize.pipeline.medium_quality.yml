@@ -1,0 +1,26 @@
+uuid: 20973e41-75c3-4b13-bed8-2795472cc4d1
+langcode: en
+status: true
+dependencies:
+  module:
+    - imageapi_optimize_gd
+    - imageapi_optimize_webp
+_core:
+  default_config_hash: 2pYLrxXtD7fxOy-fUQR4OVWXRpRCjArCiueMiF4cakk
+name: medium_quality
+label: 'Medium Quality'
+processors:
+  c2ad9537-e993-4c6d-b936-2c66a4e6e67a:
+    uuid: c2ad9537-e993-4c6d-b936-2c66a4e6e67a
+    id: imageapi_optimize_webp
+    weight: 1
+    data:
+      quality: '75'
+  eff5d3d3-71e7-4484-acfe-7e22694a9887:
+    uuid: eff5d3d3-71e7-4484-acfe-7e22694a9887
+    id: imageapi_optimize_gd
+    weight: 2
+    data:
+      quality: '75'
+      file_types:
+        image/jpeg: image/jpeg

@@ -1,0 +1,40 @@
+uuid: 3a26da99-1c0d-423d-b22c-71840728c24c
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - node
+_core:
+  default_config_hash: Y3ASg8D4s4r6s3yw8t7y813YbR6Q7_iqNxnDZ3o0CP8
+id: default
+label: Default
+description: ''
+matchers:
+  e240a232-ec5a-4eec-9e0c-51975ea27529:
+    uuid: e240a232-ec5a-4eec-9e0c-51975ea27529
+    id: 'entity:node'
+    weight: -10
+    settings:
+      bundles: {  }
+      group_by_bundle: true
+      include_unpublished: false
+      substitution_type: canonical
+      metadata: Pages
+      limit: 100
+  ee0d5f7b-2998-47c2-a374-b352bdeb0046:
+    uuid: ee0d5f7b-2998-47c2-a374-b352bdeb0046
+    id: 'entity:file'
+    weight: -8
+    settings:
+      bundles: null
+      group_by_bundle: null
+      images:
+        show_dimensions: false
+        show_thumbnail: false
+        thumbnail_image_style: null
+      substitution_type: file
+      metadata: 'Direct link to file'
+      file_extensions: ''
+      file_status: 1
+      limit: 100

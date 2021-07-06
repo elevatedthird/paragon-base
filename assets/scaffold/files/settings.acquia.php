@@ -8,17 +8,14 @@ if (file_exists('/var/www/site-php')) {
 $settings['file_private_path'] = "/mnt/files/{$acquia_site_name}.{$_ENV['AH_SITE_ENVIRONMENT']}/files-private";
 $settings['file_temp_path'] = "/mnt/gfs/{$_ENV['AH_SITE_GROUP']}.{$_ENV['AH_SITE_ENVIRONMENT']}/tmp";
 
-// https://docs.acquia.com/article/drupal-8-cache-backend
-$settings['cache']['default'] = 'cache.backend.database';
-
-// Force common chainedfast bins to use Memcache.
-$settings['cache']['bins']['discovery'] = 'cache.backend.memcache';
-$settings['cache']['bins']['bootstrap'] = 'cache.backend.memcache';
-$settings['cache']['bins']['render'] = 'cache.backend.memcache';
-$settings['cache']['bins']['data'] = 'cache.backend.memcache';
-$settings['cache']['bins']['config'] = 'cache.backend.memcache';
-$settings['cache']['bins']['menu'] = 'cache.backend.memcache';
-$settings['cache']['bins']['entity'] = 'cache.backend.memcache';
+/**
+ * Include Acquia Cloud Memcache configuration when available.
+ * Note that this is NOT needed once a server is upgraded to Acquia Cloud Next.
+ * @see https://docs.acquia.com/cloud-platform/performance/memcached/enable/
+ */
+if (file_exists(DRUPAL_ROOT . '/sites/default/cloud-memcache-d8+.php')) {
+  require(DRUPAL_ROOT . '/sites/default/cloud-memcache-d8+.php');
+}
 
 // Enable CSS and JS preprocessing
 $config['system.performance']['css']['preprocess'] = TRUE;

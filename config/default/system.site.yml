@@ -1,0 +1,15 @@
+name: Paragon
+mail: noreply@elevatedthird.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+mail_notification: ''
+_core:
+  default_config_hash: 3a5N1XjE3IUE0JJzr0PsIIUx1Xq4Juc0RKF8ldQJpx8
+uuid: 43b17d8e-a816-4c8d-ad46-390afe908b0e

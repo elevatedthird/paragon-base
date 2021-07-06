@@ -1,0 +1,6 @@
+add_license: true
+minifier: 4
+ratio_max: 0.9
+ratio_min: 0.1
+_core:
+  default_config_hash: 5eYbrhc0I3z6xHwLqUnUm9kgUBJh2SkEd2vz7ev-5PE

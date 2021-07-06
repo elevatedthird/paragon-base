@@ -1,0 +1,57 @@
+uuid: 4c3ab66c-8599-4a6a-8745-66a07462f1de
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.site_setting_entity.main_phone_number.field_phone_number
+    - site_settings.site_setting_entity_type.main_phone_number
+  module:
+    - telephone
+_core:
+  default_config_hash: laHQCqXQYczejn1cUi3Gch_tyCoY6Kfek4QFkMOR67g
+id: site_setting_entity.main_phone_number.default
+targetEntityType: site_setting_entity
+bundle: main_phone_number
+mode: default
+content:
+  field_phone_number:
+    weight: 11
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  fieldset:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 10
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden: {  }

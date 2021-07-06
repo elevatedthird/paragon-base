@@ -1,0 +1,21 @@
+uuid: b34d4a19-3898-4b2f-86dd-cce2f7962fdc
+langcode: en
+status: true
+dependencies:
+  module:
+    - site_settings
+    - telephone
+_core:
+  default_config_hash: qojKPlDeOvY8WcSFYMZjsqoYWM_ISFEYmESlo6FvHrA
+id: site_setting_entity.field_phone_number
+field_name: field_phone_number
+entity_type: site_setting_entity
+type: telephone
+settings: {  }
+module: telephone
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
