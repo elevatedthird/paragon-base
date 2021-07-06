@@ -192,6 +192,11 @@
           "path": "assets/scaffold/files/local.services.yml",
           "overwrite": false
         },
+        "[web-root]/sites/default/cloud-memcache-d8+.php": {
+          "mode": "replace",
+          "path": "assets/scaffold/files/cloud-memcache-d8+.php",
+          "overwrite": false
+        },
         "[web-root]/sites/default/settings.acquia.php": {
           "mode": "replace",
           "path": "assets/scaffold/files/settings.acquia.php",
