@@ -1,19 +1,20 @@
 <?php
 
 // @codingStandardsIgnoreFile
+$lando_info = json_decode(getenv('LANDO_INFO'), TRUE);
 
 /**
- * Configure Drupal VM DB.
+ * Configure Lando DB.
  */
 $databases['default']['default'] = [
-  'database' => 'drupal',
-  'username' => 'drupal',
-  'password' => 'drupal',
-  'prefix' => '',
-  'host' => 'localhost',
-  'port' => '3306',
-  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-  'driver' => 'mysql',
+    'database' => $lando_info['database']['creds']['database'],
+    'username' => $lando_info['database']['creds']['user'],
+    'password' => $lando_info['database']['creds']['password'],
+    'prefix' => '',
+    'host' => $lando_info['database']['internal_connection']['host'],
+    'port' => $lando_info['database']['internal_connection']['port'],
+    'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+    'driver' => 'mysql',
 ];
 
 /**
@@ -141,7 +142,7 @@ $settings['skip_permissions_hardening'] = TRUE;
  */
 $config['environment_indicator.indicator']['bg_color'] = '#005093';
 $config['environment_indicator.indicator']['fg_color'] = '#ffffff';
-$config['environment_indicator.indicator']['name'] = 'Drupal VM';
+$config['environment_indicator.indicator']['name'] = 'Lando';
 
 /**
  * Acquia Connector Settings
@@ -158,16 +159,15 @@ $settings['twig_debug'] = TRUE;
 $config['gtm.settings']['enable'] = 0;
 
 /**
- * Set logging level on drupal vm.
+ * Set logging level on lando.
  */
 $config['system.logging']['error_level'] = 'verbose';
 
 /**
- * Add drupalvm to trusted host patterns.
+ * Add lando to trusted host patterns.
  */
 $settings['trusted_host_patterns'] = [
-  '^.+\.drupalvm',
-  '^.+\.dvm',
+    '^.+\.lndo\.site',
 ];
 
 /**

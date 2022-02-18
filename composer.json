@@ -202,9 +202,9 @@
           "path": "assets/scaffold/files/settings.acquia.php",
           "overwrite": false
         },
-        "[web-root]/sites/default/settings.drupalvm.php": {
+        "[web-root]/sites/default/settings.lando.php": {
           "mode": "replace",
-          "path": "assets/scaffold/files/settings.drupalvm.php",
+          "path": "assets/scaffold/files/settings.lando.php",
           "overwrite": false
         },
         "[web-root]/sites/default/settings.fast404.php": {
