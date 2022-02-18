@@ -7,7 +7,7 @@ The intent of this distribution is to create a Drupal install that will be treat
 To create a new Paragon installation follow the steps below:
 
 1. Using Composer 2, run the following command:  `composer create-project elevatedthird/paragon-base [install_directory_name]`, which will clone down the composer template and create all necessary files.
-2. Set up a local site using this newly created site directory. Paragon comes with DrupalVM out of the box, which can be spun up by running `vagrant up` in the site root. DrupalVM configuration is found in `settings/config.yml` , and database settings in `settings.drupalvm.php` are automatically included in `settings.php`.
-3. With a local site running, navigate to http://paragon.dvm (or whichever URL your local site is running on) and proceed with the Drupal installation. When prompted to select an installation profile be sure to select “Use existing configuration”, which will install from the existing configuration in the  `/config/default` directory.
-4. If using DrupalVM, the when prompted to add Drupal database connection details, use `drupal` for the database name, user, and password.
+2. Set up a local site using this newly created site directory. Paragon comes with DrupalVM out of the box, which can be spun up by running `lando start` in the site root. Lando configuration is found in `.lando.yml` , and database settings in `settings.lando.php` are automatically included in `settings.php`.
+3. With a local site running, navigate to http://paragon.lndo.site/ (or whichever URL your local site is running on) and proceed with the Drupal installation. When prompted to select an installation profile be sure to select “Use existing configuration”, which will install from the existing configuration in the  `/config/default` directory.
+4. If using Lando, the when prompted to add Drupal database connection details, use `drupal9` for the database name, user, and password.
 5. Once install completes, be sure to remove the automatically generated database connection details that have most likely been appended to the bottom of `settings.php`, then you should be all set!

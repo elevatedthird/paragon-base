@@ -1,0 +1,17 @@
+name: paragon
+recipe: drupal9
+config:
+  webroot: docroot
+  database: mysql:5.7
+  php: '7.4'
+  xdebug: true
+services:
+  solr:
+    type: solr:7
+    core: collection1
+    portforward: true
+  mailhog:
+    type: mailhog
+    portforward: true
+    hogfrom:
+      - appserver

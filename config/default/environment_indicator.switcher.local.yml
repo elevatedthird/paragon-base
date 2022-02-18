@@ -7,6 +7,6 @@ _core:
 machine: local
 description: null
 name: Local
-url: 'http://paragon.drupalvm/'
+url: 'http://paragon.lndo.site/'
 fg_color: '#fefdff'
 bg_color: '#005093'

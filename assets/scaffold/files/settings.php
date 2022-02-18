@@ -36,7 +36,7 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
 /**
  * Trusted host patterns for e3develop and e3stanging. Make sure to add appropriate variations for production domain
  * and any additional version thereof.
- * Additional env specific patterns can be added in the following files (drupalvm, local)
+ * Additional env specific patterns can be added in the following files (lando, local)
  */
 $settings['trusted_host_patterns'] = array(
   '^e3develop\.com$',
@@ -84,10 +84,12 @@ if(isset($_ENV['AH_SITE_ENVIRONMENT'])) {
 }
 
 /**
- * If drupal-vm settings exist, load them.
+ * If $_ENV['LANDO_APP_NAME'], load docker settings.
  */
-elseif (file_exists($app_root . '/' . $site_path . '/settings.drupalvm.php')) {
-  include $app_root . '/' . $site_path . '/settings.drupalvm.php';
+elseif(isset($_ENV['LANDO_APP_NAME'])) {
+    if (file_exists($app_root . '/' . $site_path . '/settings.lando.php')) {
+        include $app_root . '/' . $site_path . '/settings.lando.php';
+    }
 }
 
 /**
