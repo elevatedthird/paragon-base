@@ -4,8 +4,18 @@ config:
   webroot: docroot
   database: mysql:5.7
   php: '7.4'
-  xdebug: true
 services:
+  appserver:
+    xdebug: true
+    config:
+      php: .lando/php.ini
+    overrides:
+      environment:
+        # XDEBUG_MODE is left blank to allow for using `lando xdebug debug` tooling command.
+        # @see tooling below.
+        XDEBUG_MODE:
+    run:
+      - /app/.lando/xdebug.sh
   solr:
     type: solr:7
     core: collection1
@@ -15,3 +25,9 @@ services:
     portforward: true
     hogfrom:
       - appserver
+tooling:
+  xdebug:
+    description: Loads Xdebug in the selected mode. See script for usage.
+    cmd:
+      - appserver: /app/.lando/xdebug.sh
+    user: root
