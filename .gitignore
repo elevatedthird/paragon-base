@@ -73,9 +73,5 @@ docroot/**/.git
 vendor/**/.gitattributes
 docroot/**/.gitattributes
 
-# Do not ignore directories necessary for Composer-based drupal-vm
-!vendor/geerlingguy/drupal-vm/**/*.git
-!vendor/geerlingguy/drupal-vm/**/*.mysql
-
-# Ignore Vagrant configuration directories
-.vagrant*
+# Ignore local Lando VM Settings
+.lando.local.yml
