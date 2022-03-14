@@ -84,6 +84,7 @@
     "drupal/path_redirect_import": "^1.0@beta",
     "drupal/pathauto": "^1.0",
     "drupal/purge": "^3.0@beta",
+    "drupal/quicklink": "^2.0g",
     "drupal/redirect": "^1.0",
     "drupal/robotstxt": "^1.4",
     "drupal/scheduler": "^1.0",
