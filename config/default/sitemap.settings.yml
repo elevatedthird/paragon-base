@@ -1,8 +1,9 @@
+_core:
+  default_config_hash: nmS5UZoUq_KZpNFZO-_aRsjZKijof74i6wa2byn3h7U
 page_title: Sitemap
 message:
   value: ''
   format: restricted_html
-include_css: false
 plugins:
   frontpage:
     enabled: true
@@ -61,5 +62,4 @@ plugins:
       enable_rss: true
       rss_link: view.taxonomy_term.feed_1|arg_0
       rss_depth: 9
-_core:
-  default_config_hash: nmS5UZoUq_KZpNFZO-_aRsjZKijof74i6wa2byn3h7U
+include_css: false

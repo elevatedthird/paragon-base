@@ -20,6 +20,8 @@ translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:
+  handler: 'default:file'
+  handler_settings: {  }
   file_directory: 'svg/[date:custom:Y]-[date:custom:m]'
   file_extensions: svg
   max_filesize: ''
@@ -31,6 +33,4 @@ settings:
     uuid: ''
     alt: ''
     title: ''
-  handler: 'default:file'
-  handler_settings: {  }
 field_type: svg_image_field

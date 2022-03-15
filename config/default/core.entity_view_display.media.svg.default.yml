@@ -19,18 +19,18 @@ bundle: svg
 mode: default
 content:
   field_media_svg:
-    weight: 0
+    type: svg_image_field_formatter
     label: hidden
     settings:
       inline: true
+      apply_dimensions: false
       width: null
       height: null
       enable_alt: true
       enable_title: true
       link: ''
-      apply_dimensions: false
     third_party_settings: {  }
-    type: svg_image_field_formatter
+    weight: 0
     region: content
 hidden:
   created: true

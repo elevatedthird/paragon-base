@@ -17,28 +17,28 @@ bundle: link_file
 mode: default
 content:
   field_alt_link_text:
+    type: string_textfield
     weight: 1
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_file:
+    type: entity_browser_entity_reference
     weight: 0
+    region: content
     settings:
       entity_browser: file
       field_widget_display: rendered_entity
-      field_widget_display_settings:
-        view_mode: form_preview
+      field_widget_edit: false
       field_widget_remove: true
       field_widget_replace: true
       open: true
+      field_widget_display_settings:
+        view_mode: form_preview
       selection_mode: selection_append
-      field_widget_edit: false
     third_party_settings: {  }
-    type: entity_browser_entity_reference
-    region: content
 hidden:
   created: true
   status: true

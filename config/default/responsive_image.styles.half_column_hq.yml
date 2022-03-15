@@ -11,14 +11,14 @@ id: half_column_hq
 label: 'Half Column HQ'
 image_style_mappings:
   -
-    breakpoint_id: themekit.x_small
-    multiplier: 1x
     image_mapping_type: image_style
     image_mapping: small_hq
-  -
     breakpoint_id: themekit.x_small
-    multiplier: 2x
+    multiplier: 1x
+  -
     image_mapping_type: image_style
     image_mapping: large_hq
+    breakpoint_id: themekit.x_small
+    multiplier: 2x
 breakpoint_group: themekit
 fallback_image_style: small_hq

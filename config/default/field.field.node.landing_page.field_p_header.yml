@@ -23,16 +23,16 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       header_banner_basic: header_banner_basic
+    negate: 0
     target_bundles_drag_drop:
       compound_media_bar:
         weight: 11
         enabled: false
       header_banner_basic:
-        enabled: true
         weight: 10
+        enabled: true
       link_default:
         weight: 12
         enabled: false

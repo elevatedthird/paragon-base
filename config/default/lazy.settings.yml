@@ -1,12 +1,6 @@
-image_fields: {  }
-alter_tag:
-  img: img
-  iframe: '0'
-formatters:
-  lazy_image: '0'
-  lazy_responsive_image: '0'
+_core:
+  default_config_hash: y7LBTPYVTcA6s3XuXz3mXS0he0kmx7NQWmTz2fDSI-s
 skipClass: no-lazy
-disabled_paths: /rss.xml
 placeholderSrc: ''
 preferNative: false
 cssEffect: false
@@ -30,5 +24,11 @@ lazysizes:
   ricTimeout: 0
   throttleDelay: 125
   plugins: {  }
-_core:
-  default_config_hash: y7LBTPYVTcA6s3XuXz3mXS0he0kmx7NQWmTz2fDSI-s
+image_fields: {  }
+alter_tag:
+  img: img
+  iframe: '0'
+formatters:
+  lazy_image: '0'
+  lazy_responsive_image: '0'
+disabled_paths: /rss.xml

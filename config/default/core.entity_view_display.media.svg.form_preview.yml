@@ -20,18 +20,18 @@ bundle: svg
 mode: form_preview
 content:
   field_media_svg:
-    weight: 0
+    type: svg_image_field_formatter
     label: hidden
     settings:
+      inline: false
       apply_dimensions: true
       width: 38
       height: 38
       enable_alt: true
       enable_title: true
       link: ''
-      inline: false
     third_party_settings: {  }
-    type: svg_image_field_formatter
+    weight: 0
     region: content
 hidden:
   created: true

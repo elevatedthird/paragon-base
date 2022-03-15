@@ -11,16 +11,16 @@ name: high_quality
 label: 'High Quality'
 processors:
   0b6b45d4-28ce-4b70-aa33-a087429ca521:
-    uuid: 0b6b45d4-28ce-4b70-aa33-a087429ca521
     id: imageapi_optimize_webp
-    weight: 1
     data:
       quality: '90'
+    weight: 1
+    uuid: 0b6b45d4-28ce-4b70-aa33-a087429ca521
   a31d4659-8be4-44b9-b30b-ddeaa42800ed:
-    uuid: a31d4659-8be4-44b9-b30b-ddeaa42800ed
     id: imageapi_optimize_gd
-    weight: 2
     data:
       quality: '90'
       file_types:
         image/jpeg: image/jpeg
+    weight: 2
+    uuid: a31d4659-8be4-44b9-b30b-ddeaa42800ed
