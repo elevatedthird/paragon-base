@@ -20,7 +20,6 @@ mode: entity_embed
 content:
   field_media_audio_file:
     type: file_audio
-    weight: 0
     label: hidden
     settings:
       controls: true
@@ -28,6 +27,7 @@ content:
       loop: false
       multiple_file_display_type: tags
     third_party_settings: {  }
+    weight: 0
     region: content
 hidden:
   created: true

@@ -1,3 +1,5 @@
+_core:
+  default_config_hash: J-onLZx1i5QXEP1kjDodvY2iudGvBwqSOeUTBPyt754
 channels:
   -
     id: purgers
@@ -21,5 +23,3 @@ channels:
       - 0
       - 2
       - 3
-_core:
-  default_config_hash: J-onLZx1i5QXEP1kjDodvY2iudGvBwqSOeUTBPyt754

@@ -19,27 +19,27 @@ bundle: header_banner_basic
 mode: preview
 content:
   field_alt_title:
-    weight: 0
+    type: string
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    type: string
+    weight: 0
     region: content
   field_description:
-    weight: 1
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: text_default
+    weight: 1
     region: content
   field_p_link:
-    weight: 2
+    type: entity_reference_revisions_entity_view
     label: above
     settings:
       view_mode: preview
       link: ''
     third_party_settings: {  }
-    type: entity_reference_revisions_entity_view
+    weight: 2
     region: content
 hidden: {  }

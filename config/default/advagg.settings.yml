@@ -1,3 +1,5 @@
+_core:
+  default_config_hash: 3OmTQ_6VEfHCGFjbqTJ1AEAm0fEgM9CtNbXKT9krZ8I
 css:
   brotli: true
   combine_media: false
@@ -19,5 +21,3 @@ js:
 skip_enabled_preprocess_check: false
 show_bypass_cookie_message: true
 symlinksifownermatch: false
-_core:
-  default_config_hash: 3OmTQ_6VEfHCGFjbqTJ1AEAm0fEgM9CtNbXKT9krZ8I

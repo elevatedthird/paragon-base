@@ -1,3 +1,5 @@
+_core:
+  default_config_hash: ngo7wCZpi_djkl2Q9CxSt5hOhXlThEPBI9W9S_DUa80
 check:
   disabled_extensions: false
   interval_days: 1
@@ -9,5 +11,3 @@ notification:
   emails:
     - no-reply@example.com
   threshold: all
-_core:
-  default_config_hash: ngo7wCZpi_djkl2Q9CxSt5hOhXlThEPBI9W9S_DUa80

@@ -15,12 +15,12 @@ bundle: main_address
 mode: default
 content:
   field_address:
+    type: address_default
     weight: 11
+    region: content
     settings:
       default_country: null
     third_party_settings: {  }
-    type: address_default
-    region: content
   fieldset:
     type: string_textfield
     weight: -4
@@ -47,11 +47,11 @@ content:
   user_id:
     type: entity_reference_autocomplete
     weight: 5
+    region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
-    region: content
     third_party_settings: {  }
 hidden: {  }

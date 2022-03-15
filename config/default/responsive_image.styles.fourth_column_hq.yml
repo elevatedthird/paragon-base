@@ -13,24 +13,24 @@ id: fourth_column_hq
 label: 'Fourth Column HQ'
 image_style_mappings:
   -
-    breakpoint_id: themekit.small
-    multiplier: 1x
     image_mapping_type: image_style
     image_mapping: 2x_small_hq
-  -
     breakpoint_id: themekit.small
-    multiplier: 2x
+    multiplier: 1x
+  -
     image_mapping_type: image_style
     image_mapping: small_hq
+    breakpoint_id: themekit.small
+    multiplier: 2x
   -
-    breakpoint_id: themekit.x_small
-    multiplier: 1x
     image_mapping_type: image_style
     image_mapping: x_small_hq
-  -
     breakpoint_id: themekit.x_small
-    multiplier: 2x
+    multiplier: 1x
+  -
     image_mapping_type: image_style
     image_mapping: medium_hq
+    breakpoint_id: themekit.x_small
+    multiplier: 2x
 breakpoint_group: themekit
 fallback_image_style: x_small_hq
