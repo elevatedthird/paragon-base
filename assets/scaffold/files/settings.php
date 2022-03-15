@@ -38,12 +38,7 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * and any additional version thereof.
  * Additional env specific patterns can be added in the following files (lando, local)
  */
-$settings['trusted_host_patterns'] = array(
-  '^e3develop\.com$',
-  '^.+\.e3develop\.com$',
-  '^e3staging\.com$',
-  '^.+\.e3staging\.com$',
-);
+$settings['trusted_host_patterns'] = [];
 
 /**
  * Set default paths to public, private and temp directories.
