@@ -1,3 +1,5 @@
+_core:
+  default_config_hash: U1q833aXD0suIAAqW2hFieiJpFsgw-M2EFFjzGrFxC4
 track_time: 1
 user_wrong_count: 0
 host_wrong_count: 10
@@ -17,5 +19,3 @@ login_activity_email_subject: 'Security information: Unexpected login activity h
 login_activity_email_body: 'The configured threshold of @activity_threshold logins has been reached with a total of @tracking_current_count invalid login attempts. You should review your log information about login attempts at @site.'
 user_blocked_notification_emails: null
 login_activity_notification_emails: null
-_core:
-  default_config_hash: U1q833aXD0suIAAqW2hFieiJpFsgw-M2EFFjzGrFxC4

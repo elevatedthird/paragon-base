@@ -24,10 +24,10 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    negate: 0
     target_bundles:
       link_default: link_default
       link_file: link_file
+    negate: 0
     target_bundles_drag_drop:
       compound_media_bar:
         weight: -16
@@ -36,11 +36,11 @@ settings:
         weight: -17
         enabled: false
       link_default:
-        enabled: true
         weight: -19
-      link_file:
         enabled: true
+      link_file:
         weight: -18
+        enabled: true
       media_image:
         weight: -15
         enabled: false

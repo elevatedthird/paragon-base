@@ -33,9 +33,9 @@ content:
   path:
     type: path
     weight: 30
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   timezone:
     weight: 6
     region: content

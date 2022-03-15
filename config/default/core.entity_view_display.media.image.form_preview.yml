@@ -20,37 +20,37 @@ mode: form_preview
 content:
   field_image_type:
     type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
     weight: 2
     region: content
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
   field_tags:
     type: entity_reference_label
-    weight: 3
-    region: content
     label: above
     settings:
       link: true
     third_party_settings: {  }
+    weight: 3
+    region: content
   name:
     type: string
-    weight: 1
-    region: content
     label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
+    weight: 1
+    region: content
   thumbnail:
     type: image
-    weight: 0
-    region: content
     label: hidden
     settings:
-      image_style: x_small_square_1_1
       image_link: ''
+      image_style: x_small_square_1_1
     third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   created: true
   field_media_image: true

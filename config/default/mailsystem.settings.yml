@@ -1,3 +1,5 @@
+_core:
+  default_config_hash: 0M3S8wlVlf_QJbFu_znZ1q4HKcPU48FAsjxRHW2xJew
 theme: seven
 defaults:
   sender: swiftmailer
@@ -5,7 +7,5 @@ defaults:
 modules:
   swiftmailer:
     none:
-      formatter: swiftmailer
       sender: swiftmailer
-_core:
-  default_config_hash: 0M3S8wlVlf_QJbFu_znZ1q4HKcPU48FAsjxRHW2xJew
+      formatter: swiftmailer

@@ -20,30 +20,30 @@ bundle: svg
 mode: media_browser
 content:
   field_media_svg:
+    type: svg_image_field_widget
     weight: 1
+    region: content
     settings:
+      progress_indicator: throbber
       preview_image_max_width: 100
       preview_image_max_height: 100
-      progress_indicator: throbber
     third_party_settings: {  }
-    type: svg_image_field_widget
-    region: content
   field_svg_type:
+    type: options_select
     weight: 2
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
   field_tags:
+    type: entity_reference_autocomplete_tags
     weight: 3
+    region: content
     settings:
       match_operator: CONTAINS
+      match_limit: 10
       size: 60
       placeholder: ''
-      match_limit: 10
     third_party_settings: {  }
-    type: entity_reference_autocomplete_tags
-    region: content
   name:
     type: string_textfield
     weight: 0

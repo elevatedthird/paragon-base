@@ -1,11 +1,11 @@
-print: ''
-allow_cli: true
+_core:
+  default_config_hash: aTitfYQDb9bmMR7R6NBQUqRplIbNBKX4f4X-3-FYtR0
+shield_enable: true
 credential_provider: shield
 credentials:
   shield:
     user: paragon
     pass: 3ditParagon
-shield_enable: true
+allow_cli: true
+print: ''
 whitelist: ''
-_core:
-  default_config_hash: aTitfYQDb9bmMR7R6NBQUqRplIbNBKX4f4X-3-FYtR0
