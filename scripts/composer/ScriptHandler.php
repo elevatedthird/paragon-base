@@ -161,11 +161,11 @@ class ScriptHandler {
 
   /**
    * @param Event $event
-   * Copy themekit's and adminkit's starterkit from contrib folders to custom folders
+   * Copy themekit's starterkit from contrib folders to custom folders
    */
   public static function themeStartkitCopy(Event $event)
   {
-    $themes = ['themekit', 'adminkit'];
+    $themes = ['themekit'];
     $project_root = getcwd();
     $drupal_root = static::getDrupalRoot($project_root);
 
