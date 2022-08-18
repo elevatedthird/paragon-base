@@ -51,6 +51,7 @@ module:
   file: 0
   filter: 0
   focal_point: 0
+  gin_lb: 0
   gin_toolbar: 0
   gtm: 0
   help: 0
@@ -69,10 +70,10 @@ module:
   layout_builder: 0
   layout_builder_browser: 0
   layout_builder_modal: 0
+  layout_builder_operation_link: 0
   layout_builder_restrictions: 0
   layout_discovery: 0
   lazy: 0
-  lb_claro: 0
   link: 0
   link_attributes: 0
   linkit: 0
@@ -95,6 +96,8 @@ module:
   node: 0
   options: 0
   page_cache: 0
+  paragon_core: 0
+  paragon_gin: 0
   paragraphs_browser: 0
   path: 0
   path_alias: 0

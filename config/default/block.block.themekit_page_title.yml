@@ -1,6 +1,6 @@
 uuid: 3df8d95d-4492-4dde-80b2-9307c6721a9e
 langcode: en
-status: true
+status: false
 dependencies:
   theme:
     - themekit

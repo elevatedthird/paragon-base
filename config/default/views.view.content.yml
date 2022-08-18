@@ -112,7 +112,7 @@ display:
               action_id: views_bulk_edit
               preconfiguration:
                 label_override: ''
-                get_bundles_from_results: 1
+                get_bundles_from_results: true
             -
               action_id: views_bulk_operations_delete_entity
               preconfiguration:
