@@ -23,6 +23,8 @@ content:
     settings:
       image_link: file
       image_style: x_small_square_1_1
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
     weight: 1
     region: content
