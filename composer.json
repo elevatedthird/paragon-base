@@ -59,6 +59,7 @@
     "drupal/imageapi_optimize": "~4.0.0@beta",
     "drupal/imageapi_optimize_gd": "^2.0@beta",
     "drupal/imageapi_optimize_webp": "2.x-dev",
+    "drupal/inline_block_title_automatic": "^1.0",
     "drupal/inline_entity_form": "^1.0",
     "drupal/layout_builder_browser": "^1.1",
     "drupal/layout_builder_modal": "^1.1",

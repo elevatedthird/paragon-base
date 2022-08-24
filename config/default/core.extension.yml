@@ -61,6 +61,7 @@ module:
   imageapi_optimize_gd: 0
   imageapi_optimize_webp: 0
   imageapi_optimize_webp_responsive: 0
+  inline_block_title_automatic: 0
   inline_entity_form: 0
   jquery_ui: 0
   jquery_ui_datepicker: 0
