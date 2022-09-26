@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.landing_page.field_meta_summary
     - field.field.node.landing_page.layout_builder__layout
     - node.type.landing_page
   module:
@@ -20,13 +19,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: -20
-    region: content
-  field_meta_summary:
-    type: basic_string
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 0
     region: content
   links:
     settings: {  }
