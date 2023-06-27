@@ -2,10 +2,13 @@ uuid: 619f9ba4-91ae-4f66-989a-b6ef1f1546ab
 langcode: en
 status: true
 dependencies:
+  config:
+    - core.entity_view_mode.media.entity_embed
   module:
     - editor
     - entity_embed
     - linkit
+    - media
 _core:
   default_config_hash: Zv6tQ2tiIIBWufcAJkNN8ATygYQwwF48Luw5Ve50Oyk
 name: 'Full HTML'
@@ -15,25 +18,19 @@ filters:
   filter_align:
     id: filter_align
     provider: filter
-    status: true
+    status: false
     weight: 8
     settings: {  }
   filter_caption:
     id: filter_caption
     provider: filter
-    status: true
+    status: false
     weight: 9
-    settings: {  }
-  filter_htmlcorrector:
-    id: filter_htmlcorrector
-    provider: filter
-    status: true
-    weight: 10
     settings: {  }
   editor_file_reference:
     id: editor_file_reference
     provider: editor
-    status: true
+    status: false
     weight: 11
     settings: {  }
   entity_embed:
@@ -48,7 +45,7 @@ filters:
     status: true
     weight: -10
     settings:
-      allowed_html: '<a href hreflang data-entity-type data-entity-uuid data-entity-substitution> <em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <s> <sup> <sub> <img src alt data-entity-type data-entity-uuid data-entity-substitution data-align data-caption> <table> <caption> <tbody> <thead> <tfoot> <th> <td> <tr> <hr> <p> <h1> <pre> <drupal-entity data-entity-type data-entity-uuid data-entity-substitution data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button>'
+      allowed_html: '<br> <p> <h1> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <cite> <dl> <dt> <dd> <a hreflang data-entity-type data-entity-uuid data-entity-substitution href> <blockquote cite> <ul type> <ol type start> <img src alt data-entity-type data-entity-uuid data-entity-substitution data-align data-caption> <drupal-entity data-entity-type data-entity-uuid data-entity-substitution data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button> <strong> <em> <code class="language-*"> <pre> <s> <sub> <sup> <li> <hr> <table> <tr> <td rowspan colspan> <th rowspan colspan> <thead> <tbody> <tfoot> <caption> <drupal-media data-entity-type data-entity-uuid alt>'
       filter_html_help: true
       filter_html_nofollow: false
   linkit:
@@ -58,3 +55,21 @@ filters:
     weight: -11
     settings:
       title: false
+  media_embed:
+    id: media_embed
+    provider: media
+    status: true
+    weight: 100
+    settings:
+      default_view_mode: default
+      allowed_view_modes:
+        entity_embed: entity_embed
+      allowed_media_types:
+        image: image
+        remote_video: remote_video
+  filter_image_lazy_load:
+    id: filter_image_lazy_load
+    provider: filter
+    status: true
+    weight: 12
+    settings: {  }

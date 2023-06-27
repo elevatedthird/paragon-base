@@ -7,6 +7,7 @@ _core:
 machine: acquia_dev
 description: null
 name: 'Acquia Dev'
+weight: null
 url: 'http://paragonbhybefranz.devcloud.acquia-sites.com/'
 fg_color: '#ffffff'
 bg_color: '#000000'

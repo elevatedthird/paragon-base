@@ -89,3 +89,7 @@ content:
 hidden:
   field_file_mime_type: true
   field_file_size: true
+  publish_on: true
+  publish_state: true
+  unpublish_on: true
+  unpublish_state: true

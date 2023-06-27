@@ -61,5 +61,10 @@ hidden:
   created: true
   field_video_provider: true
   path: true
+  publish_on: true
+  publish_state: true
+  scheduler_settings: true
   status: true
   uid: true
+  unpublish_on: true
+  unpublish_state: true

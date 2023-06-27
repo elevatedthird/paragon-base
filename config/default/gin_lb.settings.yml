@@ -2,3 +2,5 @@ _core:
   default_config_hash: JwHy7mL25SLjSzNTOkFsf3M9xID52Dh7GMlqwLCY5Ro
 toastify_cdn: 1
 enable_preview_regions: 0
+hide_discard_button: true
+hide_revert_button: true

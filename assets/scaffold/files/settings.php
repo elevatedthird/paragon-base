@@ -63,6 +63,24 @@ $config['shield.settings']['allow_cli'] = TRUE;
 $config['system.logging']['error_level'] = 'all';
 
 /**
+ * The default list of directories that will be ignored by Drupal's file API.
+ */
+$settings['file_scan_ignore_directories'] = [
+  'node_modules',
+  'bower_components',
+];
+
+/**
+ * The default number of entities to update in a batch process.
+ */
+$settings['entity_update_batch_size'] = 50;
+
+/**
+ * Exclude modules from configuration synchronization.
+ */
+$settings['config_exclude_modules'] = ['devel', 'stage_file_proxy'];
+
+/**
  * Add fast404 settings
  */
 if (file_exists($app_root . '/' . $site_path . '/settings.fast404.php')) {
