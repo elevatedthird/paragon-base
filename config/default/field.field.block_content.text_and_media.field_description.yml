@@ -1,0 +1,29 @@
+uuid: eed4bdfc-b0ac-4e9b-9bc2-3cf0c4e6b9a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.text_and_media
+    - field.storage.block_content.field_description
+    - filter.format.basic_html
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: block_content.text_and_media.field_description
+field_name: field_description
+entity_type: block_content
+bundle: text_and_media
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

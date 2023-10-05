@@ -1,0 +1,29 @@
+uuid: 6e9b904d-77bf-45d5-92e2-fa405d54953e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.billboard
+    - field.storage.block_content.field_heading
+    - filter.format.plain_text
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - plain_text
+id: block_content.billboard.field_heading
+field_name: field_heading
+entity_type: block_content
+bundle: billboard
+label: Heading
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - plain_text
+field_type: text_long

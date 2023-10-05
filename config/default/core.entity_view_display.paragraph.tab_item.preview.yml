@@ -1,0 +1,25 @@
+uuid: e8076729-2ec1-469a-a763-2a52d99be650
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.tab_item.field_description
+    - field.field.paragraph.tab_item.field_heading_plain
+    - paragraphs.paragraphs_type.tab_item
+  module:
+    - text
+id: paragraph.tab_item.preview
+targetEntityType: paragraph
+bundle: tab_item
+mode: preview
+content:
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_heading_plain: true

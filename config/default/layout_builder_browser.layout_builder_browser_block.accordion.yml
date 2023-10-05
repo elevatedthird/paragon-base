@@ -1,0 +1,11 @@
+uuid: 4c4ae554-31d7-4505-8a43-534a88d776b5
+langcode: en
+status: true
+dependencies: {  }
+id: accordion
+block_id: 'inline_block:accordion'
+category: structured
+label: Accordion
+image_path: ''
+image_alt: ''
+weight: -3

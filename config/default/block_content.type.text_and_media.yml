@@ -1,0 +1,8 @@
+uuid: 20c82266-e4f8-41c1-b1b5-48adfd89a3ad
+langcode: en
+status: true
+dependencies: {  }
+id: text_and_media
+label: 'Text + Media'
+revision: 0
+description: 'Components with text and media sections with a configurable order'

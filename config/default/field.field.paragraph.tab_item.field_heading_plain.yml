@@ -1,0 +1,19 @@
+uuid: dcf3770f-83f9-484f-a52f-4cd9729e81fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_heading_plain
+    - paragraphs.paragraphs_type.tab_item
+id: paragraph.tab_item.field_heading_plain
+field_name: field_heading_plain
+entity_type: paragraph
+bundle: tab_item
+label: Label
+description: 'Label that appears on the tab'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

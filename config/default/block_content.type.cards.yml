@@ -1,0 +1,8 @@
+uuid: 17fc08a4-9d01-45b1-b019-248e041f9fa0
+langcode: en
+status: true
+dependencies: {  }
+id: cards
+label: Cards
+revision: 0
+description: 'Displays a group of cards'

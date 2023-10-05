@@ -1,0 +1,29 @@
+uuid: 656f8a50-2211-4f8a-aa9c-665150031709
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.billboard
+    - field.storage.block_content.field_bg_media
+    - media.type.image
+id: block_content.billboard.field_bg_media
+field_name: field_bg_media
+entity_type: block_content
+bundle: billboard
+label: 'Background media'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: image
+field_type: entity_reference

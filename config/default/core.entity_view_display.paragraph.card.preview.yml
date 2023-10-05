@@ -1,0 +1,27 @@
+uuid: d05e2b46-1f5f-4505-a5bf-08bd7b386288
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.card.field_description
+    - field.field.paragraph.card.field_heading_plain
+    - field.field.paragraph.card.field_image
+    - paragraphs.paragraphs_type.card
+  module:
+    - text
+id: paragraph.card.preview
+targetEntityType: paragraph
+bundle: card
+mode: preview
+content:
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_heading_plain: true
+  field_image: true

@@ -1,0 +1,11 @@
+uuid: b26833e4-c937-4997-9ff7-e3968f56557b
+langcode: en
+status: true
+dependencies: {  }
+id: billboard
+block_id: 'inline_block:billboard'
+category: structured
+label: Billboard
+image_path: ''
+image_alt: ''
+weight: -2

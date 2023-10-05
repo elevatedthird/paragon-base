@@ -1,0 +1,11 @@
+uuid: c7965e0b-80c5-412e-ad8e-eff216b0ad3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.billboard
+id: block_content.billboard
+target_entity_type_id: block_content
+target_bundle: billboard
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,8 @@
+uuid: d4783253-a0ab-49ac-a098-2f864c2b4daa
+langcode: en
+status: true
+dependencies: {  }
+id: billboard
+label: Billboard
+revision: 0
+description: 'Component displaying background media with content overlay'

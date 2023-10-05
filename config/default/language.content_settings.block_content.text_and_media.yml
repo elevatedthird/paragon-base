@@ -1,0 +1,11 @@
+uuid: a04cddbd-ab8d-4786-b303-1b0c2fda256c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.text_and_media
+id: block_content.text_and_media
+target_entity_type_id: block_content
+target_bundle: text_and_media
+default_langcode: site_default
+language_alterable: false

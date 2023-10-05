@@ -1,0 +1,25 @@
+uuid: 9389af5c-c877-4add-b805-e171829d3508
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.carousel_item.field_description
+    - field.field.paragraph.carousel_item.field_heading
+    - paragraphs.paragraphs_type.carousel_item
+  module:
+    - text
+id: paragraph.carousel_item.preview
+targetEntityType: paragraph
+bundle: carousel_item
+mode: preview
+content:
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  field_heading: true

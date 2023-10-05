@@ -1,0 +1,25 @@
+uuid: ecbc2fa9-d939-45f5-a738-e49b4d8e9d7a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cards
+    - field.field.block_content.cards.field_items
+  module:
+    - entity_reference_revisions
+id: block_content.cards.default
+targetEntityType: block_content
+bundle: cards
+mode: default
+content:
+  field_items:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true

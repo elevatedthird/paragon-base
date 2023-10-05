@@ -1,0 +1,11 @@
+uuid: 145aa16c-ac75-4ffa-958f-36650c64c11c
+langcode: en
+status: true
+dependencies: {  }
+id: tabs
+block_id: 'inline_block:tabs'
+category: structured
+label: Tabs
+image_path: ''
+image_alt: ''
+weight: 2

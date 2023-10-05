@@ -1,0 +1,19 @@
+uuid: 9e9676c4-7676-49b9-98e7-3d8eddb3869c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_heading_plain
+    - paragraphs.paragraphs_type.accordion_item
+id: paragraph.accordion_item.field_heading_plain
+field_name: field_heading_plain
+entity_type: paragraph
+bundle: accordion_item
+label: Label
+description: 'Label when item is collapsed'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

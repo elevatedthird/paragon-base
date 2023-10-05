@@ -1,0 +1,11 @@
+uuid: 9a6488bb-60aa-44b0-8b9b-133154e0c0ab
+langcode: en
+status: true
+dependencies: {  }
+id: section_intro
+block_id: 'inline_block:section_intro'
+category: structured
+label: 'Section Intro'
+image_path: ''
+image_alt: ''
+weight: 1

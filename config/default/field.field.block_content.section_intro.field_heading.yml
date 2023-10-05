@@ -1,0 +1,29 @@
+uuid: d1a8aa7a-63ff-4222-a647-bcec92247ac7
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.section_intro
+    - field.storage.block_content.field_heading
+    - filter.format.plain_text
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - plain_text
+id: block_content.section_intro.field_heading
+field_name: field_heading
+entity_type: block_content
+bundle: section_intro
+label: Heading
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - plain_text
+field_type: text_long

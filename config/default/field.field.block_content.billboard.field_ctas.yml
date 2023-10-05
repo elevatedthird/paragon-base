@@ -1,0 +1,46 @@
+uuid: 93e9a8b8-1731-4b7c-a11e-c89812788490
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.billboard
+    - field.storage.block_content.field_ctas
+    - paragraphs.paragraphs_type.link_default
+  module:
+    - entity_reference_revisions
+id: block_content.billboard.field_ctas
+field_name: field_ctas
+entity_type: block_content
+bundle: billboard
+label: CTAs
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      link_default: link_default
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: 7
+        enabled: false
+      card:
+        weight: 8
+        enabled: false
+      carousel_item:
+        weight: 9
+        enabled: false
+      link_default:
+        weight: 10
+        enabled: true
+      link_file:
+        weight: 11
+        enabled: false
+      tab_item:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions

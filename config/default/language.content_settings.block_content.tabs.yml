@@ -1,0 +1,11 @@
+uuid: 413d16e2-4307-4f79-9031-19b498118589
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.tabs
+id: block_content.tabs
+target_entity_type_id: block_content
+target_bundle: tabs
+default_langcode: site_default
+language_alterable: false

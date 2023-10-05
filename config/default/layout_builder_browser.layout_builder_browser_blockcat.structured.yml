@@ -1,0 +1,7 @@
+uuid: 5c1eb28a-7392-4e8a-bd2c-f61c37d0d9ab
+langcode: en
+status: true
+dependencies: {  }
+id: structured
+label: Structured
+weight: null

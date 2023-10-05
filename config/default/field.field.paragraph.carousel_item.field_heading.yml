@@ -1,0 +1,29 @@
+uuid: 686f409c-75dd-4fd2-b467-fca48f3749ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_heading
+    - filter.format.plain_text
+    - paragraphs.paragraphs_type.carousel_item
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - plain_text
+id: paragraph.carousel_item.field_heading
+field_name: field_heading
+entity_type: paragraph
+bundle: carousel_item
+label: Heading
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - plain_text
+field_type: text_long

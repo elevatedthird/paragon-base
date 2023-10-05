@@ -3,8 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.link_file.field_alt_link_text
     - field.field.paragraph.link_file.field_file
+    - field.field.paragraph.link_file.field_link_text
     - paragraphs.paragraphs_type.link_file
 _core:
   default_config_hash: fCCwnH5H37O2Z3_xcg01VBac9e0rtuT_hCuIOXP3g3s
@@ -13,14 +13,6 @@ targetEntityType: paragraph
 bundle: link_file
 mode: default
 content:
-  field_alt_link_text:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 1
-    region: content
   field_file:
     type: entity_reference_entity_view
     label: hidden
@@ -29,5 +21,13 @@ content:
       link: false
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_link_text:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
     region: content
 hidden: {  }

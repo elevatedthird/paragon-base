@@ -1,0 +1,11 @@
+uuid: da190390-13a3-401d-a8b9-d2c99f60d965
+langcode: en
+status: true
+dependencies: {  }
+id: text
+block_id: 'inline_block:text'
+category: structured
+label: Text
+image_path: ''
+image_alt: ''
+weight: 3

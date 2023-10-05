@@ -1,0 +1,19 @@
+uuid: fdc7687a-23da-4741-8e13-1631358e43a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.section_intro
+    - field.storage.block_content.field_eyebrow
+id: block_content.section_intro.field_eyebrow
+field_name: field_eyebrow
+entity_type: block_content
+bundle: section_intro
+label: Eyebrow
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

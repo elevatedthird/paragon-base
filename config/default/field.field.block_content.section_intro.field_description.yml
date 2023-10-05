@@ -1,0 +1,29 @@
+uuid: c7303f39-a0ff-4dd9-9713-bd46644deb7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.section_intro
+    - field.storage.block_content.field_description
+    - filter.format.basic_html
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: block_content.section_intro.field_description
+field_name: field_description
+entity_type: block_content
+bundle: section_intro
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

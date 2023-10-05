@@ -1,0 +1,52 @@
+uuid: 7e5571d9-4f19-4e90-a941-c8b6392f60c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.billboard
+    - field.field.block_content.billboard.field_bg_media
+    - field.field.block_content.billboard.field_ctas
+    - field.field.block_content.billboard.field_description
+    - field.field.block_content.billboard.field_heading
+  module:
+    - entity_reference_revisions
+    - text
+id: block_content.billboard.default
+targetEntityType: block_content
+bundle: billboard
+mode: default
+content:
+  field_bg_media:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_ctas:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_heading:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true

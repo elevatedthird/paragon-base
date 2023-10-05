@@ -1,0 +1,8 @@
+uuid: a6ad8e25-85c2-4f87-a846-48c45525def0
+langcode: en
+status: true
+dependencies: {  }
+id: tabs
+label: Tabs
+revision: 0
+description: 'Provides tabbed sections'

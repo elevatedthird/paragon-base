@@ -5,7 +5,7 @@ dependencies: {  }
 _core:
   default_config_hash: onfvlmO-Y-iY1aIMF5_JR_0R2-UQrELY2VLTbK-MrcQ
 id: link_default
-label: 'Link - Default'
+label: Link
 icon_uuid: null
 icon_default: null
 description: ''

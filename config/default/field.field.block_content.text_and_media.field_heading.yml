@@ -1,0 +1,29 @@
+uuid: 17971d79-270c-47c5-a90c-aa5d012a4b91
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.text_and_media
+    - field.storage.block_content.field_heading
+    - filter.format.plain_text
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - plain_text
+id: block_content.text_and_media.field_heading
+field_name: field_heading
+entity_type: block_content
+bundle: text_and_media
+label: Heading
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - plain_text
+field_type: text_long

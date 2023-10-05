@@ -1,0 +1,8 @@
+uuid: 3f324a23-efff-4379-96bb-18bed3038829
+langcode: en
+status: true
+dependencies: {  }
+id: carousel
+label: Carousel
+revision: 0
+description: 'Provides a basic carsousel'

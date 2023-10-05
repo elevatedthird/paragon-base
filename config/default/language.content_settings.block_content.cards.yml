@@ -1,0 +1,11 @@
+uuid: 487df609-744c-4d21-a866-eb8c8373118b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cards
+id: block_content.cards
+target_entity_type_id: block_content
+target_bundle: cards
+default_langcode: site_default
+language_alterable: false

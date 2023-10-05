@@ -1,0 +1,11 @@
+uuid: 3bea5221-956e-496b-81f0-cf6a0c1f6c13
+langcode: en
+status: true
+dependencies: {  }
+id: cards
+block_id: 'inline_block:cards'
+category: structured
+label: Cards
+image_path: ''
+image_alt: ''
+weight: -1

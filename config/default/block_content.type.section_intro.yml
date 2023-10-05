@@ -1,0 +1,8 @@
+uuid: 8cfa4153-5a59-4787-82c0-b977948ce4ad
+langcode: en
+status: true
+dependencies: {  }
+id: section_intro
+label: 'Section Intro'
+revision: 0
+description: 'Provides an intro section for other content'

@@ -1,0 +1,11 @@
+uuid: a8b0a122-cf9a-4dfe-a470-832bafba94f1
+langcode: en
+status: true
+dependencies: {  }
+id: carousel
+block_id: 'inline_block:carousel'
+category: structured
+label: Carousel
+image_path: ''
+image_alt: ''
+weight: 0
