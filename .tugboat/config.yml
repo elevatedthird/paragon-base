@@ -99,6 +99,7 @@ services:
       build:
         # Install new configuration and database updates.
         - vendor/bin/drush cache:rebuild
+        - vendor/bin/drush si --existing-config -y
         - vendor/bin/drush config:import -y
         - vendor/bin/drush updatedb -y
 
