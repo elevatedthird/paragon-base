@@ -55,7 +55,7 @@ services:
 
         # Link the document root to the expected path. This example links /web
         # to the docroot.
-        - ln -snf "${TUGBOAT_ROOT}/web" "${DOCROOT}"
+        - ln -snf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
 
         # Create any required directories that don't exist.
         # - mkdir -p "${TUGBOAT_ROOT}/files-private"
