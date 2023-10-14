@@ -97,6 +97,7 @@ services:
       # and update steps, because the results of those are inherited
       # from the base preview.
       build:
+        - echo "memory_limit = 512M" >> /usr/local/etc/php/conf.d/my-php.ini
         # Install new configuration and database updates.
         - vendor/bin/drush cache:rebuild
         - vendor/bin/drush si --existing-config -y
