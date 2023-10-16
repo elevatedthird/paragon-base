@@ -18,17 +18,16 @@ bundle: video
 mode: default
 content:
   field_media_video_file:
-    type: file_url_plain
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 1
-    region: content
-  name:
-    type: string
+    type: file_video
     label: hidden
     settings:
-      link_to_entity: false
+      controls: true
+      autoplay: false
+      loop: false
+      multiple_file_display_type: tags
+      muted: false
+      width: 640
+      height: 480
     third_party_settings: {  }
     weight: 0
     region: content
@@ -38,5 +37,6 @@ hidden:
   field_tags: true
   field_video_type: true
   langcode: true
+  name: true
   thumbnail: true
   uid: true

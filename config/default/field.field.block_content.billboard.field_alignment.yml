@@ -1,0 +1,23 @@
+uuid: b7a28967-1eb7-4cd4-a5ff-0a3bdbdcdb59
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.billboard
+    - field.storage.block_content.field_alignment
+  module:
+    - options
+id: block_content.billboard.field_alignment
+field_name: field_alignment
+entity_type: block_content
+bundle: billboard
+label: Alignment
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: left
+default_value_callback: ''
+settings: {  }
+field_type: list_string

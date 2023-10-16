@@ -1,0 +1,23 @@
+uuid: a642cd35-2096-4bec-a6e9-e4fb1267cc84
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.section_intro
+    - field.storage.block_content.field_heading_style
+  module:
+    - options
+id: block_content.section_intro.field_heading_style
+field_name: field_heading_style
+entity_type: block_content
+bundle: section_intro
+label: 'Heading Style'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: h2
+default_value_callback: ''
+settings: {  }
+field_type: list_string

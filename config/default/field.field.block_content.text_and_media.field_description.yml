@@ -19,7 +19,7 @@ entity_type: block_content
 bundle: text_and_media
 label: Description
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

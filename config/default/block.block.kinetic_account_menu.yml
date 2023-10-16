@@ -1,4 +1,4 @@
-uuid: 9caea845-35a0-468e-ae4c-8b7b7177ffca
+uuid: 967ee9b9-0570-484a-87d6-5e8b39f1745f
 langcode: en
 status: false
 dependencies:
@@ -7,13 +7,13 @@ dependencies:
   module:
     - system
   theme:
-    - themekit
+    - kinetic
 _core:
   default_config_hash: Fj3bmc-1oF4_yDDNytBQerAv_AVW-_ZKe94hAX0jmRg
-id: themekit_account_menu
-theme: themekit
-region: header
-weight: -4
+id: kinetic_account_menu
+theme: kinetic
+region: content
+weight: 0
 provider: null
 plugin: 'system_menu_block:account'
 settings:

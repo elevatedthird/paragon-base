@@ -4,12 +4,15 @@ status: true
 dependencies:
   config:
     - block_content.type.billboard
+    - field.field.block_content.billboard.field_alignment
     - field.field.block_content.billboard.field_bg_media
     - field.field.block_content.billboard.field_ctas
     - field.field.block_content.billboard.field_description
     - field.field.block_content.billboard.field_heading
+    - responsive_image.styles.full_width
   module:
     - entity_reference_revisions
+    - media_responsive_thumbnail
     - text
 id: block_content.billboard.default
 targetEntityType: block_content
@@ -17,11 +20,13 @@ bundle: billboard
 mode: default
 content:
   field_bg_media:
-    type: entity_reference_entity_view
+    type: media_responsive_thumbnail
     label: hidden
     settings:
-      view_mode: default
-      link: false
+      responsive_image_style: full_width
+      image_link: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
     weight: 0
     region: content
@@ -49,4 +54,5 @@ content:
     weight: 1
     region: content
 hidden:
+  field_alignment: true
   langcode: true

@@ -1,17 +1,17 @@
-uuid: 2e6bf1fc-9148-4e71-bdc3-a5a033e2393a
+uuid: 3bb6a280-e30c-455c-847a-2d00b94a816c
 langcode: en
 status: true
 dependencies:
   module:
     - system
   theme:
-    - themekit
+    - kinetic
 _core:
   default_config_hash: F50zoovxU1hgeMI4HuFIlTisVTesVm4Sr-bfSkxpOnk
-id: themekit_content
-theme: themekit
+id: kinetic_content
+theme: kinetic
 region: content
-weight: -2
+weight: -5
 provider: null
 plugin: system_main_block
 settings:

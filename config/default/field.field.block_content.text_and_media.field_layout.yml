@@ -1,0 +1,23 @@
+uuid: 74824398-e7c9-4710-9e14-255cd744a97f
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.text_and_media
+    - field.storage.block_content.field_layout
+  module:
+    - options
+id: block_content.text_and_media.field_layout
+field_name: field_layout
+entity_type: block_content
+bundle: text_and_media
+label: Layout
+description: 'Select which side of the text the media will appear on'
+required: true
+translatable: false
+default_value:
+  -
+    value: left
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,4 +1,4 @@
-uuid: 36c01c10-e643-4561-98f1-03ce4bed54df
+uuid: 69a26d26-3ccf-49a9-9e4c-c31853e6dad7
 langcode: en
 status: false
 dependencies:
@@ -7,13 +7,13 @@ dependencies:
   module:
     - system
   theme:
-    - themekit
+    - kinetic
 _core:
   default_config_hash: '-0C6A90HC98x5xflIXciLIx-pE1k79tFg-U7kc_PX0E'
-id: themekit_tools
-theme: themekit
-region: header
-weight: -5
+id: kinetic_tools
+theme: kinetic
+region: content
+weight: -1
 provider: null
 plugin: 'system_menu_block:tools'
 settings:

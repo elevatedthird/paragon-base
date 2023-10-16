@@ -1,0 +1,23 @@
+uuid: 7482b6eb-f3eb-45db-bb3d-e59f8881f782
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.section_intro
+    - field.storage.block_content.field_alignment
+  module:
+    - options
+id: block_content.section_intro.field_alignment
+field_name: field_alignment
+entity_type: block_content
+bundle: section_intro
+label: Alignment
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: left
+default_value_callback: ''
+settings: {  }
+field_type: list_string

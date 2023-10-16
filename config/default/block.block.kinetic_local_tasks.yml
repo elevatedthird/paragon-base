@@ -1,17 +1,17 @@
-uuid: 02013a93-baba-4bf7-bbca-a9b15a167c92
+uuid: 342df433-60e4-4905-9ab8-e8e742e88127
 langcode: en
 status: false
 dependencies:
   module:
     - system
   theme:
-    - themekit
+    - kinetic
 _core:
   default_config_hash: EGUMgZSy6DYjyIVtCZj_RIA8af4gnZMtrrGdIRpTXTE
-id: themekit_local_tasks
-theme: themekit
+id: kinetic_local_tasks
+theme: kinetic
 region: content
-weight: -3
+weight: 2
 provider: null
 plugin: local_tasks_block
 settings:

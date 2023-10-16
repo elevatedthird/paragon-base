@@ -6,8 +6,11 @@ dependencies:
     - block_content.type.text_and_media
     - field.field.block_content.text_and_media.field_description
     - field.field.block_content.text_and_media.field_heading
+    - field.field.block_content.text_and_media.field_layout
     - field.field.block_content.text_and_media.field_media
+    - responsive_image.styles.half_column
   module:
+    - media_responsive_thumbnail
     - text
 id: block_content.text_and_media.default
 targetEntityType: block_content
@@ -29,13 +32,16 @@ content:
     weight: 1
     region: content
   field_media:
-    type: entity_reference_entity_view
-    label: above
+    type: media_responsive_thumbnail
+    label: hidden
     settings:
-      view_mode: default
-      link: false
+      responsive_image_style: half_column
+      image_link: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
     weight: 0
     region: content
 hidden:
+  field_layout: true
   langcode: true

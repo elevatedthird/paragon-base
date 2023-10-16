@@ -4,22 +4,97 @@ status: true
 dependencies:
   config:
     - block_content.type.section_intro
+    - field.field.block_content.section_intro.field_alignment
     - field.field.block_content.section_intro.field_ctas
     - field.field.block_content.section_intro.field_description
     - field.field.block_content.section_intro.field_eyebrow
     - field.field.block_content.section_intro.field_heading
+    - field.field.block_content.section_intro.field_heading_style
   module:
     - allowed_formats
+    - field_group
     - paragraphs
     - text
+third_party_settings:
+  field_group:
+    group_tabs:
+      children:
+        - group_heading
+        - group_content
+        - group_layout
+      label: Tabs
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        direction: horizontal
+        width_breakpoint: 640
+    group_layout:
+      children:
+        - field_alignment
+      label: Layout
+      region: content
+      parent_name: group_tabs
+      weight: 6
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_content:
+      children:
+        - field_eyebrow
+        - field_description
+        - field_ctas
+      label: Content
+      region: content
+      parent_name: group_tabs
+      weight: 5
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_heading:
+      children:
+        - field_heading
+        - field_heading_style
+      label: Heading
+      region: content
+      parent_name: group_tabs
+      weight: 4
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: open
+        description: ''
+        required_fields: true
 id: block_content.section_intro.default
 targetEntityType: block_content
 bundle: section_intro
 mode: default
 content:
+  field_alignment:
+    type: options_select
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_ctas:
     type: paragraphs
-    weight: 3
+    weight: 4
     region: content
     settings:
       title: Paragraph
@@ -38,7 +113,7 @@ content:
     third_party_settings: {  }
   field_description:
     type: text_textarea
-    weight: 2
+    weight: 3
     region: content
     settings:
       rows: 3
@@ -49,7 +124,7 @@ content:
         hide_guidelines: '1'
   field_eyebrow:
     type: string_textfield
-    weight: 0
+    weight: 2
     region: content
     settings:
       size: 60
@@ -57,7 +132,7 @@ content:
     third_party_settings: {  }
   field_heading:
     type: text_textarea
-    weight: 1
+    weight: 9
     region: content
     settings:
       rows: 1
@@ -66,6 +141,12 @@ content:
       allowed_formats:
         hide_help: '1'
         hide_guidelines: '1'
+  field_heading_style:
+    type: options_select
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   info: true
   langcode: true

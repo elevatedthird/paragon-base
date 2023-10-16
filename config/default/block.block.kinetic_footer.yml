@@ -1,4 +1,4 @@
-uuid: 6980098a-b748-42e3-b863-2a3175cdc7e5
+uuid: 43388673-192b-4cb4-89a5-c935a194ee61
 langcode: en
 status: true
 dependencies:
@@ -7,12 +7,12 @@ dependencies:
   module:
     - system
   theme:
-    - themekit
+    - kinetic
 _core:
   default_config_hash: CEMzRVcMOz2IAFPC4jibTZXq3eGpntypWvjCYcMWLh4
-id: themekit_footer
-theme: themekit
-region: footer
+id: kinetic_footer
+theme: kinetic
+region: programmatic
 weight: -6
 provider: null
 plugin: 'system_menu_block:footer'

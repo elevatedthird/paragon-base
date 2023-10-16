@@ -1,0 +1,31 @@
+uuid: 55574149-f818-4880-9114-99c3b1cb9b62
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - e3_list_options
+    - list_predefined_options
+    - options
+third_party_settings:
+  list_predefined_options:
+    plugin_id: layout
+  e3_list_options:
+    list_predefined_options_dummy: workaround-3016895
+id: block_content.field_layout
+field_name: field_layout
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: fake
+      label: fake
+  allowed_values_function: list_predefined_options_allowed_values
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

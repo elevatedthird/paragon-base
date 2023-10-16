@@ -1,15 +1,15 @@
-uuid: 3df8d95d-4492-4dde-80b2-9307c6721a9e
+uuid: 163b5fa4-a742-4be6-a132-dcb45d7d84c6
 langcode: en
 status: false
 dependencies:
   theme:
-    - themekit
+    - kinetic
 _core:
   default_config_hash: qW0_-NVOi163E-6qlcGezClfKeKHiIsQj7DfHpCw5bk
-id: themekit_page_title
-theme: themekit
+id: kinetic_page_title
+theme: kinetic
 region: content
-weight: -5
+weight: -2
 provider: null
 plugin: page_title_block
 settings:

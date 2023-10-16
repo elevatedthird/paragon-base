@@ -1,0 +1,31 @@
+uuid: 8e17f273-7b2f-4dbe-bd56-90e144268241
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - e3_list_options
+    - list_predefined_options
+    - options
+third_party_settings:
+  list_predefined_options:
+    plugin_id: alignment
+  e3_list_options:
+    list_predefined_options_dummy: workaround-3016895
+id: block_content.field_alignment
+field_name: field_alignment
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: temp
+      label: temp
+  allowed_values_function: list_predefined_options_allowed_values
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -7,7 +7,9 @@ dependencies:
     - field.field.paragraph.card.field_heading_plain
     - field.field.paragraph.card.field_image
     - paragraphs.paragraphs_type.card
+    - responsive_image.styles.third_column
   module:
+    - media_responsive_thumbnail
     - text
 id: paragraph.card.default
 targetEntityType: paragraph
@@ -19,23 +21,25 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 2
     region: content
   field_heading_plain:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
   field_image:
-    type: entity_reference_entity_view
-    label: above
+    type: media_responsive_thumbnail
+    label: hidden
     settings:
-      view_mode: default
-      link: false
+      responsive_image_style: third_column
+      image_link: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
-    weight: 2
+    weight: 0
     region: content
 hidden: {  }

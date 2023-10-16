@@ -4,30 +4,88 @@ status: true
 dependencies:
   config:
     - block_content.type.billboard
+    - field.field.block_content.billboard.field_alignment
     - field.field.block_content.billboard.field_bg_media
     - field.field.block_content.billboard.field_ctas
     - field.field.block_content.billboard.field_description
     - field.field.block_content.billboard.field_heading
   module:
     - allowed_formats
+    - field_group
     - media_library
     - paragraphs
     - text
+third_party_settings:
+  field_group:
+    group_content:
+      children:
+        - field_bg_media
+        - field_heading
+        - field_description
+        - field_ctas
+      label: Content
+      region: content
+      parent_name: group_tabs
+      weight: 1
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: open
+        description: ''
+        required_fields: true
+    group_tabs:
+      children:
+        - group_content
+        - group_alignment
+      label: Tabs
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: tabs
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        direction: horizontal
+        width_breakpoint: 640
+    group_alignment:
+      children:
+        - field_alignment
+      label: Alignment
+      region: content
+      parent_name: group_tabs
+      weight: 2
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
 id: block_content.billboard.default
 targetEntityType: block_content
 bundle: billboard
 mode: default
 content:
+  field_alignment:
+    type: options_select
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_bg_media:
     type: media_library_widget
-    weight: 0
+    weight: 2
     region: content
     settings:
       media_types: {  }
     third_party_settings: {  }
   field_ctas:
     type: paragraphs
-    weight: 3
+    weight: 5
     region: content
     settings:
       title: Paragraph
@@ -46,7 +104,7 @@ content:
     third_party_settings: {  }
   field_description:
     type: text_textarea
-    weight: 2
+    weight: 4
     region: content
     settings:
       rows: 3
@@ -57,7 +115,7 @@ content:
         hide_guidelines: '1'
   field_heading:
     type: text_textarea
-    weight: 1
+    weight: 3
     region: content
     settings:
       rows: 1

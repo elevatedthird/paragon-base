@@ -1,17 +1,17 @@
-uuid: c9f65300-f121-4414-a0ec-0495a97caf5e
+uuid: 4c2b9e4f-f065-4d87-b7e0-3e9ad35d01ea
 langcode: en
 status: false
 dependencies:
   module:
     - help
   theme:
-    - themekit
+    - kinetic
 _core:
   default_config_hash: hLrY3aguszlqhHJ3uDdHnO47Nfsj_9hPjf54GYLFgdQ
-id: themekit_help
-theme: themekit
+id: kinetic_help
+theme: kinetic
 region: content
-weight: -7
+weight: -3
 provider: null
 plugin: help_block
 settings:

@@ -1,17 +1,17 @@
-uuid: 0296a1b8-3a91-4f88-971d-3b76da4ebaf3
+uuid: 755b8f83-1ce5-470d-ad3e-5d938a87fb8a
 langcode: en
 status: false
 dependencies:
   module:
     - system
   theme:
-    - themekit
+    - kinetic
 _core:
   default_config_hash: paTaW7dMcKigzYok6GS-RiZ_-bDbaZt080i1b9OZ42E
-id: themekit_breadcrumbs
-theme: themekit
-region: highlighted
-weight: -8
+id: kinetic_breadcrumbs
+theme: kinetic
+region: content
+weight: -4
 provider: null
 plugin: system_breadcrumb_block
 settings:
