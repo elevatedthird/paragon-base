@@ -3,12 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.paragraph.card.field_ctas
     - field.field.paragraph.card.field_description
     - field.field.paragraph.card.field_heading_plain
     - field.field.paragraph.card.field_image
     - paragraphs.paragraphs_type.card
     - responsive_image.styles.third_column
   module:
+    - entity_reference_revisions
     - media_responsive_thumbnail
     - text
 id: paragraph.card.default
@@ -16,6 +18,15 @@ targetEntityType: paragraph
 bundle: card
 mode: default
 content:
+  field_ctas:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
   field_description:
     type: text_default
     label: hidden

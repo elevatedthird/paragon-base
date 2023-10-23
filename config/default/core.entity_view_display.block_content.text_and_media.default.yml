@@ -4,12 +4,14 @@ status: true
 dependencies:
   config:
     - block_content.type.text_and_media
+    - field.field.block_content.text_and_media.field_ctas
     - field.field.block_content.text_and_media.field_description
     - field.field.block_content.text_and_media.field_heading
     - field.field.block_content.text_and_media.field_layout
     - field.field.block_content.text_and_media.field_media
     - responsive_image.styles.half_column
   module:
+    - entity_reference_revisions
     - media_responsive_thumbnail
     - text
 id: block_content.text_and_media.default
@@ -17,6 +19,15 @@ targetEntityType: block_content
 bundle: text_and_media
 mode: default
 content:
+  field_ctas:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
   field_description:
     type: text_default
     label: hidden

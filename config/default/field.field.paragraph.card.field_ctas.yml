@@ -1,0 +1,46 @@
+uuid: 0a964739-665d-4b98-922f-c3bcdd6ae1a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ctas
+    - paragraphs.paragraphs_type.card
+    - paragraphs.paragraphs_type.link_default
+  module:
+    - entity_reference_revisions
+id: paragraph.card.field_ctas
+field_name: field_ctas
+entity_type: paragraph
+bundle: card
+label: CTAs
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      link_default: link_default
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: 8
+        enabled: false
+      card:
+        weight: 7
+        enabled: false
+      carousel_item:
+        weight: 9
+        enabled: false
+      link_default:
+        weight: 10
+        enabled: true
+      link_file:
+        weight: 11
+        enabled: false
+      tab_item:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions

@@ -33,6 +33,7 @@ module:
   datetime_range: 0
   dblog: 0
   dynamic_page_cache: 0
+  e3_list_options: 0
   editor: 0
   embed: 0
   entity: 0

@@ -16,3 +16,5 @@ parameters:
     # See https://www.drupal.org/node/1903374#options to read
     # more about the performance benefits of these settings.
     debug: true
+    auto_reload: true
+    cache: true

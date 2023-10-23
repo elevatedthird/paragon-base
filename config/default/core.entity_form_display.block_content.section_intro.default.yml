@@ -19,7 +19,6 @@ third_party_settings:
   field_group:
     group_tabs:
       children:
-        - group_heading
         - group_content
         - group_layout
       label: Tabs
@@ -36,7 +35,8 @@ third_party_settings:
     group_layout:
       children:
         - field_alignment
-      label: Layout
+        - field_heading_style
+      label: Appearance
       region: content
       parent_name: group_tabs
       weight: 6
@@ -51,28 +51,13 @@ third_party_settings:
     group_content:
       children:
         - field_eyebrow
+        - field_heading
         - field_description
         - field_ctas
       label: Content
       region: content
       parent_name: group_tabs
       weight: 5
-      format_type: tab
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        formatter: closed
-        description: ''
-        required_fields: true
-    group_heading:
-      children:
-        - field_heading
-        - field_heading_style
-      label: Heading
-      region: content
-      parent_name: group_tabs
-      weight: 4
       format_type: tab
       format_settings:
         classes: ''
@@ -94,12 +79,12 @@ content:
     third_party_settings: {  }
   field_ctas:
     type: paragraphs
-    weight: 4
+    weight: 5
     region: content
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: open
+      edit_mode: closed
       closed_mode: summary
       autocollapse: none
       closed_mode_threshold: 0
@@ -113,7 +98,7 @@ content:
     third_party_settings: {  }
   field_description:
     type: text_textarea
-    weight: 3
+    weight: 4
     region: content
     settings:
       rows: 3
@@ -132,7 +117,7 @@ content:
     third_party_settings: {  }
   field_heading:
     type: text_textarea
-    weight: 9
+    weight: 3
     region: content
     settings:
       rows: 1
@@ -143,7 +128,7 @@ content:
         hide_guidelines: '1'
   field_heading_style:
     type: options_select
-    weight: 10
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }

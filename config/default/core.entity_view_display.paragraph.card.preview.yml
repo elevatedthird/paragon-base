@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.paragraph.preview
+    - field.field.paragraph.card.field_ctas
     - field.field.paragraph.card.field_description
     - field.field.paragraph.card.field_heading_plain
     - field.field.paragraph.card.field_image
@@ -23,5 +24,6 @@ content:
     weight: 1
     region: content
 hidden:
+  field_ctas: true
   field_heading_plain: true
   field_image: true

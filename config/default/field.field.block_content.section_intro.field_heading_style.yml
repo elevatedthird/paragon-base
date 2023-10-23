@@ -12,7 +12,7 @@ field_name: field_heading_style
 entity_type: block_content
 bundle: section_intro
 label: 'Heading Style'
-description: ''
+description: 'Select which heading size to display. This only changes the style, not the markup'
 required: true
 translatable: false
 default_value:
