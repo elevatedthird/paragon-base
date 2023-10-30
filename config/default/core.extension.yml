@@ -70,6 +70,8 @@ module:
   language: 0
   layout_builder: 0
   layout_builder_browser: 0
+  layout_builder_lock: 0
+  layout_builder_modal: 0
   layout_builder_operation_link: 0
   layout_builder_restrictions: 0
   layout_builder_restrictions_by_region: 0
