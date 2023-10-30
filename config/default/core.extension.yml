@@ -72,7 +72,6 @@ module:
   layout_builder_browser: 0
   layout_builder_lock: 0
   layout_builder_limit: 0
-  layout_builder_modal: 0
   layout_builder_operation_link: 0
   layout_builder_restrictions: 0
   layout_builder_restrictions_by_region: 0
@@ -163,7 +162,6 @@ theme:
   classy: 0
   claro: 0
   gin: 0
-  paragon_themekit: 0
   stable9: 0
   kinetic: 0
 profile: minimal
