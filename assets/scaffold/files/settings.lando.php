@@ -93,6 +93,7 @@ $config['system.logging']['error_level'] = 'verbose';
  */
 $settings['trusted_host_patterns'] = [
     '^.+\.lndo\.site',
+    'localhost$'
 ];
 
 /**
