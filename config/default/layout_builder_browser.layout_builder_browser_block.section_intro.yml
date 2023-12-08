@@ -6,6 +6,6 @@ id: section_intro
 block_id: 'inline_block:section_intro'
 category: structured
 label: 'Section Intro'
-image_path: ''
+image_path: /modules/custom/paragon_gin/lbb/test.png
 image_alt: ''
 weight: 1

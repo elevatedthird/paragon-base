@@ -15,7 +15,7 @@ mode: default
 content:
   field_description:
     type: text_textarea
-    weight: 2
+    weight: 1
     region: content
     settings:
       rows: 3
@@ -24,6 +24,13 @@ content:
       allowed_formats:
         hide_help: '1'
         hide_guidelines: '1'
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
 hidden:
-  info: true
   langcode: true

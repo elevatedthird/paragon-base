@@ -1,0 +1,7 @@
+uuid: a0d85966-21b1-4d43-b5cf-0b48205321d3
+langcode: en
+status: true
+dependencies: {  }
+id: hero
+label: Hero
+weight: null

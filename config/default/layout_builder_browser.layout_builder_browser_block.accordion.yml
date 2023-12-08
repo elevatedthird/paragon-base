@@ -6,6 +6,6 @@ id: accordion
 block_id: 'inline_block:accordion'
 category: structured
 label: Accordion
-image_path: ''
+image_path: /modules/custom/paragon_gin/lbb/test.png
 image_alt: ''
 weight: -3

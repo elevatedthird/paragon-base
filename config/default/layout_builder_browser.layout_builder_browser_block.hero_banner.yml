@@ -1,0 +1,11 @@
+uuid: efd3bd0a-0eb3-4aef-9ad1-7fd4e06f7d55
+langcode: en
+status: true
+dependencies: {  }
+id: hero_banner
+block_id: 'inline_block:hero_banner'
+category: hero
+label: 'Hero Banner'
+image_path: /modules/custom/paragon_gin/lbb/test.png
+image_alt: ''
+weight: -100

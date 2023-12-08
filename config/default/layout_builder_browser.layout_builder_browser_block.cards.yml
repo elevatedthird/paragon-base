@@ -6,6 +6,6 @@ id: cards
 block_id: 'inline_block:cards'
 category: structured
 label: Cards
-image_path: ''
+image_path: /modules/custom/paragon_gin/lbb/test.png
 image_alt: ''
 weight: -1

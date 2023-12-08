@@ -1,0 +1,29 @@
+uuid: 13232db6-8c13-412e-81b5-0bce590f9403
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.hero_banner
+    - field.storage.block_content.field_heading
+    - filter.format.plain_text
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - plain_text
+id: block_content.hero_banner.field_heading
+field_name: field_heading
+entity_type: block_content
+bundle: hero_banner
+label: Heading
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - plain_text
+field_type: text_long

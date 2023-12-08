@@ -6,6 +6,6 @@ id: billboard
 block_id: 'inline_block:billboard'
 category: structured
 label: Billboard
-image_path: ''
+image_path: /modules/custom/paragon_gin/lbb/test.png
 image_alt: ''
 weight: -2

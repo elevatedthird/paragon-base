@@ -6,6 +6,6 @@ id: tabs
 block_id: 'inline_block:tabs'
 category: structured
 label: Tabs
-image_path: ''
+image_path: /modules/custom/paragon_gin/lbb/test.png
 image_alt: ''
 weight: 2

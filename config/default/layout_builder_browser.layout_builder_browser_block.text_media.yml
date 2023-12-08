@@ -6,6 +6,6 @@ id: text_media
 block_id: 'inline_block:text_and_media'
 category: structured
 label: 'Text + Media'
-image_path: ''
+image_path: /modules/custom/paragon_gin/lbb/test.png
 image_alt: ''
 weight: 4

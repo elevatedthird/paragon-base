@@ -10,24 +10,66 @@ dependencies:
     - layout_builder
     - layout_builder_restrictions
     - user
+  theme:
+    - kinetic
 third_party_settings:
   layout_builder:
     enabled: true
     allow_custom: true
     sections:
       -
-        layout_id: layout_builder_blank
+        layout_id: kinetic_banner
         layout_settings:
-          label: ''
+          label: Hero
           context_mapping: {  }
+          bg_color: none
+          content_width: default
         components: {  }
-        third_party_settings: {  }
+        third_party_settings:
+          layout_builder_limit:
+            limit:
+              scope: section
+              settings:
+                section:
+                  minimum_enabled: 0
+                  minimum: '1'
+                  maximum_enabled: 0
+                  maximum: '1'
+              scope_update: 'Update scope'
+          layout_builder_lock:
+            lock:
+              6: 6
+              8: 8
   layout_builder_restrictions:
     allowed_block_categories: {  }
     entity_view_mode_restriction:
-      allowed_layouts: {  }
+      allowed_layouts:
+        - kinetic_banner
+        - kinetic_onecol
+        - kinetic_twocol
       denylisted_blocks: {  }
       allowlisted_blocks: {  }
+      restricted_categories: {  }
+    entity_view_mode_restriction_by_region:
+      allowed_layouts:
+        - kinetic_banner
+        - kinetic_onecol
+        - kinetic_twocol
+      allowlisted_blocks:
+        kinetic_banner:
+          first:
+            'Inline blocks':
+              - 'inline_block:hero_banner'
+        kinetic_twocol:
+          all_regions:
+            'Inline blocks':
+              - 'inline_block:accordion'
+              - 'inline_block:text'
+      denylisted_blocks:
+        kinetic_onecol:
+          first:
+            'Inline blocks':
+              - 'inline_block:hero_banner'
 _core:
   default_config_hash: 532YNItv3Si2dNDAmz76WHzHSwjm9KeXqsOtmGk6XLs
 id: node.landing_page.default

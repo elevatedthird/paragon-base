@@ -20,11 +20,11 @@ third_party_settings:
     group_tabs:
       children:
         - group_content
-        - group_layout
+        - group_appearance
       label: Tabs
       region: content
       parent_name: ''
-      weight: 0
+      weight: 1
       format_type: tabs
       format_settings:
         classes: ''
@@ -50,10 +50,10 @@ third_party_settings:
         formatter: open
         description: ''
         required_fields: true
-    group_layout:
+    group_appearance:
       children:
         - field_layout
-      label: Layout
+      label: Appearance
       region: content
       parent_name: group_tabs
       weight: 2
@@ -72,7 +72,7 @@ mode: default
 content:
   field_ctas:
     type: paragraphs
-    weight: 5
+    weight: 6
     region: content
     settings:
       title: Paragraph
@@ -124,6 +124,13 @@ content:
     settings:
       media_types: {  }
     third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
 hidden:
-  info: true
   langcode: true

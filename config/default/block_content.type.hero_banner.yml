@@ -1,0 +1,8 @@
+uuid: a019cc02-fe3c-4a26-93da-2eed5eba58cd
+langcode: en
+status: true
+dependencies: {  }
+id: hero_banner
+label: 'Hero Banner'
+revision: 0
+description: 'A full width hero banner that appears in Hero layouts'
