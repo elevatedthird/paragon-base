@@ -18,7 +18,7 @@ third_party_settings:
     allow_custom: true
     sections:
       -
-        layout_id: kinetic_banner
+        layout_id: kinetic_content_header
         layout_settings:
           label: Hero
           context_mapping: {  }
@@ -44,29 +44,29 @@ third_party_settings:
     allowed_block_categories: {  }
     entity_view_mode_restriction:
       allowed_layouts:
-        - kinetic_banner
-        - kinetic_onecol
-        - kinetic_twocol
+        - kinetic_content_header
+        - kinetic_one_column
+        - kinetic_two_column
       denylisted_blocks: {  }
       allowlisted_blocks: {  }
       restricted_categories: {  }
     entity_view_mode_restriction_by_region:
       allowed_layouts:
-        - kinetic_banner
-        - kinetic_onecol
-        - kinetic_twocol
+        - kinetic_content_header
+        - kinetic_one_column
+        - kinetic_two_column
       allowlisted_blocks:
-        kinetic_banner:
+        kinetic_content_header:
           first:
             'Inline blocks':
               - 'inline_block:hero_banner'
-        kinetic_twocol:
+        kinetic_two_column:
           all_regions:
             'Inline blocks':
               - 'inline_block:accordion'
               - 'inline_block:text'
       denylisted_blocks:
-        kinetic_onecol:
+        kinetic_one_column:
           first:
             'Inline blocks':
               - 'inline_block:hero_banner'
