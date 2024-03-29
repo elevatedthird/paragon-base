@@ -1,0 +1,10 @@
+uuid: a71331cf-d076-43ee-b3ba-b2c5e32d032b
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.tab_navigation
+label: 'Tab Navigation'
+targetEntityType: paragraph
+cache: true

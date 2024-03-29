@@ -1,0 +1,30 @@
+uuid: a4e55342-9ebe-475b-a036-0f1e51e9ff1f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.tab_navigation
+    - field.field.paragraph.tab_item.field_description
+    - field.field.paragraph.tab_item.field_heading_plain
+    - paragraphs.paragraphs_type.tab_item
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.tab_item.tab_navigation
+targetEntityType: paragraph
+bundle: tab_item
+mode: tab_navigation
+content:
+  field_heading_plain:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_description: true
