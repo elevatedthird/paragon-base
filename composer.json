@@ -227,6 +227,9 @@
       "drupal/core":{
         "Field Groups marked as required are missing red asterisk": "https://www.drupal.org/files/issues/2022-11-08/3171835-53.patch"
       },
+      "drupal/gin_lb": {
+        "Secondary toolabr lost breadcrumb styling": "https://www.drupal.org/files/issues/2024-03-19/3428369-3.patch"
+      },
       "drupal/paragraphs": {
         "Affix correct langcode to paragraph in layout builder": "https://www.drupal.org/files/issues/2020-06-25/paragraphs-2901390-51.patch",
         "Paragraphs do not render: access check for 'view' fail when using layout builder + custom blocks & content revisions because the incorrect parent revision ID is being passed in ParagraphAccessControlHandler::checkAccess(": "https://www.drupal.org/files/issues/2020-07-08/access-controll-issue-3090200-22.patch"
