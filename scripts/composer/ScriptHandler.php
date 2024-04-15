@@ -161,31 +161,51 @@ class ScriptHandler {
 
   /**
    * @param Event $event
-   * Copy themekit's starterkit from contrib folders to custom folders
+   * Download and extract theme to the custom themes folder.
    */
-  public static function themeStartkitCopy(Event $event)
+  public static function downloadAndExtractTheme(Event $event)
   {
-    $themes = ['themekit'];
+    $theme = 'kinetic';
     $project_root = getcwd();
     $drupal_root = static::getDrupalRoot($project_root);
 
-    foreach($themes as $theme) {
-      if (!is_dir($drupal_root . "/themes/custom/$theme")) {
-        if (!is_dir($drupal_root . 'themes/custom')) {
-          @mkdir($drupal_root . '/themes/custom');
-        }
-
-        $srcFolder = $drupal_root . "/themes/contrib/paragon_$theme/starterkit";
-        $dstFolder = $drupal_root . "/themes/custom/$theme";
-
-        echo "  - Copy \033[32m$srcFolder \033[97mto \033[32m$dstFolder\033[97m\n";
-
-        if (static::recursiveCopy($srcFolder, $dstFolder, $theme)) {
-          echo "Successfully copied $srcFolder -> $dstFolder\n";
-        } else {
-          echo "Failed to copy $srcFolder -> $dstFolder\n";
-        }
+    if (!is_dir($drupal_root . "/themes/custom/$theme")) {
+      if (!is_dir($drupal_root . 'themes/custom')) {
+        @mkdir($drupal_root . '/themes/custom');
       }
+      try {
+        $download_link = '';
+        $file_name = '';
+        // Get a list of releases from drupal.org.
+        $project_status = file_get_contents("https://updates.drupal.org/release-history/{$theme}/current");
+        $parser = xml_parser_create();
+        xml_parse_into_struct($parser, $project_status, $vals, $index);
+        xml_parser_free($parser);
+        // Get the download link from the release.
+        if (isset($index['DOWNLOAD_LINK'])) {
+          $download_link = $vals[$index['DOWNLOAD_LINK'][0]]['value'];
+          $name = explode('/', $download_link);
+          $file_name = $name[count($name) - 1];
+        } else {
+          echo "Failed to get download link for $theme\n";
+          return;
+        }
+        // Download the release.
+        $release = file_get_contents("https://ftp.drupal.org/files/projects/{$file_name}");
+        // This runs from same directory as composer.json.
+        file_put_contents($file_name, $release, LOCK_EX);
+        $tar = new \PharData($file_name);
+        $tar->extractTo($drupal_root . '/themes/custom/', null, true);
+        // Delete the tarball.
+        unlink($file_name);
+        echo "Downloaded {$theme} to themes/custom/{$theme}\n";
+      }
+      catch (Exception $e) {
+        echo "Failed to download $theme\n";
+        return;
+      }
+    } else {
+      echo "Theme $theme already exists in themes/custom\n";
     }
   }
 }

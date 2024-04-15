@@ -102,7 +102,7 @@
     "drupal/smart_trim": "^2.0",
     "drupal/svg_image_field": "^2.0",
     "drupal/svg_upload_sanitizer": "^1.0@alpha",
-    "drupal/swiftmailer": "^2.0",
+    "drupal/symfony_mailer_lite": "^1.0",
     "drupal/twig_field_value": "~2.0.0",
     "drupal/ultimate_cron": "^2.0",
     "drupal/username_enumeration_prevention": "^1.1",
@@ -126,7 +126,8 @@
   },
   "scripts": {
     "pre-install-cmd": [
-      "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+      "DrupalProject\\composer\\ScriptHandler::checkComposerVersion",
+      "DrupalProject\\composer\\ScriptHandler::downloadAndExtractTheme"
     ],
     "pre-update-cmd": [
       "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
@@ -225,9 +226,6 @@
     "patches": {
       "drupal/core":{
         "Field Groups marked as required are missing red asterisk": "https://www.drupal.org/files/issues/2022-11-08/3171835-53.patch"
-      },
-      "drupal/path_redirect_import": {
-        "Update to support path redirect import migrate_tools 6.0.2": "https://www.drupal.org/files/issues/2023-07-06/path_redirect_import-3373025.patch"
       },
       "drupal/paragraphs": {
         "Affix correct langcode to paragraph in layout builder": "https://www.drupal.org/files/issues/2020-06-25/paragraphs-2901390-51.patch",
