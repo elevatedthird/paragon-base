@@ -1,0 +1,11 @@
+uuid: 8a0a4cf8-11a1-423d-81c6-18f25b4c788f
+langcode: en
+status: true
+dependencies: {  }
+id: media
+block_id: 'inline_block:media'
+category: structured
+label: Media
+image_path: ''
+image_alt: ''
+weight: -100

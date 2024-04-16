@@ -5,3 +5,4 @@ dependencies: {  }
 id: hero
 label: Hero
 weight: null
+opened: true

@@ -1,9 +1,9 @@
-_core:
-  default_config_hash: fmIZX47PjCIVObQh6Ao8FQfKjkWy-FzUE-OvsbDmMjQ
 uuid: 3f195bc4-923d-4a07-b4f6-f4868f288e7c
 langcode: en
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: fmIZX47PjCIVObQh6Ao8FQfKjkWy-FzUE-OvsbDmMjQ
 id: native
 label: 'PHP native sendmail'
 plugin: native

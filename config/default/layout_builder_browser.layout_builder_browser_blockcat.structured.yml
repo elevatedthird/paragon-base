@@ -5,3 +5,4 @@ dependencies: {  }
 id: structured
 label: Structured
 weight: null
+opened: true

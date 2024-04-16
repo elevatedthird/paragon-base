@@ -5,7 +5,7 @@ defaults:
   sender: symfony_mailer_lite
   formatter: symfony_mailer_lite
 modules:
- symfony_mailer_lite:
-  none:
-    sender: symfony_mailer_lite
-    formatter: symfony_mailer_lite
+  symfony_mailer_lite:
+    none:
+      sender: symfony_mailer_lite
+      formatter: symfony_mailer_lite

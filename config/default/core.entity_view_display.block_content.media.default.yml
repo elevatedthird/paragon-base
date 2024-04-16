@@ -1,0 +1,28 @@
+uuid: be51918f-8eaa-4b71-a186-ef005b0196ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.media
+    - field.field.block_content.media.field_media
+    - responsive_image.styles.half_column
+  module:
+    - media_responsive_thumbnail
+id: block_content.media.default
+targetEntityType: block_content
+bundle: media
+mode: default
+content:
+  field_media:
+    type: media_responsive_thumbnail
+    label: hidden
+    settings:
+      responsive_image_style: half_column
+      image_link: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

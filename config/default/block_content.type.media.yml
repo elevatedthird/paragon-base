@@ -1,0 +1,8 @@
+uuid: 54c8ea26-3752-400f-81a0-e569d5dbac2c
+langcode: en
+status: true
+dependencies: {  }
+id: media
+label: Media
+revision: 0
+description: 'Provides media'
