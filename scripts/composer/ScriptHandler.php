@@ -191,7 +191,7 @@ class ScriptHandler {
           return;
         }
         // Download the release.
-        $release = file_get_contents("https://ftp.drupal.org/files/projects/{$file_name}");
+        $release = file_get_contents($download_link);
         // This runs from same directory as composer.json.
         file_put_contents($file_name, $release, LOCK_EX);
         $tar = new \PharData($file_name);
