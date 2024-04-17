@@ -165,46 +165,58 @@ class ScriptHandler {
    */
   public static function downloadAndExtractTheme(Event $event)
   {
+    $fs = new Filesystem();
     $theme = 'kinetic';
+    // This always runs from same level as composer.json.
     $project_root = getcwd();
     $drupal_root = static::getDrupalRoot($project_root);
+    $theme_root = $drupal_root . '/themes/custom/' . $theme;
 
     if (!is_dir($drupal_root . "/themes/custom/$theme")) {
       if (!is_dir($drupal_root . 'themes/custom')) {
         @mkdir($drupal_root . '/themes/custom');
       }
       try {
-        $download_link = '';
-        $file_name = '';
+        $download_link = NULL;
+        $file_name = NULL;
         // Get a list of releases from drupal.org.
         $project_status = file_get_contents("https://updates.drupal.org/release-history/{$theme}/current");
         $parser = xml_parser_create();
         xml_parse_into_struct($parser, $project_status, $vals, $index);
         xml_parser_free($parser);
-        // Get the download link from the release.
-        if (isset($index['DOWNLOAD_LINK'])) {
-          $download_link = $vals[$index['DOWNLOAD_LINK'][0]]['value'];
-          $name = explode('/', $download_link);
-          $file_name = $name[count($name) - 1];
-        } else {
-          echo "Failed to get download link for $theme\n";
+        // Get the latest version of the theme.
+        if (isset($index['VERSION'])) {
+          $version = $vals[$index['VERSION'][0]]['value'];
+          $file_name = $theme . '-' . $version . '.zip';
+          $download_link = "https://ftp.drupal.org/files/projects/{$file_name}";
+        }
+        if (!$download_link || !$file_name) {
+          echo "Could not find the latest version for $theme\n";
           return;
         }
         // Download the release.
-        $release = file_get_contents($download_link);
-        // This runs from same directory as composer.json.
-        file_put_contents($file_name, $release, LOCK_EX);
-        $tar = new \PharData($file_name);
-        $tar->extractTo($drupal_root . '/themes/custom/', null, true);
-        // Delete the tarball.
+        file_put_contents($file_name, fopen($download_link, 'r'));
+        // Using the zip archive instead of tar because it doesn't extract files how we want.
+        $zip = new \ZipArchive();
+        $zip->open($file_name);
+        $zip->extractTo($drupal_root . '/themes/custom/');
+        $zip->close();
+        // For some reason, the tar and zip archives don't preserve symlinks.
+        // Re symlink the components directory.
+        $fs->remove([ $theme_root . '/components' ]);
+        $fs->symlink('source/02-components', $theme_root . '/components');
+        // Delete the .gitignore file.
+        unlink($theme_root . '/.gitignore');
+        // Delete the zip.
         unlink($file_name);
-        echo "Downloaded {$theme} to themes/custom/{$theme}\n";
+        echo "Downloaded {$theme} to themes/custom/{$theme}. Please run npm install\n";
       }
       catch (Exception $e) {
         echo "Failed to download $theme\n";
         return;
       }
-    } else {
+    }
+    else {
       echo "Theme $theme already exists in themes/custom\n";
     }
   }
