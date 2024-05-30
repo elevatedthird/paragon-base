@@ -25,7 +25,7 @@
   "require": {
     "bower-asset/chosen": "^1.8",
     "bower-asset/lazysizes": "^5.2",
-    "composer/installers": "^1.10",
+    "composer/installers": "^2.0",
     "cweagans/composer-patches": "~1.0",
     "drupal/address": "^1.0",
     "drupal/admin_toolbar": "^3.0",
@@ -39,8 +39,8 @@
     "drupal/components": "^3.0@beta",
     "drupal/composer_deploy": "^1.7",
     "drupal/config_update": "^2.0@alpha",
-    "drupal/core": "10.1.0",
-    "drupal/core-composer-scaffold": "~10.0.8",
+    "drupal/core": "^10.2",
+    "drupal/core-composer-scaffold": "^10.2",
     "drupal/csv_serialization": "^3.0",
     "drupal/devel": "^5.0",
     "drupal/embed": "^1.0",
@@ -108,10 +108,9 @@
     "drupal/username_enumeration_prevention": "^1.1",
     "drupal/views_bulk_edit": "^2.0",
     "drupal/views_bulk_operations": "^4.0",
-    "drush/drush": "~11.0",
+    "drush/drush": "^12",
     "npm-asset/jquery-ui-touch-punch": "dev-master",
     "oomphinc/composer-installers-extender": "^2.0",
-    "symfony/css-selector": "~3.3",
     "zaporylie/composer-drupal-optimizations": "^1.1"
   },
   "conflict": {
@@ -195,11 +194,6 @@
         "[web-root]/sites/default/cloud-memcache-d8+.php": {
           "mode": "replace",
           "path": "assets/scaffold/files/cloud-memcache-d8+.php",
-          "overwrite": false
-        },
-        "[web-root]/sites/default/settings.acquia.php": {
-          "mode": "replace",
-          "path": "assets/scaffold/files/settings.acquia.php",
           "overwrite": false
         },
         "[web-root]/sites/default/settings.lando.php": {

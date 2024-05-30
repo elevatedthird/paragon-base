@@ -1,0 +1,19 @@
+name: Deploy to Platform
+run-name: Deploy to Platform
+on:
+  push:
+    branches:
+      - main
+      - master
+      - develop
+      - feature/*
+  workflow_dispatch:
+jobs:
+  deploy_to_platform:
+    uses: elevatedthird/actions/.github/workflows/build_deploy.yml@main
+    secrets: inherit
+    with:
+      DESTINATION_REPOSITORY: ${{ vars.DESTINATION_REPOSITORY }}
+      NODE_VERSION: '18'
+      PHP_VERSION: '8.1'
+      THEME_NAME: 'kinetic'
