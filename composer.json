@@ -134,12 +134,22 @@
     "post-install-cmd": [
       "DrupalProject\\composer\\ScriptHandler::createRequiredDirectories",
       "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-      "DrupalProject\\composer\\ScriptHandler::removeGitSubmodules"
+      "DrupalProject\\composer\\ScriptHandler::removeGitSubmodules",
+      "@build-theme"
     ],
     "post-update-cmd": [
       "DrupalProject\\composer\\ScriptHandler::createRequiredDirectories",
       "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
       "DrupalProject\\composer\\ScriptHandler::removeGitSubmodules"
+    ],
+    "post-create-project-cmd": [
+      "@setup-platform"
+    ],
+    "setup-platform": [
+      "DrupalProject\\composer\\ScriptHandler::setupPlatformRequirements"
+    ],
+    "build-theme": [
+      "cd docroot/themes/custom/kinetic && npm install && npm run build"
     ]
   },
   "extra": {

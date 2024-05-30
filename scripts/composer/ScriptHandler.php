@@ -14,6 +14,11 @@ use Symfony\Component\Filesystem\Filesystem;
 class ScriptHandler {
 
   protected static function getDrupalRoot($project_root) {
+    // Get webroot from composer.json.
+    $composer_json = json_decode(file_get_contents($project_root . '/composer.json'), TRUE);
+    if (isset($composer_json['extra']['drupal-scaffold']['locations']['web-root'])) {
+      return $project_root . '/' . $composer_json['extra']['drupal-scaffold']['locations']['web-root'];
+    }
     return $project_root . '/docroot';
   }
 
@@ -112,51 +117,59 @@ class ScriptHandler {
     file_put_contents($pathToFile, $content);
   }
 
-  /**
-   * Helper function to recursively copy files from one directory to another
-   *
-   * @param $src
-   * @param $dst
-   * @param $theme
-   * @return bool
-   * @see https://www.php.net/manual/en/function.copy.php#91010
-   */
-  public static function recursiveCopy($src, $dst, $theme): bool
-  {
-    // Check to make sure that source directory actually exists
-    if(is_dir($src))
-    {
-      $dir = opendir($src);
-      @mkdir($dst);
-
-      while(false !== ( $file = readdir($dir)) )
-      {
-        if(( $file != '.' ) && ( $file != '..' ))
-        {
-          // recursively calls this function on directories
-          if ( is_dir($src . '/' . $file) )
-          {
-            self::recursiveCopy($src . '/' . $file, $dst . '/' . $file, $theme);
-          }
-          else
-          {
-            $fileCopy = str_replace('starterkit', $theme, $file);
-            copy($src . '/' . $file,$dst . '/' . $fileCopy);
-            static::fileStringReplace($dst . '/' . $fileCopy, $theme, 'starterkit');
-            static::fileStringReplace($dst . '/' . $fileCopy, ucfirst($theme), 'Starter Kit');
-          }
-        }
-      }
-      closedir($dir);
-      return true;
+  protected static function copyPlatformFiles($source, $destination) {
+    $fs = new Filesystem();
+    $is_file = pathinfo($destination, PATHINFO_EXTENSION) ? TRUE : FALSE;
+    $exists = $fs->exists($destination);
+    if ($is_file && !$exists) {
+      $fs->copy("assets/platform-setup{$source}", $destination);
     }
-    else
-    {
-      echo "\033[31m$src is not a valid directory\n";
-      return false;
+    elseif (!$is_file && !$exists) {
+      $fs->mirror("assets/platform-setup{$source}", $destination);
     }
+    else {
+      echo "{$destination} already exists... skipping\n";
+    }
+  }
 
-
+  public static function setupPlatformRequirements(Event $event) {
+    $io = $event->getIO();
+    $question = 'Select the hosting platform for this project';
+    $choices = ['Acquia', 'Pantheon', 'Platform.sh', 'custom'];
+    $default = $choices[0];
+    $answer = $io->select($question, $choices, $default);
+    $platform = $choices[$answer];
+    $project_root = getcwd();
+    $drupal_root = static::getDrupalRoot($project_root);
+    if ($platform !== 'custom') {
+      // Copy over main.yaml for GH Actions.
+      $io->write('Creating GitHub Actions workflow file.');
+      self::copyPlatformFiles('/main.yml', './.github/workflows/main.yml');
+    }
+    switch ($platform) {
+      case 'Acquia':
+        $io->write('Setting up Acquia specific requirements');
+        self::copyPlatformFiles('/acquia/hooks', './hooks');
+        self::copyPlatformFiles('/acquia/settings.acquia.php', $drupal_root . '/sites/default/settings.acquia.php');
+        break;
+      case 'Pantheon':
+        $io->write('Setting up Pantheon specific requirements');
+        self::copyPlatformFiles('/pantheon/pantheon.upstream.yml', './pantheon.upstream.yml');
+        self::copyPlatformFiles('/pantheon/pantheon.yml', './pantheon.yml');
+        self::copyPlatformFiles('/pantheon/settings.pantheon.php', $drupal_root . '/sites/default/settings.pantheon.php');
+        break;
+      case 'Platform.sh':
+        $io->write('Setting up Platform.sh specific requirements');
+        self::copyPlatformFiles('/platform-sh/.platform', './.platform');
+        self::copyPlatformFiles('/platform-sh/.environment', './.environment');
+        self::copyPlatformFiles('/platform-sh/.platform.app.yaml', './.platform.app.yaml');
+        self::copyPlatformFiles('/platform-sh/platformsh_generate_drush_yml.php', './drush/platformsh_generate_drush_yml.php');
+        self::copyPlatformFiles('/platform-sh/settings.platform.sh.php', $drupal_root . '/sites/default/settings.platform.sh.php');
+        break;
+      case 'custom':
+        $io->write('Paragon will not create any platform specific files. Run composer setup-platform to see these options again.');
+        break;
+    }
   }
 
   /**

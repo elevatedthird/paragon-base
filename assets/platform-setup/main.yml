@@ -1,15 +1,12 @@
-name: Deploy to Platform
-run-name: Deploy to Platform
+name: Build and Deploy to Remote
+run-name: Build and Deploy to Remote
 on:
   push:
     branches:
       - main
-      - master
-      - develop
-      - feature/*
   workflow_dispatch:
 jobs:
-  deploy_to_platform:
+  deploy_to_remote:
     uses: elevatedthird/actions/.github/workflows/build_deploy.yml@main
     secrets: inherit
     with:
@@ -17,3 +14,4 @@ jobs:
       NODE_VERSION: '18'
       PHP_VERSION: '8.1'
       THEME_NAME: 'kinetic'
+      PLATFORM: 'acquia'

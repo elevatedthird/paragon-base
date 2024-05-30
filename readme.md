@@ -17,6 +17,7 @@ To create a new Paragon installation follow the steps below:
 
 ### Step #1: Clone repository
 1. Run the following command:  `composer create-project elevatedthird/paragon-base [install_directory_name]` which will clone down the composer template and create all necessary files.
+2. You will prompted to select a hosting environment for your project. Select 'custom' if you don't want platform specific files or GH Action Workflows enabled. You can set up hosting requirements later by running `composer setup-platform`
 
 ### Step #2: Project setup
 2. Set up a local site using this newly created site directory. Paragon comes with Lando out of the box, which can be spun up by running `lando start` in the site root. Lando configuration is found in `.lando.yml` , and database settings in `settings.lando.php` are automatically included in `settings.php`.
@@ -48,32 +49,61 @@ To create a new Paragon installation follow the steps below:
 The most common xdebug commands are debug and off but these other modes are available as well.
 
 # E3 Github Workflows
-There are three different workflows each corresponding to a different platform.
+
 1. Ensure you have invited (insert our general e3 user we made) and ensure a senior dev has accepted the invite.
-2. Go: https://github.com/elevatedthird/<repo-name>/settings/variables/actions
-3. Under "Repository variable" add a variable named "DESTINATION_REPOSITORY" and paste the ssh url of the destination repository.
-4. In your project root create a .github/workflows directory and copy the workflows you want to use from the assets/platform-setup/<platform-name> directory. See readmes there.
-4. Remove the .disable extension from the file you want to use and commit it to your repository.
+2. Go: `https://github.com/elevatedthird/<repo-name>/settings/variables/actions`
+3. Under "Repository variable" add a variable named `DESTINATION_REPOSITORY` and paste the ssh url of the destination repository. This url must be an SSH url!
+4. You should have a `.github/workflows/main.yml` file in the root. If you do not, the project may not have been proivisioned with a hosting platform.
+    1. Create a `.github/workflows` folder in the project root
+    2. Copy `assets/platform-setup/main.yml` into that folder
+5. Configure the branches that should trigger the deployment to the hosting provider. The following shows recommended branch patterns
+    - Acquia: `main master develop feature/*`
+    - Pantheon: `master md-*`
+    - Platform: `*/*`
+6. On line 17, set the `PLATFORM` variable to either `acquia`, `platform`, or `pantheon`
+7. If you are NOT using kinetic, change the `THEME_NAME` variable to your theme. Also, change the path to the theme in the `build-theme` script in composer.json
 
 ## Specific Platform Instructions
 
 ### Acquia
 1. Ensure you have a hooks/dev/post-code-update/drush-deploy.sh
+2. Ensure that the code below is present on line 93 of settings.php.
+```php
+if(isset($_ENV['AH_SITE_ENVIRONMENT'])) {
+  if (file_exists($app_root . '/' . $site_path . '/settings.acquia.php')) {
+    include $app_root . '/' . $site_path . '/settings.acquia.php';
+  }
+}
+```
 
 ### Pantheon
-1. You need to go to: https://github.com/elevatedthird/<repo-name>/settings/variables/actions
-2. Set up a variable called "PANTHEON_SITE" and set it to the machine name of the site you want to deploy to.
-3. "PANTHEON_ENV" will be set automatically for you depending on your branch name. The workflow will only run on branches that are allowed.
-    4. master
-    5. md-* (should effectively push to a multidev environment)
-    6. branches should have 11 characters or less
+1. You need to go to: `https://github.com/elevatedthird/<repo-name>/settings/variables/actions`
+2. Set up a variable called `PANTHEON_SITE` and set it to the machine name of the site you want to deploy to.
+3. Ensure you change `docroot` folder name to `web`
+4. Change `docroot` to `web` in your `composer.json` file
+5. Ensure that the code below is present on line 93 of settings.php.
+```php
+if(isset($_ENV['PANTHEON_ENVIRONMENT'])) {
+  if (file_exists($app_root . '/' . $site_path . '/settings.pantheon.php')) {
+    include $app_root . '/' . $site_path . '/settings.pantheon.php';
+  }
+}
+```
 
 ### Platform
-1. Ensure your .platform.app.yaml deploy hook looks like this
+1. Ensure your `.platform.app.yaml` deploy hook looks like this
 ```yaml
   deploy: |
     set -e
     php ./drush/platformsh_generate_drush_yml.php
     cd docroot
     drush deploy
+```
+2. Ensure that the code below is present on line 93 of settings.php.
+```php
+if (isset($_ENV['PLATFORM_PROJECT'])) {
+  if (file_exists($app_root . '/' . $site_path . '/settings.platformsh.php')) {
+    include $app_root . '/' . $site_path . '/settings.platformsh.php';
+  }
+}
 ```
