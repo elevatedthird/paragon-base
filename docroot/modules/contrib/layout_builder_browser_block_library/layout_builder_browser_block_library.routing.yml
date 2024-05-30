@@ -1,0 +1,13 @@
+
+layout_builder_browser_block_library.choose_block_library:
+  path: '/layout_builder_browser_block_library/choose/inline-block/{section_storage_type}/{section_storage}/{delta}/{region}/{bundle}'
+  defaults:
+    _controller: '\Drupal\layout_builder_browser_block_library\Controller\BrowserBlockLibraryController::browse'
+    _title_callback: '\Drupal\layout_builder_browser_block_library\Controller\BrowserBlockLibraryController::getTitle'
+  requirements:
+    _layout_builder_access: 'view'
+  options:
+    _admin_route: TRUE
+    parameters:
+      section_storage:
+        layout_builder_tempstore: TRUE

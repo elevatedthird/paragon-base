@@ -1,0 +1,5 @@
+name: paragon_core
+type: module
+description: Base customizations for all paragon projects.
+package: Paragon
+core_version_requirement: ^8.8.0 || ^9 || ^10

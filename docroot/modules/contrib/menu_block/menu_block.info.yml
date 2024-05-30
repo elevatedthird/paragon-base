@@ -1,0 +1,11 @@
+name: Menu Block
+description: Provides configurable blocks of menu links.
+core_version_requirement: ^9.1 || ^10
+type: module
+dependencies:
+  - drupal:menu_ui
+
+# Information added by Drupal.org packaging script on 2024-05-06
+version: '8.x-1.11'
+project: 'menu_block'
+datestamp: 1715036337

@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * Add a requirement that PHP is compiled with the GD library.
+ *
+ * @param $phase
+ *
+ * @return array
+ */
+function imageapi_optimize_gd_requirements($phase) {
+  $requirements = [];
+  if ($phase == 'runtime') {
+    $requirements['imageapi_optimize_gd'] = [
+      'title' => t('ImageAPI Optimize GD'),
+      'severity' => REQUIREMENT_INFO,
+    ];
+    if (function_exists('imagegd2')) {
+      $requirements['imageapi_optimize_gd']['description'] = t('The GD Library for PHP is enabled.');
+      $requirements['imageapi_optimize_gd']['severity'] = REQUIREMENT_OK;
+    }
+    else {
+      $requirements['imageapi_optimize_gd']['description'] = t('The GD Library for PHP is not enabled, please recompile PHP with GD enabled.');
+      $requirements['imageapi_optimize_gd']['severity'] = REQUIREMENT_WARNING;
+    }
+  }
+  return $requirements;
+}

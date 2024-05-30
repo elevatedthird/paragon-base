@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function layout_builder_browser_block_library_theme(&$variables) {
+  return [
+    'lb_browser_block' => [
+      'template' => 'layout-builder-browser-block',
+      'variables' => [
+        'attributes' => NULL,
+        'url' => NULL,
+        'title' => NULL,
+        'browse_link' => NULL,
+      ],
+    ],
+  ];
+}

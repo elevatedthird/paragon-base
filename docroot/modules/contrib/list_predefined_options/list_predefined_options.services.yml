@@ -1,0 +1,9 @@
+services:
+  plugin.manager.list_options:
+    class: Drupal\list_predefined_options\ListOptionsManager
+    parent: default_plugin_manager
+  list_predefined_options.field_list_options_provider.uninstall_validator:
+    class: Drupal\list_predefined_options\FieldListOptionsProviderUninstallValidator
+    arguments: ['@plugin.manager.list_options', '@entity_type.manager']
+    tags:
+      - { name: module_install.uninstall_validator, priority: '0' }

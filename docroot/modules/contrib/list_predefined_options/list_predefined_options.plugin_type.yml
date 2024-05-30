@@ -1,0 +1,4 @@
+list_predefined_options.list_options:
+  label: 'List Options'
+  plugin_manager_service_id: plugin.manager.list_options
+  plugin_definition_decorator_class: Drupal\plugin\PluginDefinition\ArrayPluginDefinitionDecorator

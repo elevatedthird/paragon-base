@@ -1,0 +1,31 @@
+field_tools.reports.list:
+  path: /admin/reports/fields/tools
+  defaults:
+    _controller: '\Drupal\field_tools\Controller\FieldList::content'
+    _title: Field List
+  requirements:
+    _permission: 'administer site configuration'
+
+field_tools.reports.references:
+  path: /admin/reports/fields/references
+  defaults:
+    _controller: '\Drupal\field_tools\Controller\FieldReferencesList::content'
+    _title: Reference field list
+  requirements:
+    _permission: 'administer site configuration'
+
+field_tools.reports.references_graph:
+  path: /admin/reports/fields/graph
+  defaults:
+    _controller: '\Drupal\field_tools\Controller\FieldGraph::content'
+    _title: Field Graph
+  requirements:
+    _permission: 'administer site configuration'
+
+field_tools.import_multiple:
+  path: '/admin/config/development/configuration/multiple/import'
+  defaults:
+    _title: 'Multiple import'
+    _form: '\Drupal\field_tools\Form\ConfigMultipleImportForm'
+  requirements:
+    _permission: 'import configuration'

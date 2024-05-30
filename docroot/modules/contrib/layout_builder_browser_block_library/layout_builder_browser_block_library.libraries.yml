@@ -1,0 +1,5 @@
+browser_block_library:
+  version: VERSION
+  css:
+    theme:
+      css/layout_builder_browser_block_library.css: {}

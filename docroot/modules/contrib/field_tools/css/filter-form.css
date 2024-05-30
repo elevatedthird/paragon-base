@@ -1,0 +1,11 @@
+/**
+ * @file
+ * Layout for field list filter forms.
+ */
+#field-tools-reference-list-filter .fieldgroup {
+  float: left;
+}
+
+.form-actions {
+  clear: both;
+}

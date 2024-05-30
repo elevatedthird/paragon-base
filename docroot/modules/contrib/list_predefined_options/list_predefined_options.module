@@ -1,0 +1,113 @@
+<?php
+
+/**
+ * @file
+ * Provides reusable, predefined options for list fields.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\FieldableEntityInterface;
+use Drupal\Core\Field\FieldStorageDefinitionInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter(): field_storage_config_edit_form.
+ */
+function list_predefined_options_form_field_storage_config_edit_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  /** @var \Drupal\Core\Field\FieldConfigInterface $field */
+  $field = $form_state->getFormObject()->getEntity();
+
+  $field_types = [
+    'list_float',
+    'list_integer',
+    'list_string',
+  ];
+
+  if (in_array($field->getType(), $field_types)) {
+    $options = \Drupal::service('plugin.manager.list_options')->listOptions($field->getType());
+    $options = ['' => t('Custom')] + $options;
+
+    $settings = $field->getThirdPartySettings('list_predefined_options');
+    $form['list_predefined_options_plugin_id'] = [
+      '#type' => 'select',
+      '#title' => t('Allowed values'),
+      '#options' => $options,
+      '#default_value' => $settings['plugin_id'] ?? NULL,
+      '#weight' => -20,
+    ];
+
+    // Hide the values textarea when a list options plugin is selected.
+    $form['settings']['allowed_values']['#states']['visible'] = [
+      ':input[name="list_predefined_options_plugin_id"]' => ['value' => ''],
+    ];
+
+    // Reverse the hiding of form elements done by ListItemBase, as otherwise
+    // it's not possible to change a field from a list option plugin to a custom
+    // list of values.
+    if (isset($settings['plugin_id'])) {
+      $form['settings']['allowed_values']['#access'] = TRUE;
+      // Also hide the warning about the hiding.
+      $form['settings']['allowed_values_function']['#access'] = FALSE;
+    }
+
+    $form['#entity_builders'][] = 'list_predefined_options_form_field_storage_config_edit_form_builder';
+  }
+}
+
+/**
+ * Entity builder callback to save our settings into the field storage config.
+ */
+function list_predefined_options_form_field_storage_config_edit_form_builder($entity_type, $entity, &$form, FormStateInterface $form_state) {
+  $plugin_id = $form_state->getValue('list_predefined_options_plugin_id');
+  if (!empty($plugin_id)) {
+    $entity->setThirdPartySetting('list_predefined_options', 'plugin_id', $plugin_id);
+    $entity->setSetting('allowed_values_function', 'list_predefined_options_allowed_values');
+  }
+  else {
+    $entity->unsetThirdPartySetting('list_predefined_options', 'plugin_id');
+    // If one of our plugins is being removed, remove our allowed values
+    // function setting.
+    if ($entity->getSetting('allowed_values_function') == 'list_predefined_options_allowed_values') {
+      $entity->setSetting('allowed_values_function', '');
+    }
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave(): field_storage_config
+ */
+function list_predefined_options_field_storage_config_presave(EntityInterface $entity) {
+  // Workaround for https://www.drupal.org/project/drupal/issues/3016895 -
+  // though because of https://www.drupal.org/project/drupal/issues/3366218
+  // this is currently pointless.
+  // We need to maintain a dummy third party setting for the provider of a list
+  // options plugin if a field storage uses one. Without this, the module
+  // providing the list options could be uninstalled and any field using its
+  // plugin would be broken.
+  // Remove any settings in case the list options plugin has changed or been
+  // deleted from the field storage.
+  /** @var \Drupal\field\FieldStorageConfigInterface $entity */
+  foreach ($entity->getThirdPartyProviders() as $third_party) {
+    $entity->unsetThirdPartySetting($third_party, 'list_predefined_options_dummy');
+  }
+
+  if ($plugin_id = $entity->getThirdPartySetting('list_predefined_options', 'plugin_id')) {
+    $plugin_definition = \Drupal::service('plugin.manager.list_options')->getDefinition($plugin_id);
+    if ($plugin_definition['provider'] != 'list_predefined_options') {
+      $entity->setThirdPartySetting($plugin_definition['provider'], 'list_predefined_options_dummy', 'workaround-3016895');
+    }
+  }
+
+  // Re-calculate dependencies, as this hook is invoked after
+  // ConfigEntityBase::preSave().
+  $entity->calculateDependencies();
+}
+
+/**
+ * Implements callback_allowed_values_function().
+ */
+function list_predefined_options_allowed_values(FieldStorageDefinitionInterface $definition, FieldableEntityInterface $entity = NULL, &$cacheable = TRUE) {
+  $plugin_id = $definition->getThirdPartySetting('list_predefined_options', 'plugin_id');
+  $plugin = \Drupal::service('plugin.manager.list_options')->createInstance($plugin_id);
+  return $plugin->getListOptions($definition, $entity, $cacheable);
+}

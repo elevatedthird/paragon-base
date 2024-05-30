@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Include toolbar.html.twig template from Gin.
+ */
+#}
+
+{% include '@gin/navigation/toolbar--gin.html.twig' ignore missing %}
+{% if secondary_toolbar_frontend and toolbar_variant != 'classic' %}
+
+<div class="gin-secondary-toolbar gin-secondary-toolbar--frontend">
+<div class="gin-secondary-toolbar__layout-container">
+  <div class="gin-breadcrumb-wrapper">
+    {% if local_tasks %}
+      {{ local_tasks }}
+    {% endif %}
+  </div>
+  {% include '@gin/navigation/toolbar--gin--secondary.html.twig' ignore missing %}
+</div>
+</div>
+{% endif %}

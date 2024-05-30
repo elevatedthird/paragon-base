@@ -1,0 +1,6 @@
+filter_forms:
+  version: 1.x
+  css:
+    component:
+      css/filter-form.css: {}
+  dependencies: {}

@@ -1,0 +1,23 @@
+field_tools.field_ui_tools:
+  class: \Drupal\Core\Menu\LocalTaskDefault
+  deriver: \Drupal\field_tools\Plugin\Derivative\FieldToolsLocalTask
+
+field_tools.reports.list:
+  route_name: field_tools.reports.list
+  title: 'Tools'
+  base_route: entity.field_storage_config.collection
+
+field_tools.reports.references:
+  route_name: field_tools.reports.references
+  title: 'References'
+  base_route: entity.field_storage_config.collection
+
+field_tools.reports.references_graph:
+  route_name: field_tools.reports.references_graph
+  title: 'Graph'
+  base_route: entity.field_storage_config.collection
+
+field_tools.import_multiple:
+  route_name: field_tools.import_multiple
+  title: Multiple items
+  parent_id: config.import

@@ -1,0 +1,54 @@
+layout_builder.section.third_party.layout_builder_limit:
+  type: mapping
+  mapping:
+    limit:
+      type: layout_builder_limit.scope.[scope]
+
+layout_builder_limit.scope.disabled:
+  type: mapping
+  mapping:
+    scope:
+      type: string
+      label: 'Limit scope'
+
+layout_builder_limit.scope.region:
+  type: mapping
+  mapping:
+    scope:
+      type: string
+      label: 'Limit scope'
+    settings:
+      type: sequence
+      sequence:
+        - type: layout_builder_limit.scope_settings
+          label: 'Settings per region'
+
+layout_builder_limit.scope.section:
+  type: mapping
+  mapping:
+    scope:
+      type: string
+      label: 'Limit scope'
+    settings:
+      type: mapping
+      mapping:
+        region:
+          type: layout_builder_limit.scope_settings
+
+layout_builder_limit.scope_settings:
+  type: mapping
+  mapping:
+    minimum_enabled:
+      type: boolean
+      label: 'Minimum Enabled'
+    minimum:
+      type: integer
+      label: 'Minimum'
+    maximum_enabled:
+      type: boolean
+      label: 'Maximum Enabled'
+    maximum:
+      type: integer
+      label: 'Maximum'
+
+

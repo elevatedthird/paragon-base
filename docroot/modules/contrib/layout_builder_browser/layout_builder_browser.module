@@ -1,0 +1,71 @@
+<?php
+
+/**
+ * @file
+ * Handles the hook implementation for the layout_builder_browser module.
+ */
+
+use Drupal\Component\Serialization\Json;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function layout_builder_browser_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (!\Drupal::config('layout_builder_browser.settings')->get('use_modal')) {
+    return;
+  }
+
+  // \Drupal\layout_builder\Form\ConfigureBlockFormBase::doBuildForm sets an
+  // ajax handler on the main submit action for the form whenever any element
+  // on the form is rebuilt using ajax. This is then cached and a subsequent
+  // form submission can be processed as ajax even when we don't want that.
+  // This module never wants the submit action to be ajax, so we ensure that.
+  // See
+  // https://www.drupal.org/project/layout_builder_iframe_modal/issues/3202523.
+  if (in_array($form_id, [
+    'layout_builder_add_block',
+    'layout_builder_update_block',
+  ])) {
+    if (!empty($form['actions']['submit']['#ajax'])) {
+      unset($form['actions']['submit']['#ajax']);
+    }
+  }
+}
+
+/**
+ * Implements hook_link_alter().
+ */
+function layout_builder_browser_link_alter(&$variables) {
+  if (!\Drupal::config('layout_builder_browser.settings')->get('use_modal')) {
+    return;
+  }
+  /** @var Drupal\Core\Url $url */
+  $url = $variables['url'];
+
+  if (!$url->isRouted()) {
+    return;
+  }
+
+  $route_name = $url->getRouteName();
+
+  if (!in_array($route_name, [
+    'layout_builder.choose_block',
+    'layout_builder.add_block',
+  ])) {
+    return;
+  }
+
+  if (in_array('use-ajax', $variables['options']['attributes']['class'])) {
+    $data_dialog_options = Json::encode([
+      'width' => "80%",
+      'height' => "auto",
+      'target' => 'layout-builder-modal',
+      'autoResize' => TRUE,
+      'modal' => TRUE,
+    ]);
+    $variables['options']['attributes']['data-dialog-options'] = $data_dialog_options;
+    $variables['options']['attributes']['data-dialog-type'] = 'dialog';
+    unset($variables['options']['attributes']['data-dialog-renderer']);
+  }
+}

@@ -1,0 +1,8 @@
+name: Paragon Gin
+type: module
+description: Paragon customizations for gin based admin experience.
+package: Paragon
+core_version_requirement: ^8.8.0 || ^9 || ^10
+dependencies:
+  - paragon_core:paragon_core
+  - gin_lb:gin_lb

@@ -1,0 +1,10 @@
+name: 'Smart Trim Test Theme'
+type: theme
+description: 'Theme for smart_trim tests.'
+base theme: stark
+core_version_requirement: ^9 | ^10 || ^11
+
+# Information added by Drupal.org packaging script on 2024-02-25
+version: '2.1.1'
+project: 'smart_trim'
+datestamp: 1708875350

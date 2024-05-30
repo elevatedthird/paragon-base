@@ -1,0 +1,15 @@
+name: Media Responsive Thumbnail
+description: 'Adds a field formatter for Media references which displays a responsive image.'
+package: Media
+
+type: module
+core_version_requirement: ^8 || ^9 || ^10
+
+dependencies:
+  - drupal:media
+  - drupal:responsive_image
+
+# Information added by Drupal.org packaging script on 2023-03-15
+version: '8.x-1.5'
+project: 'media_responsive_thumbnail'
+datestamp: 1678885328

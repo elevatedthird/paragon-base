@@ -1,0 +1,17 @@
+browser:
+  version: VERSION
+  css:
+    theme:
+      css/layout_builder_browser.css: {}
+modal:
+  version: VERSION
+  js:
+    js/layout_builder_browser.modal.js: { }
+  dependencies:
+    - layout_builder/drupal.layout_builder
+    - core/once
+admin:
+  version: VERSION
+  css:
+    theme:
+      css/layout_builder_browser.admin.css: {}

@@ -1,0 +1,51 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\layout_builder_limit\ElementInfoAlter;
+use Drupal\layout_builder_limit\FormAlter;
+use \Drupal\layout_builder_limit\LayoutBuilderLimit;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\layout_builder_limit\PluginFilterAlter;
+
+/**
+ * Implements hook_help().
+ */
+function layout_builder_limit_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the layout_builder_limit module.
+    case 'help.page.layout_builder_limit':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Provides limits to components in layout builder sections and regions.') . '</p>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Alters the configure layout builder section form.
+ */
+function layout_builder_limit_form_layout_builder_configure_section_alter(&$form, FormStateInterface $form_state) {
+  \Drupal::service('class_resolver')
+    ->getInstanceFromDefinition(FormAlter::class)
+    ->configureSectionFormAlter($form, $form_state);
+}
+
+/**
+ * Implements hook_plugin_filter_TYPE__CONSUMER_alter().
+ */
+function layout_builder_limit_plugin_filter_block__layout_builder_alter(array &$definitions, array $extra) {
+  \Drupal::service('class_resolver')
+    ->getInstanceFromDefinition(PluginFilterAlter::class)
+    ->blockLayoutBuilderPluginFilterAlter($definitions, $extra);
+}
+
+/**
+ * Implements hook_element_info_alter().
+ */
+function layout_builder_limit_element_info_alter(array &$info) {
+  \Drupal::service('class_resolver')
+    ->getInstanceFromDefinition(ElementInfoAlter::class)
+    ->elementInfoAlter($info);
+}

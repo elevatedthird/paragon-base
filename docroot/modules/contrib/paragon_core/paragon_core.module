@@ -1,0 +1,13 @@
+<?php
+
+use Drupal\paragon_core\LocalTasksAlter;
+
+/**
+ * Implements hook_local_tasks_alter.
+ */
+function paragon_core_local_tasks_alter(&$local_tasks) {
+  \Drupal::service('class_resolver')
+    ->getInstanceFromDefinition(LocalTasksAlter::class)
+    ->localTasksAlter($local_tasks);
+}
+

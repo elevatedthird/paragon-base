@@ -1,0 +1,9 @@
+services:
+  fast404.:
+    class: Drupal\fast404\EventSubscriber\Fast404EventSubscriber
+    arguments: ['@request_stack', '@fast404.factory']
+    tags:
+      - { name: event_subscriber }
+  fast404.factory:
+    class: Drupal\fast404\Fast404Factory
+    arguments: ['@request_stack', '@config.factory']

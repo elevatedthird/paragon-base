@@ -1,0 +1,228 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
+use Drupal\paragon_gin\FormAlter;
+use Drupal\paragon_gin\LibraryInfoAlter;
+use Drupal\paragon_gin\Preprocess;
+use Drupal\paragon_gin\ThemeRegistryAlter;
+
+/**
+ * Implements hook_library_info_alter.
+ */
+function paragon_gin_library_info_alter(&$libraries, $extension) {
+  \Drupal::service('class_resolver')
+    ->getInstanceFromDefinition(LibraryInfoAlter::class)
+    ->libraryInfoAlter($libraries, $extension);
+}
+
+/**
+ * Implements hook_theme_registry_alter.
+ */
+function paragon_gin_theme_registry_alter(&$theme_registry) {
+  \Drupal::service('class_resolver')
+    ->getInstanceFromDefinition(ThemeRegistryAlter::class)
+    ->themeRegistryAlter($theme_registry);
+}
+
+/**
+ * Implements theme_preprocess_toolbar.
+ */
+function paragon_gin_preprocess_toolbar(&$variables) {
+  \Drupal::service('class_resolver')
+    ->getInstanceFromDefinition(Preprocess::class)
+    ->toolbar($variables);
+}
+
+/**
+ * Implements theme_preprocess_menu_local_task.
+ */
+function paragon_gin_preprocess_menu_local_task(&$variables) {
+  \Drupal::service('class_resolver')
+    ->getInstanceFromDefinition(Preprocess::class)
+    ->menuLocalTask($variables);
+}
+
+/**
+ * Implements theme_preprocess_menu_local_tasks.
+ */
+function paragon_gin_preprocess_menu_local_tasks(&$variables) {
+  \Drupal::service('class_resolver')
+    ->getInstanceFromDefinition(Preprocess::class)
+    ->menuLocalTasks($variables);
+}
+
+/**
+ * Implements hook_layout_builder_browser_alter().
+ */
+function paragon_gin_layout_builder_browser_alter(array &$build, array $context) {
+
+  // Remove search becuase it doesn't work. (fix this soon)
+  unset($build['filter']);
+
+  // Add toggle for list and icon view.
+  $toggle_enabled = (bool) theme_get_setting('show_lb_toggle', 'gin');
+  $default_view = $toggle_enabled ? 'icon' : 'list';
+  if ($toggle_enabled) {
+    $build['view_options'] = [
+      '#weight' => -1,
+      '#theme' => "paragon_gin_lb_browser_toggle",
+    ];
+  }
+
+  $categories = Element::children($build['block_categories']);
+
+  foreach ($categories as $category) {
+    $build['block_categories'][$category]['links']['#prefix'] = "<div data-view='{$default_view}' class='paragon-gin-browser-wrapper'>";
+    $build['block_categories'][$category]['links']['#suffix'] = "</div>";
+
+    $links = Element::children($build['block_categories'][$category]['links']);
+
+    foreach ($links as $index) {
+      $settings = $build['block_categories'][$category]['links'][$index];
+      $render_array = [
+        '#theme' => 'paragon_gin_lb_browser_block',
+        '#label' => $settings['#title']['label']
+      ];
+      if (isset($settings['#title']['description'])) {
+        $render_array['#description'] = $settings['#title']['description'];
+      }
+      if (isset($settings['#title']['image'])) {
+        $render_array['#image'] = $settings['#title']['image'];
+      }
+      // Wrap the anchor tag in a div.
+      $build['block_categories'][$category]['links'][$index]['#prefix'] = "<div class='paragon-gin-card'>";
+      $build['block_categories'][$category]['links'][$index]['#suffix'] = "</div>";
+      $build['block_categories'][$category]['links'][$index]['#title'] = $render_array;
+    }
+  }
+  // Attach the CSS/JS.
+  $build['#attached']['library'][] = 'paragon_gin/layout-builder-browser';
+  $build['#attached']['drupalSettings']['paragon_gin']['default_view'] = $default_view;
+
+}
+
+/**
+ * Implements hook_theme().
+ */
+function paragon_gin_theme(&$variables) {
+  return [
+    'paragon_gin_lb_browser_block' => [
+      'template' => 'layout-builder-browser-block',
+      'variables' => [
+        'attributes' => NULL,
+        'url' => NULL,
+        'label' => NULL,
+        'image' => NULL,
+        'description' => NULL,
+      ],
+    ],
+    'paragon_gin_lb_browser_toggle' => [
+      'template' => 'layout-builder-browser-toggle',
+      'variables' => [
+        'default_view' => 'icon',
+      ],
+    ],
+  ];
+
+}
+
+/**
+ * Implements hook_preprocess_block().
+ *  - Add the block plugin id to the block attributes for the tooltip.
+ */
+function paragon_gin_preprocess_block(&$variables) {
+  if (!empty($variables['elements']['content']['#block_content'])) {
+    $block = $variables['elements']['content']['#block_content'];
+    $variables['attributes']['data-paragon-gin-plugin-id'] = $block->bundle();
+  }
+}
+
+// Add a checkbox to toggle the icon and list view in the layout builder.
+function paragon_gin_form_system_theme_settings_alter(&$form, $form_state) {
+  if ($form['var']['#value'] === 'theme_gin_settings' && isset($form['custom_settings'])) {
+    $form['custom_settings']['show_lb_toggle'] = [
+      '#type' => 'checkbox',
+      '#description' => t('Check this box to show the icon and list toggle in the Layout Builder.'),
+      '#title' => t('Show Icon and List toggle in Layout Builder'),
+      '#default_value' => theme_get_setting('show_lb_toggle', 'gin'),
+    ];
+  }
+
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function paragon_gin_page_attachments_alter(array &$attachments) {
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  if ($route_name !== NULL && preg_match('/^(layout_builder\.([^.]+\.)?)/', $route_name)) {
+    $attachments['#attached']['library'][] = 'paragon_gin/layout-builder-improvements';
+  }
+}
+
+/**
+ * Helper function to update the title.
+ */
+function _paragon_gin_update_title(&$form, FormStateInterface $form_state) {
+  // Set the title of the block to the block type and the
+  // field_heading if its available.
+  $values = $form_state->getValue('settings');
+  $type = $form['settings']['admin_label']['#plain_text'];
+
+  if (array_key_exists('field_heading', $values['block_form'])) {
+    $heading = strip_tags($values['block_form']['field_heading'][0]['value']);
+    $values['label'] = substr($type . ' - ' . $heading, 0, 255);
+  } else {
+    $values['label'] = $type;
+  }
+
+  $form_state->setValue('settings', $values);
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function paragon_gin_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  switch ($form_id) {
+    case 'node_landing_page_layout_builder_form':
+    case 'node_system_page_layout_builder_form':
+      $revision_information_form = $form['revision_information'];
+      $moderation_state_form = $form['moderation_state'];
+      $form['actions']['moderation_state'] = $moderation_state_form;
+
+      // When using the moderation_sidebar module, let's avoid redundant
+      // clutter and remove moderation state from the vanilla LB display.
+      if (isset($form['moderation_state'])) {
+        $form['moderation_state']['#type'] = 'hidden';
+      }
+      if (isset($form['revision_information'])) {
+        $form['revision_information']['#access'] = FALSE;
+      }
+      break;
+
+    case 'layout_builder_add_block':
+    case 'layout_builder_update_block':
+      // Only alter the block configuration forms for inline or reusable
+      // block_content entity blocks, since they are primarily
+      // the ones afflicted with the conflict described above.
+      $is_reusable_block_content = $form['settings']['provider']['#value'] === 'layout_builder';
+      $is_inline_block = isset($form['settings']['block_form']['#block']) && $form['settings']['block_form']['#block'] instanceof BlockContent;
+      if (!$is_reusable_block_content && !$is_inline_block) {
+        return;
+      }
+
+      // Hide the label of the block placement and provide a default value if it
+      // is empty.
+      if (empty($form['settings']['label']['#default_value'])) {
+        $form['settings']['label']['#default_value'] = t('Inline block');
+      }
+
+      // Default to hiding the label of the block.
+      $form['settings']['label_display']['#default_value'] = FALSE;
+      $form['settings']['label_display']['#type'] = 'value';
+
+      array_unshift($form['#submit'], '_paragon_gin_update_title');
+      break;
+  }
+}

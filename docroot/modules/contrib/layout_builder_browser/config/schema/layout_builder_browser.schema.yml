@@ -1,0 +1,19 @@
+layout_builder_browser.settings:
+  type: config_object
+  mapping:
+    enabled_section_storages:
+      type: sequence
+      label: 'Layout builder browser enabled section storages'
+      orderby: value
+      sequence:
+        type: string
+        label: 'Section storage id'
+    use_modal:
+      type: boolean
+      label: 'Use modal'
+    auto_added_reusable_block_content_bundles:
+      type: sequence
+      label: 'Reusable block content bundles'
+      sequence:
+        type: string
+        label: 'Block content bundle'

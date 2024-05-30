@@ -219,7 +219,7 @@
     },
     "patches": {
       "drupal/core":{
-        "Field Groups marked as required are missing red asterisk": "https://www.drupal.org/files/issues/2022-11-08/3171835-53.patch"
+        "Field Groups marked as required are missing red asterisk": "https://git.drupalcode.org/project/drupal/-/merge_requests/545.diff"
       },
       "drupal/gin_lb": {
         "Secondary toolabr lost breadcrumb styling": "https://www.drupal.org/files/issues/2024-03-19/3428369-3.patch"

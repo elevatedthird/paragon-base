@@ -1,0 +1,12 @@
+name: 'Smart Trim hooks test'
+type: module
+description: 'Used to test Smart Trim hooks.'
+package: Custom
+core_version_requirement: ^9 || ^10 || ^11
+dependencies:
+  - smart_trim:smart_trim
+
+# Information added by Drupal.org packaging script on 2024-02-25
+version: '2.1.1'
+project: 'smart_trim'
+datestamp: 1708875350

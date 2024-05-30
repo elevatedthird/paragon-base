@@ -1,0 +1,25 @@
+{
+  "name": "drupal/paragon_gin",
+  "description": "Paragon customizations for gin based admin experience.",
+  "type": "drupal-module",
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "homepage": "https://drupal.org/project/paragon_gin",
+  "authors": [
+    {
+      "name": "Michael Lander (michaellander)",
+      "homepage": "https://www.drupal.org/u/michaellander",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://drupal.org/project/issues/paragon_gin",
+    "irc": "irc://irc.freenode.org/drupal-contribute",
+    "source": "https://cgit.drupalcode.org/paragon_gin"
+  },
+  "require": {
+    "drupal/paragon_core": "1.0.x-dev",
+    "drupal/gin": "^3.0@RC",
+    "drupal/gin_lb": "^1.0@RC"
+  }
+}

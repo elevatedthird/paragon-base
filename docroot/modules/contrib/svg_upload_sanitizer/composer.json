@@ -1,0 +1,65 @@
+{
+  "name": "drupal/svg_upload_sanitizer",
+  "description": "Sanitize SVG file at the upload.",
+  "type": "drupal-module",
+  "license": "GPL-2.0+",
+  "keywords": [
+    "Drupal",
+    "Media",
+    "svg",
+    "Security"
+  ],
+  "homepage": "https://www.drupal.org/project/svg_upload_sanitizer",
+  "authors": [
+    {
+      "name": "Benjamin Rambaud (beram.job@gmail.com)",
+      "homepage": "https://drupal.org/user/3508624",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "http://drupal.org/project/issues/svg_upload_sanitizer",
+    "source": "http://cgit.drupalcode.org/svg_upload_sanitizer"
+  },
+  "autoload": {
+    "psr-4": {
+      "Drupal\\svg_upload_sanitizer\\": "src/",
+      "Drupal\\Tests\\svg_upload_sanitizer\\": "tests/src/"
+    }
+  },
+  "require": {
+    "drupal/core": "^9.0 || ^10.0",
+    "enshrined/svg-sanitize": "^0.16"
+  },
+  "require-dev": {
+    "mikey179/vfsstream": "1.6.7",
+    "drupal/core-composer-scaffold": "^9.0 || ^10.0",
+    "drupal/coder": "8.3.11",
+    "dealerdirect/phpcodesniffer-composer-installer": "0.7.0",
+    "behat/mink": "^1.10"
+  },
+  "conflict": {
+    "drupal/drupal": "*"
+  },
+  "extra": {
+    "drupal-scaffold": {
+      "locations": {
+        "project-root": "./vendor/drupal",
+        "web-root": "./vendor/drupal"
+      }
+    }
+  },
+  "scripts": {
+    "clean": "rm -rf composer.lock vendor",
+    "quality-analysis": "composer phpcs && composer phpmd && composer phpunit",
+    "phpcs": "./vendor/bin/phpcs",
+    "phpmd": "./tools/phpmd src,svg_upload_sanitizer.module ansi phpmd.xml.dist",
+    "phpunit": "./tools/phpunit.phar"
+  },
+  "config": {
+    "allow-plugins": {
+      "drupal/core-composer-scaffold": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  }
+}

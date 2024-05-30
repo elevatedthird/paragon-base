@@ -1,0 +1,23 @@
+paragraphs_browser.paragraphs_browser_type.*:
+  type: config_entity
+  label: 'Browser Type'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    groups:
+      label: 'Groups'
+      type: sequence
+      sequence:
+        type: undefined
+    groupList:
+      type: string
+      label: 'Group List'
+    map:
+      label: 'Map'
+      type: sequence
+      sequence:
+        type: undefined

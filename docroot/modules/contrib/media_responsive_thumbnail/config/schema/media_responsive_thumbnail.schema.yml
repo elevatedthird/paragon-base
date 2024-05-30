@@ -1,0 +1,5 @@
+# Schema for the Media Responsive Thumbnail module.
+
+field.formatter.settings.media_responsive_thumbnail:
+  type: field.formatter.settings.responsive_image
+  label: 'Responsive Thumbnail field formatter settings'
