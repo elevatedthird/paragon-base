@@ -132,6 +132,13 @@ class ScriptHandler {
     }
   }
 
+  public static function createGHActions(Event $event) {
+    $io = $event->getIO();
+    // Copy over main.yaml for GH Actions.
+    $io->write('Creating GitHub Actions workflow file.');
+    self::copyPlatformFiles('/main.yml', './.github/workflows/main.yml');
+  }
+
   public static function setupPlatformRequirements(Event $event) {
     $io = $event->getIO();
     $question = 'Select the hosting platform for this project';
@@ -141,11 +148,6 @@ class ScriptHandler {
     $platform = $choices[$answer];
     $project_root = getcwd();
     $drupal_root = static::getDrupalRoot($project_root);
-    if ($platform !== 'custom') {
-      // Copy over main.yaml for GH Actions.
-      $io->write('Creating GitHub Actions workflow file.');
-      self::copyPlatformFiles('/main.yml', './.github/workflows/main.yml');
-    }
     switch ($platform) {
       case 'Acquia':
         $io->write('Setting up Acquia specific requirements');

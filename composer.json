@@ -126,7 +126,8 @@
   "scripts": {
     "pre-install-cmd": [
       "DrupalProject\\composer\\ScriptHandler::checkComposerVersion",
-      "DrupalProject\\composer\\ScriptHandler::downloadAndExtractTheme"
+      "DrupalProject\\composer\\ScriptHandler::downloadAndExtractTheme",
+      "DrupalProject\\composer\\ScriptHandler::createGHActions"
     ],
     "pre-update-cmd": [
       "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"

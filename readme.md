@@ -50,18 +50,17 @@ The most common xdebug commands are debug and off but these other modes are avai
 
 # E3 Github Workflows
 
+By default, all Paragon projects have Github Actions enabled. To disable, rename the `.github/workflows/main.yml` to `main.disable`
+
 1. Ensure you have invited (insert our general e3 user we made) and ensure a senior dev has accepted the invite.
 2. Go: `https://github.com/elevatedthird/<repo-name>/settings/variables/actions`
 3. Under "Repository variable" add a variable named `DESTINATION_REPOSITORY` and paste the ssh url of the destination repository. This url must be an SSH url!
-4. You should have a `.github/workflows/main.yml` file in the root. If you do not, the project may not have been proivisioned with a hosting platform.
-    1. Create a `.github/workflows` folder in the project root
-    2. Copy `assets/platform-setup/main.yml` into that folder
-5. Configure the branches that should trigger the deployment to the hosting provider. The following shows recommended branch patterns
+4. Configure the branches that should trigger the deployment to the hosting provider. The following shows recommended branch patterns
     - Acquia: `main master develop feature/*`
     - Pantheon: `master md-*`
     - Platform: `*/*`
-6. On line 17, set the `PLATFORM` variable to either `acquia`, `platform`, or `pantheon`
-7. If you are NOT using kinetic, change the `THEME_NAME` variable to your theme. Also, change the path to the theme in the `build-theme` script in composer.json
+5. On line 17, set the `PLATFORM` variable to either `acquia`, `platform`, or `pantheon`
+6. If you are NOT using kinetic, change the `THEME_NAME` variable to your theme. Also, change the path to the theme in the `build-theme` script in composer.json
 
 ## Specific Platform Instructions
 
@@ -107,3 +106,7 @@ if (isset($_ENV['PLATFORM_PROJECT'])) {
   }
 }
 ```
+
+## Extra
+
+- [E3 Actions](https://github.com/elevatedthird/actions) project.
