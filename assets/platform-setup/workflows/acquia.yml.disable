@@ -1,0 +1,18 @@
+name: Deploy to Acquia
+run-name: Deploy to Acquia
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - feature/*
+  workflow_dispatch:
+jobs:
+  deploy_to_acquia:
+    uses: elevatedthird/actions/.github/workflows/build_deploy.yml@main
+    secrets: inherit
+    with:
+      DESTINATION_REPOSITORY: ${{ vars.DESTINATION_REPOSITORY }}
+      NODE_VERSION: '18'
+      PHP_VERSION: '8.1'
+      THEME_NAME: 'kinetic'
