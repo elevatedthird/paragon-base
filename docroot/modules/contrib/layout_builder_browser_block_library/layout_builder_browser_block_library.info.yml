@@ -1,7 +1,0 @@
-name: Layout Builder Browser - Block Library
-type: module
-description: 'Adds access to global block library on all inline blocks.'
-package: 'Layout Builder'
-core_version_requirement: ^8 || ^9 || ^10
-dependencies:
-  - layout_builder_browser:layout_builder_browser

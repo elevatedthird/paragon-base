@@ -1,7 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-id: native
-label: PHP native sendmail
-plugin: native
-configuration: { }
