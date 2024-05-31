@@ -8,5 +8,6 @@ _core:
   default_config_hash: x3R_ByQfh_IP1PdNkWfiMtU54VEbkhesOBJTMt8auUc
 id: media.entity_embed
 label: 'Entity Embed'
+description: ''
 targetEntityType: media
 cache: true
