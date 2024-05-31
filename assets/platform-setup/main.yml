@@ -14,4 +14,4 @@ jobs:
       NODE_VERSION: '18'
       PHP_VERSION: '8.1'
       THEME_NAME: 'kinetic'
-      PLATFORM: 'acquia'
+#      PLATFORM: ''
