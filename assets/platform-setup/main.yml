@@ -12,6 +12,6 @@ jobs:
     with:
       DESTINATION_REPOSITORY: ${{ vars.DESTINATION_REPOSITORY }}
       NODE_VERSION: '18'
-      PHP_VERSION: '8.1'
+      PHP_VERSION: '8.2'
       THEME_NAME: 'kinetic'
 #      PLATFORM: ''
