@@ -90,9 +90,21 @@ if (file_exists($app_root . '/' . $site_path . '/settings.fast404.php')) {
 /**
  * If $_ENV['AH_SITE_ENVIRONMENT'], load Acquia settings.
  */
-if(isset($_ENV['AH_SITE_ENVIRONMENT'])) {
+if (isset($_ENV['AH_SITE_ENVIRONMENT'])) {
   if (file_exists($app_root . '/' . $site_path . '/settings.acquia.php')) {
     include $app_root . '/' . $site_path . '/settings.acquia.php';
+  }
+}
+
+elseif (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
+  if (file_exists($app_root . '/' . $site_path . '/settings.pantheon.php')) {
+    include $app_root . '/' . $site_path . '/settings.pantheon.php';
+  }
+}
+
+elseif (isset($_ENV['PLATFORM_PROJECT'])) {
+  if (file_exists($app_root . '/' . $site_path . '/settings.platformsh.php')) {
+    include $app_root . '/' . $site_path . '/settings.platformsh.php';
   }
 }
 
