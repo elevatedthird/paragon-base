@@ -18,7 +18,6 @@ web/modules/contrib
 web/themes/contrib
 private
 vendor
-.env
 .secrets
 .vars
 # Ignore theme build

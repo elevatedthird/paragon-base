@@ -1,0 +1,119 @@
+services:
+  webserver:
+    image: tugboatqa/php:8.1-apache
+    default: true
+
+    # Wait until the database service is done building
+    depends: database
+
+    # Enable visual diffs for the following URLs
+    urls:
+      - /
+
+    # A set of commands to run while building this service
+    commands:
+      # Commands that set up the basic preview infrastructure
+      init:
+        # Install opcache and mod-rewrite.
+        - docker-php-ext-install opcache
+        - a2enmod headers rewrite
+
+        # Install Node.js
+        - apt-get update
+        - apt-get install -yq ca-certificates curl gnupg
+        - mkdir -p /etc/apt/keyrings
+        - curl -fsSL https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key | gpg --dearmor -o
+          /etc/apt/keyrings/nodesource.gpg
+        - echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://deb.nodesource.com/node_18.x nodistro main" |
+          tee /etc/apt/sources.list.d/nodesource.list
+        - apt-get update
+        - apt-get install -yq nodejs
+
+        # Link the document root to the expected path. This example links /web
+        # to the docroot.
+        - ln -snf "${TUGBOAT_ROOT}/docroot" "${DOCROOT}"
+
+        # Install/update packages managed by composer, including drush.
+        - composer validate
+        - composer install --optimize-autoloader
+        # Install node packages.
+        - composer npm-install
+
+        # A common practice in many Drupal projects is to store the config and
+        # private files outside of the Drupal root. If that's the case for your
+        # project, you can either specify the absolute paths to those
+        # directories in your settings.local.php, or you can symlink them in
+        # here. Here is an example of the latter option:
+#        - ln -snf "${TUGBOAT_ROOT}/config" "${DOCROOT}/../config"
+#        - ln -snf "${TUGBOAT_ROOT}/files-private" "${DOCROOT}/../private"
+#        - ln -snf "${TUGBOAT_ROOT}/settings" "${DOCROOT}/../settings"
+
+      # Commands that import files, databases,  or other assets. When an
+      # existing preview is refreshed, the build workflow starts here,
+      # skipping the init step, because the results of that step will
+      # already be present.
+      update:
+        # Use the tugboat-specific Drupal settings.
+        - cp "${TUGBOAT_ROOT}/.tugboat/settings.tugboat.php" "${DOCROOT}/sites/default/"
+
+        # Copy Drupal's public files directory from an external server. The
+        # public SSH key found in the Tugboat Repository configuration must be
+        # copied to the external server in order to use rsync over SSH.
+#        - drush rsync -v @master:%files "${DOCROOT}/sites/default/files/"
+
+        # sql-sync DB from prod site using drush
+        - ./vendor/bin/drush sql-sync @dev @self
+
+        # Alternatively, another common practice is to use the
+        # stage_file_proxy Drupal module. This module lets Drupal serve
+        # files from another publicly-accessible Drupal site instead of
+        # syncing the entire files directory into the Tugboat Preview.
+        # This results in smaller previews and reduces the build time.
+#        - composer require --dev drupal/stage_file_proxy
+#        - drush pm:enable --yes stage_file_proxy
+#        - drush config:set --yes stage_file_proxy.settings origin "https://www.elevatedthird.com"
+
+        # Set file permissions such that Drupal will not complain
+        - mkdir -p "${DOCROOT}/sites/default/files"
+        - chgrp -R www-data "${DOCROOT}/sites/default/files"
+        - find "${DOCROOT}/sites/default/files" -type d -exec chmod 2775 {} \;
+        - find "${DOCROOT}/sites/default/files" -type f -exec chmod 0664 {} \;
+        - mkdir -p "${TUGBOAT_ROOT}/private"
+        - chgrp -R www-data "${TUGBOAT_ROOT}/private"
+        - find "${TUGBOAT_ROOT}/private" -type d -exec chmod 2775 {} \;
+        - find "${TUGBOAT_ROOT}/private" -type f -exec chmod 0664 {} \;
+
+      # Commands that build the site. This is where you would add things
+      # like feature reverts or any other drush commands required to
+      # set up or configure the site. When a preview is built from a
+      # base preview, the build workflow starts here, skipping the init
+      # and update steps, because the results of those are inherited
+      # from the base preview.
+      build:
+        - composer build-theme
+        - ./vendor/bin/drush deploy
+
+  # What to call the service hosting MySQL. This name also acts as the
+  # hostname to access the service by from the php service.
+  database:
+    # Use the latest available 5.x version of MySQL
+    image: tugboatqa/mariadb:10.5
+    # A set of commands to run while building this service
+    commands:
+      # Commands that import files, databases,  or other assets. When an
+      # existing preview is refreshed, the build workflow starts here,
+      # skipping the init step, because the results of that step will
+      # already be present.
+      init:
+        # Increase the allowed packet size to 512MB.
+        - mysql -e "SET GLOBAL max_allowed_packet=536870912;"
+        # Ensure this packet size persists even if MySQL restarts.
+        - echo "max_allowed_packet=536870912" >> /etc/mysql/conf.d/tugboat.cnf
+      update:
+        # Copy a database dump from an external server. The public
+        # SSH key found in the Tugboat Repository configuration must be
+        # copied to the external server in order to use scp.
+#        - scp user@example.com:database.sql.gz /tmp/database.sql.gz
+#        - cp "${TUGBOAT_ROOT}/.tugboat/database.mysql.gz" /tmp/database.mysql.gz
+#        - zcat /tmp/database.mysql.gz | mysql tugboat
+#        - rm /tmp/database.mysql.gz

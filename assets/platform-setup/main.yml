@@ -1,17 +1,16 @@
 name: Build and Deploy to Remote
 run-name: Build and Deploy to Remote
 on:
+  pull_request:
+    types:
+      - opened
   push:
     branches:
+      - master
       - main
+      - md-*
   workflow_dispatch:
 jobs:
-  deploy_to_remote:
+  build_and_deploy_to_remote:
     uses: elevatedthird/actions/.github/workflows/build_deploy.yml@main
     secrets: inherit
-    with:
-      DESTINATION_REPOSITORY: ${{ vars.DESTINATION_REPOSITORY }}
-      NODE_VERSION: '18'
-      PHP_VERSION: '8.2'
-      THEME_NAME: 'kinetic'
-#      PLATFORM: ''
