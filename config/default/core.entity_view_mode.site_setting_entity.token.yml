@@ -8,5 +8,6 @@ _core:
   default_config_hash: W2jmK3J4XkYipLS-nSxyJntrHSQD6E7yyjDYMPicumA
 id: site_setting_entity.token
 label: Token
+description: ''
 targetEntityType: site_setting_entity
 cache: true

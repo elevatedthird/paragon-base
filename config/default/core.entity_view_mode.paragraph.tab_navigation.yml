@@ -6,5 +6,6 @@ dependencies:
     - paragraphs
 id: paragraph.tab_navigation
 label: 'Tab Navigation'
+description: ''
 targetEntityType: paragraph
 cache: true

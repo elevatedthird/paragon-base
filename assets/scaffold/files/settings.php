@@ -88,21 +88,24 @@ if (file_exists($app_root . '/' . $site_path . '/settings.fast404.php')) {
 }
 
 /**
- * If $_ENV['AH_SITE_ENVIRONMENT'], load Acquia settings.
+ * If $_ENV['LANDO_APP_NAME'], load docker settings.
  */
-if(isset($_ENV['AH_SITE_ENVIRONMENT'])) {
-  if (file_exists($app_root . '/' . $site_path . '/settings.acquia.php')) {
-    include $app_root . '/' . $site_path . '/settings.acquia.php';
+if (isset($_ENV['LANDO_APP_NAME'])) {
+  if (file_exists($app_root . '/' . $site_path . '/settings.lando.php')) {
+    include $app_root . '/' . $site_path . '/settings.lando.php';
   }
 }
 
 /**
- * If $_ENV['LANDO_APP_NAME'], load docker settings.
+ * If GH Actions settings file exists, load it.
+ * This file is created by the GitHub Actions workflow.
  */
-elseif(isset($_ENV['LANDO_APP_NAME'])) {
-    if (file_exists($app_root . '/' . $site_path . '/settings.lando.php')) {
-        include $app_root . '/' . $site_path . '/settings.lando.php';
-    }
+if (file_exists($app_root . '/' . $site_path . '/settings.gh_actions.php')) {
+  include $app_root . '/' . $site_path . '/settings.gh_actions.php';
+}
+// Load tugboat settings if they exist.
+if (file_exists($app_root . '/' . $site_path . '/settings.tugboat.php')) {
+  include $app_root . '/' . $site_path . '/settings.tugboat.php';
 }
 
 /**

@@ -25,7 +25,7 @@
   "require": {
     "bower-asset/chosen": "^1.8",
     "bower-asset/lazysizes": "^5.2",
-    "composer/installers": "^1.10",
+    "composer/installers": "^2.0",
     "cweagans/composer-patches": "~1.0",
     "drupal/address": "^1.0",
     "drupal/admin_toolbar": "^3.0",
@@ -39,8 +39,8 @@
     "drupal/components": "^3.0@beta",
     "drupal/composer_deploy": "^1.7",
     "drupal/config_update": "^2.0@alpha",
-    "drupal/core": "10.1.0",
-    "drupal/core-composer-scaffold": "~10.0.8",
+    "drupal/core": "^10.2",
+    "drupal/core-composer-scaffold": "^10.2",
     "drupal/csv_serialization": "^3.0",
     "drupal/devel": "^5.0",
     "drupal/embed": "^1.0",
@@ -100,6 +100,7 @@
     "drupal/site_settings": "^1.20",
     "drupal/sitemap": "^2.0@beta",
     "drupal/smart_trim": "^2.0",
+    "drupal/storybook": "^1.0@beta",
     "drupal/svg_image_field": "^2.0",
     "drupal/svg_upload_sanitizer": "^1.0@alpha",
     "drupal/symfony_mailer_lite": "^1.0",
@@ -108,10 +109,9 @@
     "drupal/username_enumeration_prevention": "^1.1",
     "drupal/views_bulk_edit": "^2.0",
     "drupal/views_bulk_operations": "^4.0",
-    "drush/drush": "~11.0",
+    "drush/drush": "^12",
     "npm-asset/jquery-ui-touch-punch": "dev-master",
     "oomphinc/composer-installers-extender": "^2.0",
-    "symfony/css-selector": "~3.3",
     "zaporylie/composer-drupal-optimizations": "^1.1"
   },
   "conflict": {
@@ -127,7 +127,8 @@
   "scripts": {
     "pre-install-cmd": [
       "DrupalProject\\composer\\ScriptHandler::checkComposerVersion",
-      "DrupalProject\\composer\\ScriptHandler::downloadAndExtractTheme"
+      "DrupalProject\\composer\\ScriptHandler::downloadAndExtractTheme",
+      "DrupalProject\\composer\\ScriptHandler::createGHActions"
     ],
     "pre-update-cmd": [
       "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
@@ -141,6 +142,18 @@
       "DrupalProject\\composer\\ScriptHandler::createRequiredDirectories",
       "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
       "DrupalProject\\composer\\ScriptHandler::removeGitSubmodules"
+    ],
+    "post-create-project-cmd": [
+      "@setup-platform"
+    ],
+    "setup-platform": [
+      "DrupalProject\\composer\\ScriptHandler::setupPlatformRequirements"
+    ],
+    "npm-install": [
+      "cd docroot/themes/custom/kinetic && npm install"
+    ],
+    "build-theme": [
+      "cd docroot/themes/custom/kinetic && npm run build"
     ]
   },
   "extra": {
@@ -197,11 +210,6 @@
           "path": "assets/scaffold/files/cloud-memcache-d8+.php",
           "overwrite": false
         },
-        "[web-root]/sites/default/settings.acquia.php": {
-          "mode": "replace",
-          "path": "assets/scaffold/files/settings.acquia.php",
-          "overwrite": false
-        },
         "[web-root]/sites/default/settings.lando.php": {
           "mode": "replace",
           "path": "assets/scaffold/files/settings.lando.php",
@@ -225,7 +233,7 @@
     },
     "patches": {
       "drupal/core":{
-        "Field Groups marked as required are missing red asterisk": "https://www.drupal.org/files/issues/2022-11-08/3171835-53.patch"
+        "Field Groups marked as required are missing red asterisk": "https://git.drupalcode.org/project/drupal/-/merge_requests/545.diff"
       },
       "drupal/gin_lb": {
         "Secondary toolabr lost breadcrumb styling": "https://www.drupal.org/files/issues/2024-03-19/3428369-3.patch"

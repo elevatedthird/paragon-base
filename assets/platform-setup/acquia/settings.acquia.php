@@ -1,6 +1,6 @@
 <?php
 
-$acquia_site_name = 'paragondev';
+$acquia_site_name = 'e3tugboat';
 if (file_exists('/var/www/site-php')) {
   require("/var/www/site-php/{$acquia_site_name}/{$acquia_site_name}-settings.inc");
 }
@@ -16,6 +16,11 @@ $settings['file_temp_path'] = "/mnt/gfs/{$_ENV['AH_SITE_GROUP']}.{$_ENV['AH_SITE
 if (file_exists(DRUPAL_ROOT . '/sites/default/cloud-memcache-d8+.php')) {
   require(DRUPAL_ROOT . '/sites/default/cloud-memcache-d8+.php');
 }
+
+/**
+ * Reset config sync directory.
+ */
+$settings['config_sync_directory'] = '../config/default';
 
 // Enable CSS and JS preprocessing
 $config['system.performance']['css']['preprocess'] = TRUE;
@@ -46,12 +51,6 @@ $config['google_tag.settings']['container_id'] = '';
  * Foreground: #FFFFFF
  */
 $config['environment_indicator.indicator']['name'] = $_ENV['AH_SITE_ENVIRONMENT'] . ' environment';
-
-// Set trusted host pattern for the acquia paragon site. We need to set this because we cannot add additional
-// aliases to a free acquia account. This can be deleted for any new project created from paragon.
-$settings['trusted_host_patterns'][] = 'paragondevansnwocpp3.devcloud.acquia-sites.com';
-$settings['trusted_host_patterns'][] = 'paragondevmsusi7dabk.devcloud.acquia-sites.com';
-$settings['trusted_host_patterns'][] = 'pargon.ac.e3develop.com';
 
 /**
  * Set default config_readonly status to TRUE on all Acquia environments.

@@ -15,18 +15,6 @@ name: 'Full HTML'
 format: full_html
 weight: 1
 filters:
-  filter_align:
-    id: filter_align
-    provider: filter
-    status: false
-    weight: 8
-    settings: {  }
-  filter_caption:
-    id: filter_caption
-    provider: filter
-    status: false
-    weight: 9
-    settings: {  }
   editor_file_reference:
     id: editor_file_reference
     provider: editor
@@ -39,6 +27,18 @@ filters:
     status: true
     weight: 0
     settings: {  }
+  filter_align:
+    id: filter_align
+    provider: filter
+    status: false
+    weight: 8
+    settings: {  }
+  filter_caption:
+    id: filter_caption
+    provider: filter
+    status: false
+    weight: 9
+    settings: {  }
   filter_html:
     id: filter_html
     provider: filter
@@ -48,6 +48,12 @@ filters:
       allowed_html: '<br> <p> <h1> <h2 id> <h3 id> <h4 id> <h5 id> <h6 id> <cite> <dl> <dt> <dd> <a hreflang data-entity-type data-entity-uuid data-entity-substitution href> <blockquote cite> <ul type> <ol type start> <img src alt data-entity-type data-entity-uuid data-entity-substitution data-align data-caption> <drupal-entity data-entity-type data-entity-uuid data-entity-substitution data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button> <strong> <em> <code class="language-*"> <pre> <s> <sub> <sup> <li> <hr> <table> <tr> <td rowspan colspan> <th rowspan colspan> <thead> <tbody> <tfoot> <caption> <drupal-media data-entity-type data-entity-uuid alt>'
       filter_html_help: true
       filter_html_nofollow: false
+  filter_image_lazy_load:
+    id: filter_image_lazy_load
+    provider: filter
+    status: true
+    weight: 12
+    settings: {  }
   linkit:
     id: linkit
     provider: linkit
@@ -67,9 +73,3 @@ filters:
       allowed_media_types:
         image: image
         remote_video: remote_video
-  filter_image_lazy_load:
-    id: filter_image_lazy_load
-    provider: filter
-    status: true
-    weight: 12
-    settings: {  }
