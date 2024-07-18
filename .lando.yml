@@ -8,6 +8,11 @@ config:
   webroot: docroot
   database: mysql:5.7
   php: '8.3'
+proxy:
+  mailhog:
+    - mail.paragon.lndo.site
+  adminer:
+    - adminer.paragon.lndo.site
 services:
   appserver:
     xdebug: true
