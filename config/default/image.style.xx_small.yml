@@ -4,8 +4,8 @@ status: true
 dependencies: {  }
 _core:
   default_config_hash: '-ncQP1Fx91KG1aS6zDLrRlue1Ruq-NYUrUFUDEVKCkg'
-name: 2x_small
-label: '2X Small (320W)'
+name: xx_small
+label: 'XX Small (320W)'
 effects:
   4752e398-c88b-4dce-bcac-c5211dc2582c:
     uuid: 4752e398-c88b-4dce-bcac-c5211dc2582c

@@ -42,5 +42,4 @@ content:
     weight: 100
     region: content
 hidden:
-  field_tags: true
   langcode: true

@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - image.style.2x_small
+    - image.style.xx_small
     - image.style.medium
     - image.style.small
     - image.style.x_small
@@ -14,23 +14,23 @@ label: 'Fourth Column'
 image_style_mappings:
   -
     image_mapping_type: image_style
-    image_mapping: 2x_small
-    breakpoint_id: themekit.small
+    image_mapping: xx_small
+    breakpoint_id: kinetic.small
     multiplier: 1x
   -
     image_mapping_type: image_style
     image_mapping: small
-    breakpoint_id: themekit.small
+    breakpoint_id: kinetic.small
     multiplier: 2x
   -
     image_mapping_type: image_style
     image_mapping: x_small
-    breakpoint_id: themekit.x_small
+    breakpoint_id: kinetic.x_small
     multiplier: 1x
   -
     image_mapping_type: image_style
     image_mapping: medium
-    breakpoint_id: themekit.x_small
+    breakpoint_id: kinetic.x_small
     multiplier: 2x
-breakpoint_group: themekit
+breakpoint_group: kinetic
 fallback_image_style: x_small

@@ -28,7 +28,7 @@ _core:
 name: 'Landing Page'
 type: landing_page
 description: 'Use <em>Landing Page</em> for all marketing pages, such as top level pages, content rich pages and overview pages.  This content type provides a series of layout components that can be added and arranged to build dynamic landing pages.'
-help: ''
+help: null
 new_revision: true
 preview_mode: 1
 display_submitted: false

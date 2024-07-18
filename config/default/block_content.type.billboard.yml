@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: billboard
 label: Billboard
-revision: 0
+revision: false
 description: 'Component displaying background media with content overlay'

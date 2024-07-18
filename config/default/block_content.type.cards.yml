@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: cards
 label: Cards
-revision: 0
+revision: false
 description: 'Displays a group of cards'

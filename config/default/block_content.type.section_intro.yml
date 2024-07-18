@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: section_intro
 label: 'Section Intro'
-revision: 0
+revision: false
 description: 'Provides an intro section for other content'

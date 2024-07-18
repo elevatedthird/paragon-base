@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: text_and_media
 label: 'Text + Media'
-revision: 0
+revision: false
 description: 'Components with text and media sections with a configurable order'

@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: text
 label: Text
-revision: 0
+revision: false
 description: 'Provides a text box'

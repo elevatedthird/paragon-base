@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: hero_banner
 label: 'Hero Banner'
-revision: 0
+revision: false
 description: 'A full width hero banner that appears in Hero layouts'

@@ -15,27 +15,27 @@ image_style_mappings:
   -
     image_mapping_type: image_style
     image_mapping: x_large
-    breakpoint_id: themekit.large
+    breakpoint_id: kinetic.large
     multiplier: 2x
   -
     image_mapping_type: image_style
     image_mapping: large
-    breakpoint_id: themekit.medium
+    breakpoint_id: kinetic.medium
     multiplier: 1x
   -
     image_mapping_type: image_style
     image_mapping: medium
-    breakpoint_id: themekit.small
+    breakpoint_id: kinetic.small
     multiplier: 1x
   -
     image_mapping_type: image_style
     image_mapping: small
-    breakpoint_id: themekit.x_small
+    breakpoint_id: kinetic.x_small
     multiplier: 1x
   -
     image_mapping_type: image_style
     image_mapping: large
-    breakpoint_id: themekit.x_small
+    breakpoint_id: kinetic.x_small
     multiplier: 2x
-breakpoint_group: themekit
+breakpoint_group: kinetic
 fallback_image_style: small

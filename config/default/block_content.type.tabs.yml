@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: tabs
 label: Tabs
-revision: 0
+revision: false
 description: 'Provides tabbed sections'
