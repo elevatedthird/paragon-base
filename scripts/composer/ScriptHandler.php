@@ -132,6 +132,46 @@ class ScriptHandler {
     }
   }
 
+
+  protected static function copyFromE3Repo(Event $event, $source_url, $destination, $detach = TRUE) {
+    $io = $event->getIO();
+    if (strpos($source_url, 'git@github.com:elevatedthird') === 0) {
+      $fs = new Filesystem();
+      $destination = '/modules/custom';
+      // This always runs from same level as composer.json.
+      $project_root = getcwd();
+      $drupal_root = static::getDrupalRoot($project_root);
+      $destination_root = $drupal_root . $destination;
+
+      if (!is_dir($destination_root)) {
+        if (!is_dir($destination_root)) {
+          $fs->mkdir($destination_root);
+          $io->write('Created ' . $destination_root);
+        }
+      }
+      $first_dir =  getcwd();
+      // change dir to the new path
+      $new_dir = chdir($destination_root);
+      // Git clone
+      $git_clone = shell_exec('git clone '. $source_url);
+      $parts = explode('/', $source_url);
+      $end_path = end($parts);
+      $repo_directory_name = pathinfo($end_path, PATHINFO_FILENAME);
+      chdir($destination_root . '/' . $repo_directory_name);
+      $io->write('Cloned ' . $source_url . ' to ' . $destination_root . '/' . $repo_directory_name);
+      if ($detach) {
+        $io->write('Removing .git directory');
+        $fs->remove($destination_root . '/' . $repo_directory_name . '/.git');
+      }
+      // change dir back
+      $change_dir_back = chdir($first_dir);
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
   public static function createGHActions(Event $event) {
     $io = $event->getIO();
     // Copy over main.yaml for GH Actions.
@@ -174,6 +214,15 @@ class ScriptHandler {
     }
   }
 
+  public static function setupListOptionsModule(Event $event) {
+    $io = $event->getIO();
+    $question = 'Do you want to copy the E3 - List Options module(requires git repo access)([y]/n)? ';
+    // Ask a yes/no question:
+    $answer = $io->ask($question, 'y');
+    if ($answer === 'y') {
+      self::copyFromE3Repo($event, 'git@github.com:elevatedthird/e3_list_options.git', '/modules/custom');
+    }
+  }
   /**
    * @param Event $event
    * Download and extract theme to the custom themes folder.

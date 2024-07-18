@@ -146,10 +146,14 @@
       "DrupalProject\\composer\\ScriptHandler::removeGitSubmodules"
     ],
     "post-create-project-cmd": [
-      "@setup-platform"
+      "@setup-platform",
+      "@setup-list-options"
     ],
     "setup-platform": [
       "DrupalProject\\composer\\ScriptHandler::setupPlatformRequirements"
+    ],
+    "setup-list-options": [
+      "DrupalProject\\composer\\ScriptHandler::setupListOptionsModule"
     ],
     "npm-install": [
       "cd docroot/themes/custom/kinetic && npm install"
