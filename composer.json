@@ -242,7 +242,6 @@
         "Field Groups marked as required are missing red asterisk": "https://git.drupalcode.org/project/drupal/-/merge_requests/545.diff"
       },
       "drupal/gin_lb": {
-        "Toggle sidebar might not work with latest Gin 8.x-3.0-rc11": "https://git.drupalcode.org/project/gin_lb/-/merge_requests/89.diff",
         "Add support for core Navigation Top Bar": "https://git.drupalcode.org/project/gin_lb/-/merge_requests/93.diff"
       },
       "drupal/environment_indicator": {
