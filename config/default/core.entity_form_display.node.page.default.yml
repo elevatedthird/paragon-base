@@ -9,7 +9,7 @@ dependencies:
     - workflows.workflow.editorial
   module:
     - content_moderation
-    - metatag
+    - metatag_async_widget
     - path
     - scheduler
     - scheduler_content_moderation_integration
@@ -38,10 +38,12 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_metatags:
-    type: metatag_firehose
+    type: metatag_async_widget_firehose
     weight: 122
     region: content
-    settings: {  }
+    settings:
+      sidebar: true
+      use_details: true
     third_party_settings: {  }
   langcode:
     type: language_select
