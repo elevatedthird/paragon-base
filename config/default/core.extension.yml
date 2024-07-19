@@ -3,8 +3,6 @@ _core:
 module:
   action: 0
   address: 0
-  advagg: 0
-  advagg_js_minify: 0
   allowed_formats: 0
   backup_migrate: 0
   ban: 0
