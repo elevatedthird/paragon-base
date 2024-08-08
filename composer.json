@@ -30,7 +30,6 @@
     "cweagans/composer-patches": "~1.0",
     "drupal/address": "^1.0",
     "drupal/admin_toolbar": "^3.0",
-    "drupal/allowed_formats": "^2.0",
     "drupal/backup_migrate": "^5.0",
     "drupal/better_exposed_filters": "^6.0",
     "drupal/block_field": "^1.0@RC",
