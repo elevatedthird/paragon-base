@@ -1,0 +1,37 @@
+// see _breakpoints.scss
+// This is the default container widths at each breakpoint.
+// The diff between this and the breakpoints provides your margin.
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+);
+
+// default grid spacing. see _spacers.scss for none default grid spacing values.
+$grid-gutter-width:           1.5rem;
+
+// default gutter on the main container
+$container-padding-x: $grid-gutter-width;
+
+// Enable CSS Grid variables (display: grid).
+$enable-cssgrid: true;
+
+// These are additional containers you can add.
+// note they should be smaller than the breakpoints.
+// You could use this for say a text block that is significantly narrower than the rest of the content.
+// or could be somethings that gets closer to the edges than the default container.
+// will get you .container-narrow and .container-narrow-fluid
+$kinetic-containers: (
+  narrow: (
+    breakpoints: (
+      sm: 540px,
+      md: 720px,
+      lg: 960px,
+      xl: 1140px,
+      xxl: 1320px
+    ),
+    gutter: 1.5rem,
+  ),
+);

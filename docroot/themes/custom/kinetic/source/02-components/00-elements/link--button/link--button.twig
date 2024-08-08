@@ -1,0 +1,5 @@
+{% if attributes.href is empty %}
+  <span {{ attributes }}>{{ title }}</span>
+{% else %}
+  <a {{ attributes }}>{{ title }}</a>
+{% endif %}

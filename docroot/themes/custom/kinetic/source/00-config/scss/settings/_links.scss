@@ -1,0 +1,8 @@
+// Link Variables.
+// Overrides are not defined in the link SDC because we need these variables
+// changed before any of the imports in 01-base/global/scss/_index.scss.
+$link-color: $primary;
+$link-decoration: none;
+$link-shade-percentage: 20%;
+$link-hover-color: shift-color($link-color, $link-shade-percentage);
+$link-hover-decoration: null;

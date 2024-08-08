@@ -1,0 +1,15 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: "Image"
+status: "stable"
+description: "Renders Image media type"
+slots:
+  content:
+    title: "image content"
+    description: "The image content"
+props:
+  type: object
+  properties:
+    view_mode:
+      type: string
+      title: view mode to be added as a class
+

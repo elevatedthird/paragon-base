@@ -1,0 +1,9 @@
+{% embed "kinetic:tabs-item" with {
+  id: parent_id ~ '--' ~ index,
+  _tab_content: content.field_description,
+  show_active: index == 0
+} only %}
+  {% block _tab_content %}
+    {{ _tab_content }}
+  {% endblock %}
+{% endembed %}

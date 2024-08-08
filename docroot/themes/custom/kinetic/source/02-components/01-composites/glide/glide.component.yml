@@ -1,0 +1,37 @@
+$schema: >-
+  https://git.drupalcode.org/project/drupal/-/raw/1.0.x/core/modules/sdc/src/metadata.schema.json
+name: Glide
+status: stable
+description: Provides a glidejs carousel.
+required:
+  - show_arrows
+  - show_bullets
+  - item_count
+slots:
+  _items:
+    title: Item
+    description: The item to be rendered in the carousel.
+props:
+  type: object
+  properties:
+    show_arrows:
+      type: boolean
+      title: Show Arrows
+      default: true
+    show_bullets:
+      type: boolean
+      title: Show Bullets
+    item_count:
+      type: integer
+      title: Item Count
+    classes:
+      type: array
+      title: Optional extra classes
+    behavior_name:
+      type: string
+      title: >-
+        Drupal beahavior name of the component including this SDC. If no
+        behavior is provided, default glide behavior will be used.
+libraryOverrides:
+  dependencies:
+    - kinetic/partials.vendors.777.js

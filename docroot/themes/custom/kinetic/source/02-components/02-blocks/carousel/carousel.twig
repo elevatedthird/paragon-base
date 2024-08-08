@@ -1,0 +1,22 @@
+{#{% embed 'kinetic:glide' with {#}
+{#  __items: test,#}
+{#  test: test,#}
+{#  item_count,#}
+{#  show_arrows: true,#}
+{#  show_bullets: true,#}
+{#  classes: ['carousel'],#}
+{#  behavior_name: 'carousel'#}
+{#} only %}#}
+
+{#{% endembed %}#}
+
+{% extends "kinetic:glide" %}
+{% set show_arrows = true %}
+{% set show_bullets = true %}
+{% set classes = ['carousel'] %}
+{% set behavior_name = 'carousel' %}
+{% set item_count = item_count %}
+{% block _items %}
+  {{ _items }}
+{% endblock %}
+

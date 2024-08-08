@@ -1,0 +1,5 @@
+{% set style = index == 0 ? 'primary' : 'outline' %}
+{{ include('kinetic:link--button', {
+  title: content.field_link.0['#title'],
+  attributes: create_attribute({href: content.field_link.0['#url'].toString(), class: ['btn', 'btn-' ~ style]})
+}, with_context = false )}}

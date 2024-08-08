@@ -1,0 +1,41 @@
+@mixin kinetic-make-containers($kinetic-containers) {
+  @each $container-name, $settings in $kinetic-containers {
+    // get the breakpoints settings
+    $container-max-widths: map-get($settings, breakpoints);
+    // get the gutter settings
+    $container-gutter: map-get($settings, gutter);
+
+    .container-#{$container-name},
+    .container-#{$container-name}-fluid {
+      @include make-container($container-gutter);
+    }
+    // Responsive containers that are 100% wide until a breakpoint
+    @each $breakpoint, $container-max-width in $container-max-widths {
+      .container-#{$container-name}-#{$breakpoint} {
+        @extend .container-#{$container-name}-fluid;
+      }
+
+      @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+        %responsive-container-#{$container-name}-#{$breakpoint} {
+          max-width: $container-max-width;
+        }
+
+        // Extend each breakpoint which is smaller or equal to the current breakpoint
+        $extend-breakpoint: true;
+
+        @each $name, $width in $grid-breakpoints {
+          @if ($extend-breakpoint) {
+            .container-#{$container-name}#{breakpoint-infix($name, $grid-breakpoints)} {
+              @extend %responsive-container-#{$container-name}-#{$breakpoint};
+            }
+
+            // Once the current breakpoint is reached, stop extending
+            @if ($breakpoint == $name) {
+              $extend-breakpoint: false;
+            }
+          }
+        }
+      }
+    }
+  }
+}

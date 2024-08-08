@@ -1,0 +1,18 @@
+@include kinetic-make-containers($kinetic-containers);
+
+.layout {
+  --section-spacing: 6rem;
+  padding: var(--section-spacing);
+}
+
+// Example of how to override a section padding when background colors match. Collapse.
+@each $surface, $surface-map in $surfaces {
+  .layout.surface--#{$surface} + .layout.surface--#{$surface} {
+    padding-top: 0;
+  }
+  @each $surface-class, $surface-class-map in $surface-map {
+    .layout.surface--#{$surface}--#{$surface-class} + .layout.surface--#{$surface}--#{$surface-class} {
+      padding-top: 0;
+    }
+  }
+}

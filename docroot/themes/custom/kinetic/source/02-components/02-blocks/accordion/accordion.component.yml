@@ -1,0 +1,24 @@
+$schema: >-
+  https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
+name: Accordion
+status: stable
+description: A bootstrap accordion. Providing a trigger and a accordion.
+slots:
+  _accordion_items:
+    title: Accodions items
+    description: The context you need to pass down for the slot
+props:
+  type: object
+  properties:
+    open:
+      type: boolean
+      title: Initial Open State
+      description: 'The key of the intially opened item, or false.'
+      default: false
+    behavior_name:
+      type: string
+      title: >-
+        Drupal beahavior name of the component including this SDC. If no
+        behavior is provided, default accordion behavior will be used.
+libraryOverrides:
+  dependencies: []

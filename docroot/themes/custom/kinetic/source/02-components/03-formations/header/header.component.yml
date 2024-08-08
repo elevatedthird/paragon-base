@@ -1,0 +1,14 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: "Header"
+status: "stable"
+description: "This is used to layout organisms or other components that build up the header of the site."
+slots:
+  branding:
+    title: "Branding"
+    description: "The branding render."
+  nav:
+    title: "Navigation"
+    description: "The navigation render."
+props:
+  type: object
+  properties: {}

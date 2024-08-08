@@ -1,0 +1,15 @@
+{% stories component with {
+  title: 'Formation/Section/Content Header',
+  description: 'This is the very first section that holds blocks with the h1.'
+} %}
+  {% story default with {
+    name: '1. Default',
+  } %}
+    {% embed 'kinetic:layout--content-header' %}
+      {% block first %}
+        <div style="height: 100px; width: 100%; background:pink;">
+          First region content
+        </div>      {% endblock %}
+    {% endembed %}
+  {% endstory %}
+{% endstories %}

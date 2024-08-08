@@ -1,0 +1,237 @@
+{#
+/**
+ * @file
+ * Theme override to display a single page.
+ *
+ * The doctype, html, head and body tags are not in this template. Instead they
+ * can be found in the html.html.twig template in this directory.
+ *
+ * Available variables:
+ *
+ * General utility variables:
+ * - base_path: The base URL path of the Drupal installation. Will usually be
+ *   "/" unless you have installed Drupal in a sub-directory.
+ * - is_front: A flag indicating if the current page is the front page.
+ * - logged_in: A flag indicating if the user is registered and signed in.
+ * - is_admin: A flag indicating if the user has permission to access
+ *   administration pages.
+ *
+ * Site identity:
+ * - front_page: The URL of the front page. Use this instead of base_path when
+ *   linking to the front page. This includes the language domain or prefix.
+ *
+ * Page content (in order of occurrence in the default page.html.twig):
+ * - node: Fully loaded node, if there is an automatically-loaded node
+ *   associated with the page and the node ID is the second argument in the
+ *   page's path (e.g. node/12345 and node/12345/revisions, but not
+ *   comment/reply/12345).
+ *
+ * Regions:
+ * - page.programmatic: A generic region to add blocks to where you want to be specific about their layout.
+ * - page.content: The main content of the current page.
+ *
+ * @see template_preprocess_page()
+ * @see html.html.twig
+ */
+#}
+<div class="layout-container">
+  {# See hook_preprocess_region(). #}
+  {{ page.header }}
+
+
+  {% set light_surface = 'surface--light-invert' %}
+  {% set dark_surface = 'surface--dark-gray-800' %}
+
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>
+    <div class="layout-content">
+      <div class="container {{ dark_surface }} p-5">
+        <h1> Kinetic Styleguide </h1>
+        <p> See this twig template for examples of all the styles in the Kinetic theme. </p>
+      </div>
+      <div class="container">
+        <h2> Typography </h2>
+        <code>
+          Declare font families in 01-base/global/scss/general/_typography.scss <br>
+          Declare heading sizes in 00-config/scss/settings/_typography.scss
+        </code>
+        <h3> Headings </h3>
+        <div>
+          <h1> Heading 1 - Bacon ipsum. </h1>
+          <h2> Heading 2 - Bacon ipsum dolor. </h2>
+          <h3> Heading 3 - Bacon ipsum dolor amet. </h3>
+          <h4> Heading 4 - Bacon ipsum dolor amet frankfurter burgdoggen. </h4>
+          <h5> Heading 5 - Bacon ipsum dolor amet frankfurter burgdoggen andouille. </h5>
+          <h6> Heading 6 - Bacon ipsum dolor amet frankfurter burgdoggen andouille capicola kevin tri-tip. </h6>
+        </div>
+        <h3> Body Text </h3>
+        <p>
+          Bacon ipsum dolor amet spare ribs venison bacon tri-tip pork loin. Burgdoggen bresaola alcatra, brisket fatback pork belly doner sausage. Shankle tongue sausage short loin, spare ribs jowl burgdoggen drumstick prosciutto biltong cupim pastrami tri-tip fatback. Pig ham hock spare ribs jerky hamburger beef ribs pastrami burgdoggen shank. Porchetta chuck beef ribs, prosciutto ground round venison burgdoggen alcatra beef fatback buffalo filet mignon tenderloin leberkas andouille. Pig cupim salami leberkas tenderloin capicola, sirloin pork loin strip steak shoulder.
+        </p>
+        <h2> Colors </h2>
+        <code>
+          Configure in 00-config/scss/settings/_colors.scss. Each color has a CSS variable, DO NOT use the hex code in your styles (exception is mixins).
+          <br>
+          Use the generated CSS var. Inspect swatches below to see the variables.
+        </code>
+        <h3> Colors </h3>
+        <div class="d-flex">
+          <div style="width: 100px; height: 100px; margin-right: 1rem; background-color: var(--bs-blue)"></div>
+          <div style="width: 100px; height: 100px; margin-right: 1rem; background-color: var(--bs-light-blue)"></div>
+          <div style="width: 100px; height: 100px; margin-right: 1rem; background-color: var(--bs-dark-blue)"></div>
+          <div style="width: 100px; height: 100px; margin-right: 1rem; background-color: var(--bs-indigo)"></div>
+          <div style="width: 100px; height: 100px; margin-right: 1rem; background-color: var(--bs-pink)"></div>
+          <div style="width: 100px; height: 100px; margin-right: 1rem; background-color: var(--bs-orange)"></div>
+          <div style="width: 100px; height: 100px; margin-right: 1rem; background-color: var(--bs-green)"></div>
+          <div style="width: 100px; height: 100px; margin-right: 1rem; background-color: var(--bs-red)"></div>
+          <div style="width: 100px; height: 100px; margin-right: 1rem; background-color: var(--bs-yellow)"></div>
+        </div>
+        <h3> Themes </h3>
+        <div class="d-flex">
+          <div style="width: 100px; height: 100px; margin-right: 1rem; background-color: var(--bs-primary)"></div>
+          <div style="width: 100px; height: 100px; margin-right: 1rem; background-color: var(--bs-secondary)"></div>
+          <div style="width: 100px; height: 100px; margin-right: 1rem; background-color: var(--bs-success)"></div>
+          <div style="width: 100px; height: 100px; margin-right: 1rem; background-color: var(--bs-info)"></div>
+          <div style="width: 100px; height: 100px; margin-right: 1rem; background-color: var(--bs-warning)"></div>
+          <div style="width: 100px; height: 100px; margin-right: 1rem; background-color: var(--bs-danger)"></div>
+        </div>
+        <h2> Spacing </h2>
+        <div>
+          Spacing is controlled by the Bootstrap spacing utility. See https://getbootstrap.com/docs/5.0/utilities/spacing/ for more info.
+          <br>
+          Configure in <code> 00-config/scss/settings/_spacers.scss.</code> <br>
+          Generated CSS variables are prefixed with <code>--k-space</code>.
+        </div>
+
+        <h2> Surfaces </h2>
+        <p>
+        Surfaces control the color schemes of a section. Surfaces are either light or dark. Components must implement surfaces themselves.
+        <br>
+
+          Configure in <code>/source/00-config/scss/settings/_surfaces.scss </code> <br>
+          Section backgounds are controlled in modules/custom/e3_layouts/templates/onecol-layout.html.twig. <br>
+          Examples:
+          <br>
+          Light scheme with light gray BG, use .surface--light-inset.
+          <br>
+          Dark scheme with Deep Blue BG, use .surface--dark-deep-blue.
+          <br>
+          If you don't want to change the Background color, but want a dark/light theme, use .surface--light or .surface--dark. This is useful
+          when changing the colors on media bg.
+          <br><br>
+          Implementing surfaces. <br>
+          Use the integrate-to-surface mixin. See source/01-base/global/scss/general/_buttons.scss for example.
+
+        </p>
+
+        <h2> Containers </h2>
+        </div>
+
+      <h1> Components </h1>
+      
+        <h2> Eyebrow </h2>
+        <div class='mb-5'>
+          <code> Edit in 01-base/global/scss/general/_typography.scss </code>
+        </div>
+        <div class="d-flex">
+          <div class='surface--light-invert p-5'>
+            <p class='eyebrow'> I am an eyebrow </p>
+          </div>
+          <div class='surface--dark-gray-800 p-5'>
+            <p class='eyebrow'> I am an eyebrow </p>
+          </div>
+        </div>
+
+        <h2> Buttons </h2>
+        <div class='mb-5'>
+          <code> Edit Styles in 01-base/global/scss/general/_buttons.scss. <br> Edit SDC in 02-components/00-elements/button </code>
+        </div>
+        <div class="d-flex">
+          <div class='{{ light_surface }} p-5'>
+            {{ include('kinetic:button', {
+              text: 'Button Primary',
+              style: 'primary'
+            }, with_context = false )}}
+            {{ include('kinetic:button', {
+              text: 'Button Outline',
+              style: 'outline'
+            }, with_context = false )}}
+          </div>
+          <div class='{{ dark_surface }} p-5'>
+            {{ include('kinetic:button', {
+              text: 'Button Primary',
+              style: 'primary'
+            }, with_context = false )}}
+            {{ include('kinetic:button', {
+              text: 'Button Outline',
+              style: 'outline'
+            }, with_context = false )}}
+          </div>
+        </div>
+        <h2> Links </h2>
+        <div class='mb-5'>
+          <code> Edit in 02-components/00-elements/link </code>
+        </div>
+        <div class="d-flex">
+          <div class='{{ light_surface }} p-5'>
+            {{ include('kinetic:link', {
+              text: 'Link primary',
+              href: 'https://google.com',
+              style: 'primary'
+            }, with_context = false )}}
+            {{ include('kinetic:link', {
+              text: 'Link underline',
+              href: 'https://google.com',
+              style: 'underline'
+            }, with_context = false )}}
+          </div>
+          <div class='{{ dark_surface }} p-5'>
+            {{ include('kinetic:link', {
+              text: 'Link primary',
+              href: 'https://google.com',
+              style: 'primary'
+            }, with_context = false )}}
+            {{ include('kinetic:link', {
+              text: 'Link underline',
+              href: 'https://google.com',
+              style: 'underline'
+            }, with_context = false )}}
+          </div>
+        </div>
+        <h3> Button Links </h3>
+        <div class="d-flex">
+          <div class='{{ light_surface }} p-5'>
+            {{ include('kinetic:link--button', {
+              text: 'Link Button Primary',
+              href: 'https://google.com',
+              style: 'primary'
+            }, with_context = false )}}
+            {{ include('kinetic:link--button', {
+              text: 'Link Button Outline',
+              href: 'https://google.com',
+              style: 'outline'
+            }, with_context = false )}}
+          </div>
+          <div class='{{ dark_surface }} p-5'>
+            {{ include('kinetic:link--button', {
+              text: 'Link Button Primary',
+              href: 'https://google.com',
+              style: 'primary'
+            }, with_context = false )}}
+            {{ include('kinetic:link--button', {
+              text: 'Link Button Outline',
+              href: 'https://google.com',
+              style: 'outline'
+            }, with_context = false )}}
+          </div>
+        </div>
+      </div>
+
+      {{ page.content }}
+    </div>{# /.layout-content #}
+
+  </main>
+
+  {{ page.footer }}
+
+</div>{# /.layout-container #}

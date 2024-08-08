@@ -1,0 +1,22 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: "Trigger"
+status: "stable"
+description: "A extension of button to be used to trigger things like modals dialogs. Mostly here to force certain attributes."
+props:
+  type: object
+  properties:
+    "target_id":
+      type: "string"
+      title: "Target element selector"
+      description: "Selector that will be triggered."
+    "target_type":
+      type: string
+      enum:
+        - modal
+        - collapse
+      title: "Target Type"
+      description: "The type of target this trigger will interact with."
+    text:
+      type: string
+      title: "Text"
+      description: "The text to display on the trigger."

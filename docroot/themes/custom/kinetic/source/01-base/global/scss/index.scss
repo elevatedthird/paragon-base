@@ -1,0 +1,24 @@
+///
+/// This file contains all CSS rules that should be globally available.
+/// This file will not be purged! All rules decclared here will be output into index.css
+///
+
+// @import "../../assets/fonts/icomoon/style.css";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import '~bootstrap/scss/transitions';
+@import "~bootstrap/scss/close";
+
+// Custom Utilties.
+@import "general/breakpoints";
+@import "general/typography";
+@import "general/spacing";
+@import "general/surfaces";
+@import "general/buttons";
+
+// Sitewide styles.
+// @import 'components/drupal';
+// @import 'components/accessibility';
+@import 'shame';
+

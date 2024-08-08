@@ -1,0 +1,49 @@
+// Below here you can add your own custom maps.
+// Store groups of commonly used selectors.
+$selector-groups: (
+  form-inputs: (
+    text: "[type='text']",
+    password: "[type='password']",
+    date: "[type='date']",
+    datetime: "[type='datetime']",
+    datetime-local: "[type='datetime-local']",
+    month: "[type='month']",
+    week: "[type='week']",
+    email: "[type='email']",
+    number: "[type='number']",
+    search: "[type='search']",
+    tel: "[type='tel']",
+    time: "[type='time']",
+    url: "[type='url']",
+    color: "[type='color']",
+    textarea: "textarea"
+  ),
+  headers: (
+    h1: 'h1',
+    h2: 'h2',
+    h3: 'h3',
+    h4: 'h4',
+    h5: 'h5',
+    h6: 'h6'
+  ),
+  buttons: (
+    input: '[type="button"]',
+    submit: '[type="submit"]',
+    button: 'button'
+  ),
+  body-text: (
+    p: 'p',
+    ul: 'ul',
+    ol: 'ol',
+    div: 'div'
+  ),
+  active: (
+    hover: "&:hover",
+    focus: "&:focus",
+    active: "&:active"
+  ),
+  hover-active: (
+    hover: "&:hover",
+    active: "&:active"
+  )
+);

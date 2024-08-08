@@ -1,0 +1,29 @@
+// See the Themes README under the "Surfaces" section for more information.
+// DO NOT USE @extend in this mixin
+@mixin integrate-to-surface($key, $bg-color:null) {
+  // does key exist in surfaces?
+  $key-exists: map-has-key($surfaces, $key);
+  // if not, throw error.
+  @if not $key-exists {
+    @error "Key #{$key} does not exist in $surfaces map.";
+  }
+
+  $values: map.get($surfaces, $key);
+  $background-colors: map.get($values, background-colors);
+
+  // Check if a specific BG is being targeted.
+  @if $bg-color {
+    $bg-color-exists: map-has-key($background-colors, $bg-color);
+    @if not $bg-color-exists {
+      @error "Background color #{$bg-color} does not exist in $surfaces map.";
+    }
+    .surface--#{$key}-#{$bg-color}, .surface--#{$key}-#{$bg-color}.priority {
+      @content;
+    }
+  } @else {
+    [class*="surface--#{$key}"],
+    [class*="surface--#{$key}"].priority {
+      @content;
+    }
+  }
+}

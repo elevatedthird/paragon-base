@@ -1,0 +1,19 @@
+{% extends '@kinetic/block/block.html.twig' %}
+
+{% block content %}
+  {% embed 'kinetic:section-intro' with {
+    alignment: alignment ?? 'center',
+    heading_style: heading_style,
+    eyebrow: content.field_eyebrow.0,
+    heading: content.field_heading.0,
+    _description: content.field_description.0,
+    _ctas: content.field_ctas
+  } only %}
+    {% block _description %}
+      {{ _description }}
+    {% endblock %}
+    {% block _ctas %}
+      {{ _ctas }}
+    {% endblock %}
+  {% endembed %}
+{% endblock %}

@@ -1,0 +1,7 @@
+[data-component-id="kinetic:ctas"] {
+  // handle the spacing between the CTAs
+  a + a {
+    // sample spacing
+    margin-left: 1rem;
+  }
+}

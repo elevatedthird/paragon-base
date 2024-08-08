@@ -1,0 +1,38 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: "Section Intro"
+status: "stable"
+description: "A title section containing a title and optional description, eyebrow, and ctas."
+requied:
+  - heading
+slots:
+  _ctas:
+    title: 'CTAs'
+    description: 'The CTAs to be displayed in the section intro'
+  _description:
+    title: 'Description'
+    description: 'The description to be displayed in the section intro'
+props:
+  type: object
+  properties:
+    eyebrow:
+      type: string
+      title: "Eyebrow"
+    heading:
+      type: string
+      title: "Heading"
+    heading_style:
+      type: string
+      title: Heading Style
+      enum:
+        - h2
+        - h3
+        - h4
+        - h5
+    alignment:
+      type: string
+      title: Alignment
+      enum:
+        - left
+        - right
+        - center
+

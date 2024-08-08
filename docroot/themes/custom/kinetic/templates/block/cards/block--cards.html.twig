@@ -1,0 +1,11 @@
+{% extends '@kinetic/block/block.html.twig' %}
+
+{% block content %}
+  <div class="row">
+    {% for item, key in content.field_items['#items'] %}
+      <div class="col-sm-12 col-lg-4">
+        {{ content.field_items[loop.index0] }}
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

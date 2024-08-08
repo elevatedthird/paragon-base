@@ -1,0 +1,9 @@
+{% block field %}
+  {% embed 'kinetic:ctas' with {_ctas: items} only %}
+    {% block _ctas %}
+      {% for item in _ctas %}
+        {{ item.content }}
+      {% endfor %}
+    {% endblock %}
+  {% endembed %}
+{% endblock %}

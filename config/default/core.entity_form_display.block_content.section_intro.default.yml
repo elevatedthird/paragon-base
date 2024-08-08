@@ -11,7 +11,6 @@ dependencies:
     - field.field.block_content.section_intro.field_heading
     - field.field.block_content.section_intro.field_heading_style
   module:
-    - allowed_formats
     - field_group
     - paragraphs
     - text
@@ -103,10 +102,7 @@ content:
     settings:
       rows: 3
       placeholder: ''
-    third_party_settings:
-      allowed_formats:
-        hide_help: '1'
-        hide_guidelines: '1'
+    third_party_settings: {  }
   field_eyebrow:
     type: string_textfield
     weight: 2
@@ -122,10 +118,7 @@ content:
     settings:
       rows: 1
       placeholder: ''
-    third_party_settings:
-      allowed_formats:
-        hide_help: '1'
-        hide_guidelines: '1'
+    third_party_settings: {  }
   field_heading_style:
     type: options_select
     weight: 7

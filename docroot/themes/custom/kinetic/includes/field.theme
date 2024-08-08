@@ -1,0 +1,17 @@
+<?php
+
+/**
+ * @file
+ * field.theme
+ */
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function kinetic_theme_suggestions_field_alter(array &$suggestions, array $variables) {
+  $entity_type = $variables['element']['#entity_type'];
+  $suggestions = [];
+  $suggestions[] = 'field__' . $variables['element']['#field_name'];
+  $suggestions[] = 'field__' . $entity_type . '__' . $variables['element']['#field_name'];
+  $suggestions[] = 'field__' . $entity_type . '__' . $variables['element']['#field_type'];
+  $suggestions[] = 'field__' . $entity_type . '__' . $variables['element']['#bundle'] . '__' . $variables['element']['#field_name'];
+}

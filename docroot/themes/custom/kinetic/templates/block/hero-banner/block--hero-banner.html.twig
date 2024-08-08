@@ -1,0 +1,22 @@
+{% extends '@kinetic/block/block.html.twig' %}
+{% block content %}
+  {% embed 'kinetic:billboard' with
+    {
+      alignment: 'center',
+      _media: content.field_bg_media,
+      _description: content.field_description.0,
+      heading: content.field_heading.0,
+      heading_tag: 'h1',
+      _ctas: content.field_ctas
+    } only %}
+    {% block _media %}
+      {{ _media }}
+    {% endblock %}
+    {% block _description %}
+      {{ _description }}
+    {% endblock %}
+    {% block _ctas %}
+      {{ _ctas }}
+    {% endblock %}
+  {% endembed %}
+{% endblock %}

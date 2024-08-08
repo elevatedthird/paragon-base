@@ -1,0 +1,14 @@
+{% extends '@kinetic/block/block.html.twig' %}
+
+{% block content %}
+  {% embed 'kinetic:accordion' with {
+    accordion_id,
+    behavior_name: 'kinetic-accordion',
+    _accordion_items: content.field_items
+  } only %}
+    {% block _accordion_items %}
+      {{ _accordion_items }}
+    {% endblock %}
+  {% endembed %}
+{% endblock %}
+

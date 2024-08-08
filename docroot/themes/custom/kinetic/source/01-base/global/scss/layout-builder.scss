@@ -1,0 +1,11 @@
+///
+/// Theme override styles for layout builder pages ONLY
+///
+.kinetic-layout-builder {
+  main > .layout-content {
+    overflow-x: hidden;
+  }
+  [data-component-id="kinetic:header"] {
+    top: 0 !important;
+  }
+}

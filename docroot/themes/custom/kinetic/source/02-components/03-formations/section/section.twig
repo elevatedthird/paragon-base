@@ -1,0 +1,26 @@
+{% set wrapper_classes = [
+  'layout--' ~ layout_class|clean_class,
+  'layout',
+  'position-relative',
+  wrapper_classes|join(' '),
+  settings.bg_color,
+]%}
+
+{% set inner_wrapper_attributes = create_attribute() %}
+{% set inner_wrapper_classes = [
+  inner_wrapper_classes|join(' '),
+  'inner-wrapper',
+  settings.content_width,
+]%}
+
+{% set id = layout_id ? layout_id : settings.label  %}
+{% set id = id|default('random-id--' ~ random())|clean_id %}
+{% set attributes = attributes ? attributes : create_attribute() %}
+{# Handle all possible section settings. These come from the custom classes from kinetic.layouts.yml #}
+<div{{ attributes.addClass(wrapper_classes).setAttribute('id', id) }}>
+  <div {{ inner_wrapper_attributes.addClass(inner_wrapper_classes) }}>
+    {% block content %}
+      {{ content }}
+    {% endblock %}
+  </div>
+</div>

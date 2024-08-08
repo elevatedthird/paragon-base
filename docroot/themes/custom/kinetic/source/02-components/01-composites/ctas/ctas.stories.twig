@@ -1,0 +1,20 @@
+{% stories card with {
+  title: 'Composites/Ctas',
+} %}
+  {% story default with {
+    name: '1. Default',
+  } %}
+    {% embed 'kinetic:ctas' %}
+    {% block _ctas %}
+      {{ include('kinetic:link--button', {
+        title: 'Link',
+        attributes: create_attribute({href: '/', class:['btn', 'btn-primary']}),
+      }, with_context = false )}}
+      {{ include('kinetic:link--button', {
+        title: 'Link',
+        attributes: create_attribute({href: '/', class:['btn', 'btn-outline']}),
+      }, with_context = false )}}
+    {% endblock %}
+    {% endembed %}
+  {% endstory %}
+{% endstories %}

@@ -1,0 +1,19 @@
+{% set attributes = create_attribute().addClass('kinetic-tabs') %}
+{% if behavior_name %}
+  {% set attributes = attributes.setAttribute('data-behavior-name', behavior_name) %}
+{% endif %}
+{% set hash = random() %}
+{% set unique_id = 'tabs--' ~ hash %}
+<div {{ attributes }}>
+  <ul class="nav nav-tabs" id="{{ unique_id }}-navigation" role="tablist">
+    {% block _tab_navigation %}
+
+    {% endblock %}
+  </ul>
+
+  <div class="tab-content pt-4" id="{{ unique_id }}--content">
+    {% block _tab_content %}
+
+    {% endblock %}
+  </div>
+</div>

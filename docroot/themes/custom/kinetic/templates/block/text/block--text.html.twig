@@ -1,0 +1,9 @@
+{% extends '@kinetic/block/block.html.twig' %}
+
+{% block content %}
+  {% embed 'kinetic:rich-text' %}
+    {% block _text %}
+      {{ content.field_description.0 }}
+    {% endblock %}
+  {% endembed %}
+{% endblock %}

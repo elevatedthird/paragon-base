@@ -1,0 +1,48 @@
+///
+/// This file transforms SCSS vars into CSS variables.
+///
+
+// Print css vars.
+// naming convention --k--{property}--{tag}
+@mixin print-css-vars($typography) {
+  @each $tag, $rules in $typography {
+    @each $key, $prop in $rules {
+      @if index($rfs-props, $key) {
+        @include rfs($prop, --k--typography--#{$key}-#{$tag});
+      }
+      @else {
+        --k--typography--#{$key}-#{$tag}: #{$prop};
+      }
+    }
+  }
+}
+
+// Declare global classes and rules.
+@mixin print-typography-rules($typography) {
+  @each $tag, $rules in $typography {
+    #{$tag}, .#{$tag} {
+      @each $key, $prop in $rules {
+        #{$key}: var(--k--typography--#{$key}-#{$tag});
+      }
+    }
+  }
+}
+
+/*
+  Prints the color state for each tag presented or uses the default selectors
+  See /00-config/settings/_typography.scss
+ */
+@mixin text-color-profile-targets($key: light) {
+  $profile: extend-in-map($text-color-profiles, $key);
+  @each $selector, $color in $profile {
+    @if $selector == default {
+      #{$default-text-color-profile-targets} {
+        color: $color;
+      }
+    } @else {
+      #{$selector} {
+        color: $color;
+      }
+    }
+  }
+}

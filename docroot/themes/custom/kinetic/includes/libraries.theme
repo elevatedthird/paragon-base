@@ -1,0 +1,57 @@
+<?php
+
+/**
+ * @file
+ * Library-related hook implementations.
+ */
+
+// *********************************************
+// 2. Theme suggestions
+// *********************************************
+use Drupal\Component\Serialization\Exception\InvalidDataTypeException;
+use Drupal\Component\Utility\NestedArray;
+use Drupal\Core\Asset\Exception\InvalidLibraryFileException;
+use Drupal\Core\Serialization\Yaml;
+
+function kinetic_library_info_alter(&$libraries, $extension) {
+  // Set all sdc libraries as minified.
+  if ($extension == 'sdc') {
+    foreach ($libraries as $name => $library) {
+      if (isset($library['css'])) {
+        foreach ($library['css'] as $type => $value) {
+          foreach ($library['css'][$type] as $key => $value) {
+//            $libraries[$name]['css'][$type][$key]['preprocess'] = false;
+            $libraries[$name]['css'][$type][$key]['minified'] = true;
+          }
+        }
+      }
+      if (isset($library['js'])) {
+        foreach ($library['js'] as $key => $value) {
+//          $libraries[$name]['js'][$key]['preprocess'] = false;
+          $libraries[$name]['js'][$key]['minified'] = true;
+        }
+      }
+    }
+  }
+
+  // Get the path of the theme where this function is being called.
+  $theme_path = \Drupal::service('extension.list.theme')->getPath('kinetic');;
+  // Alter only the library definitions of the current theme.
+  if ($extension == 'kinetic') {
+
+    $partial_libraries = [];
+
+    $partials_file = $theme_path . '/partials.yml';
+    if (file_exists($partials_file)) {
+      try {
+        $partial_libraries = Yaml::decode(file_get_contents($partials_file)) ?? [];
+      }
+      catch (InvalidDataTypeException $e) {
+        // Rethrow a more helpful exception to provide context.
+        throw new InvalidLibraryFileException(sprintf('Invalid library definition in %s: %s', $partials_file, $e->getMessage()), 0, $e);
+      }
+    }
+
+    $libraries = NestedArray::mergeDeep($libraries, $partial_libraries);
+  }
+}

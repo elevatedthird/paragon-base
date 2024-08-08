@@ -1,0 +1,15 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: "Carousel"
+status: "stable"
+group: Blocks
+description: "Provides a simple carousel"
+slots:
+  _items:
+    title: 'Items'
+    description: 'The items to be displayed in the carousel'
+props:
+  type: object
+  properties:
+    item_count:
+      type: integer
+      title: "Number of items for the navigation"

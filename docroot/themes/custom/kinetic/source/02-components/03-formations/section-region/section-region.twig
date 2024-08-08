@@ -1,0 +1,6 @@
+{% if attribute(region['#attributes'], 'addClass') is not defined %}
+  {% set attributes = create_attribute(region['#attributes']|default({})) %}
+{% endif %}
+<div {{ attributes.addClass('layout__region', 'layout__region--' ~ layout__region , classes) }}>
+  {{ region }}
+</div>

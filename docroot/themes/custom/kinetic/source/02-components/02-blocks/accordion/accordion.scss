@@ -1,0 +1,15 @@
+/* Override variables. */
+$accordion-border-radius: 0;
+$accordion-inner-border-radius: 0;
+
+@import '~bootstrap/scss/accordion';
+
+[data-component-id="kinetic:accordion"] {
+
+  /* Add your styles here */
+  .accordion-item {
+    border: none;
+    border-bottom: var(--bs-accordion-border-width) solid var(--bs-accordion-border-color);
+  }
+
+}

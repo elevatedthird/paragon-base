@@ -1,0 +1,33 @@
+[data-component-id="kinetic:text-and-media"] {
+  .grid {
+    // Media side.
+
+    > div:first-child {
+      img,
+      video {
+        width: 100%;
+      }
+    }
+
+    // Content side.
+
+    > div:last-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  .ctas {
+    margin-top: var(--k-space-4);
+  }
+
+  @include media-breakpoint-down(md) {
+    .grid {
+      --bs-rows: 1;
+      --bs-columns: 1;
+      --bs-gap: 0;
+      grid-row-gap: var(--k-space-4);
+    }
+  }
+}

@@ -1,0 +1,20 @@
+partials.vendors.333.js:
+  js:
+    dist/js/vendors.333.js:
+      preprocess: false
+      minified: true
+partials.vendors.777.js:
+  js:
+    dist/js/vendors.777.js:
+      preprocess: false
+      minified: true
+partials.vendors.259.js:
+  js:
+    dist/js/vendors.259.js:
+      preprocess: false
+      minified: true
+partials.vendors.361.js:
+  js:
+    dist/js/vendors.361.js:
+      preprocess: false
+      minified: true

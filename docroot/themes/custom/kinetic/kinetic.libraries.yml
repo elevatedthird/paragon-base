@@ -1,0 +1,136 @@
+kinetic:
+  version: VERSION
+  js:
+    dist/js/index.js:
+      preprocess: false
+      minified: true
+  css:
+    base:
+      dist/css/index.css:
+        preprocess: false
+        minified: true
+      dist/css/utilities.css:
+        preprocess: false
+        minified: true
+  dependencies:
+    - core/drupal
+    - sdc/kinetic--table
+    - kinetic/partials.vendors.333.js
+    - kinetic/partials.vendors.361.js
+breakpoints:
+  version: VERSION
+  js:
+    dist/js/breakpoints.js:
+      preprocess: false
+      minified: true
+layout-builder:
+  version: VERSION
+  css:
+    base:
+      dist/css/layout-builder.css:
+        minified: true
+base:
+  version: VERSION
+  css:
+    component:
+      source/01-base/core/css/components/action-links.css:
+        weight: -10
+      source/01-base/core/css/components/breadcrumb.css:
+        weight: -10
+      source/01-base/core/css/components/button.css:
+        weight: -10
+      source/01-base/core/css/components/container-inline.css:
+        weight: -10
+      source/01-base/core/css/components/details.css:
+        weight: -10
+      source/01-base/core/css/components/exposed-filters.css:
+        weight: -10
+      source/01-base/core/css/components/field.css:
+        weight: -10
+      source/01-base/core/css/components/form.css:
+        weight: -10
+      source/01-base/core/css/components/icons.css:
+        weight: -10
+      source/01-base/core/css/components/inline-form.css:
+        weight: -10
+      source/01-base/core/css/components/item-list.css:
+        weight: -10
+      source/01-base/core/css/components/link.css:
+        weight: -10
+      source/01-base/core/css/components/links.css:
+        weight: -10
+      source/01-base/core/css/components/menu.css:
+        weight: -10
+      source/01-base/core/css/components/more-link.css:
+        weight: -10
+      source/01-base/core/css/components/pager.css:
+        weight: -10
+      source/01-base/core/css/components/tabledrag.css:
+        weight: -10
+      source/01-base/core/css/components/tableselect.css:
+        weight: -10
+      source/01-base/core/css/components/tablesort.css:
+        weight: -10
+      source/01-base/core/css/components/tabs.css:
+        weight: -10
+      source/01-base/core/css/components/textarea.css:
+        weight: -10
+      source/01-base/core/css/components/ui-dialog.css:
+        weight: -10
+dialog:
+  version: VERSION
+  css:
+    component:
+      source/01-base/core/css/components/dialog.css:
+        weight: -10
+dropbutton:
+  version: VERSION
+  css:
+    component:
+      source/01-base/core/css/components/dropbutton.css:
+        weight: -10
+file:
+  version: VERSION
+  css:
+    component:
+      source/01-base/core/css/components/file.css:
+        weight: -10
+image-widget:
+  version: VERSION
+  css:
+    component:
+      source/01-base/core/css/components/image-widget.css: {}
+indented:
+  version: VERSION
+  css:
+    component:
+      source/01-base/core/css/components/indented.css: {}
+messages:
+  version: VERSION
+  css:
+    component:
+      source/01-base/core/css/components/messages.css:
+        weight: -10
+node:
+  version: VERSION
+  css:
+    component:
+      source/01-base/core/css/components/node.css:
+        weight: -10
+progress:
+  version: VERSION
+  css:
+    component:
+      source/01-base/core/css/components/progress.css:
+        weight: -10
+search-results:
+  version: VERSION
+  css:
+    component:
+      source/01-base/core/css/components/search-results.css: {}
+user:
+  version: VERSION
+  css:
+    component:
+      source/01-base/core/css/components/user.css:
+        weight: -10

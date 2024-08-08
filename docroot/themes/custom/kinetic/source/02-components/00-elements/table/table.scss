@@ -1,0 +1,11 @@
+// Tables.
+// Bootstrap config.
+// Customizes the `.table` component with basic values, each used across all table variations.
+
+$table-cell-padding-y: .5rem;
+$table-cell-padding-x: .5rem;
+$table-cell-padding-y-sm: .25rem;
+$table-cell-padding-x-sm: .25rem;
+$table-bg: transparent;
+
+@import "~bootstrap/scss/tables";

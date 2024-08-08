@@ -1,0 +1,74 @@
+// Icomoon.
+
+// Base icon rules.
+@mixin kinetic-icons() {
+  %icon-base {
+    /* stylelint-disable font-family-no-missing-generic-family-keyword */
+    font-family: 'icomoon';
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    text-align: center;
+
+    // For safety - reset parent styles, that can break glyph codes
+    font-variant: normal;
+    text-transform: none;
+
+    // Ensure consistent height
+    line-height: 1;
+  }
+}
+
+/// Add a font icon. This must be used in a before or after pseudo class
+/// @example
+///   ::before {
+///     @include icon(down);
+///   }
+@mixin icon($icon, $replace: false, $map: $icons) {
+  @if map-has-key($map, $icon) {
+    $icon: map-get($map, $icon);
+  }
+
+  @if $replace == false {
+    @extend %icon-base;
+  }
+
+  content: '#{$icon}';
+}
+
+/// Add an icon to the before pseudo class
+@mixin icon-before($icon, $replace: false) {
+  &::before {
+    @include icon($icon, $replace);
+    @content;
+  }
+}
+
+/// Add an icon to the after pseudo class
+@mixin icon-after($icon, $replace: false) {
+  &::after {
+    @include icon($icon, $replace);
+    @content;
+  }
+}
+
+/// Replace text with icon
+/// Use this when you need an icon to appear instead of text,
+//  but still need the text to appear for accesility.
+/// @example
+///  <span class='my-span'> Go Back </span>
+///  .my-span {
+///    @include replace-text-with-icon(down, 16);
+///  }
+@mixin replace-text-with-icon($icon, $font-size: $font-size-base) {
+  font-size: 0;
+  text-decoration: none;
+
+  @include icon-before($icon) {
+    font-size: $font-size;
+    @content;
+  }
+}

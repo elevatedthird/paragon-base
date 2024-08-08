@@ -1,0 +1,7 @@
+{% set attributes = create_attribute() %}
+
+<div {{ attributes.addClass(['image', 'view-mode--' ~ view_mode]) }}>
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+</div>

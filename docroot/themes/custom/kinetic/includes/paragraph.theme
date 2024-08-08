@@ -1,0 +1,72 @@
+<?php
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\paragraphs\ParagraphInterface;
+
+/**
+ * @file
+ * paragraph.theme
+ */
+
+/**
+ * Implements template_preprocess_paragraph().
+ *
+ * @param array $variables
+ *
+ * @return void
+ */
+function kinetic_preprocess_paragraph(array &$variables)
+{
+  _build_paragraph_parent_context($variables);
+}
+
+/**
+ * Build up the parent context for the paragraph.
+ *
+ * @param array $variables
+ */
+function _build_paragraph_parent_context(array &$variables)
+{
+  $paragraph = $variables['paragraph'];
+  // get parent entity
+  $parent = $paragraph->getParentEntity();
+  if (!$parent) {
+    return;
+  }
+  // get parent uuid
+  $parent_uuid = $parent?->uuid() ?? '';
+  // get parent entity type
+  $parent_entity_type = $parent->getEntityTypeId();
+  // get the parent id
+  $parent_id = $parent->id();
+  // get index of the current paragraph in the parent entity
+  $variables['index'] = _get_paragraph_field_index($parent, $paragraph);
+  $variables['parent_id'] = $parent_entity_type . '--' . $parent_id;
+}
+
+/**
+ * Get the index of the paragraph in the parent entity.
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $paragraph_parent
+ *   The parent entity.
+ * @param \Drupal\paragraphs\ParagraphInterface $paragraph
+ *   The paragraph entity.
+ *
+ * @return int
+ *   The index of the paragraph in the parent entity.
+ */
+function _get_paragraph_field_index(EntityInterface $paragraph_parent, ParagraphInterface $paragraph)
+{
+  $parent = $paragraph_parent;
+  if ($paragraph->hasField('parent_field_name') && !$paragraph->get('parent_field_name')->isEmpty()) {
+    $parent_field_name = $paragraph->get('parent_field_name');
+    $parent_field_name = $parent_field_name->getString();
+    $paragraph_id = $paragraph->id();
+    if ($parent->hasField($parent_field_name)) {
+      $parent_field_value = $parent->$parent_field_name->getValue();
+      $target_ids = array_column($parent_field_value, 'target_id');
+      return array_search($paragraph_id, $target_ids, TRUE);
+    }
+  }
+  return 0;
+}

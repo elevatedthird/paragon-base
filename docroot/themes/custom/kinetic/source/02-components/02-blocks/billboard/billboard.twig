@@ -1,0 +1,32 @@
+{% set attributes = create_attribute() %}
+
+{# Set Alignment #}
+{% if alignment %}
+  {% set attributes = attributes.addClass('alignment--' ~ alignment) %}
+{% endif %}
+
+<div class='billboard'>
+  {% block _media %}
+    {{ _media }}
+  {% endblock %}
+  <div {{ attributes.addClass(['billboard-content', 'surface--dark']) }} >
+    {% embed 'kinetic:title' with {
+      heading,
+      heading_style,
+      heading_tag,
+      _description: _description,
+    } only %}
+      {% block _description %}
+        {{ _description }}
+      {% endblock %}
+    {% endembed %}
+
+    {% if block('_ctas') is not empty %}
+      <div class="billboard-ctas">
+        {% block _ctas %}
+          {{ _ctas }}
+        {% endblock %}
+      </div>
+    {% endif %}
+  </div>
+</div>

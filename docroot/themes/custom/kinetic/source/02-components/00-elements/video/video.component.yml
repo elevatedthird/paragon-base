@@ -1,0 +1,15 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: "Video"
+status: "stable"
+description: "Renders Video media type"
+slots:
+  content:
+    title: "video content"
+    description: "The video content"
+props:
+  type: object
+  properties:
+    view_mode:
+      type: string
+      title: view mode to be added as a class
+

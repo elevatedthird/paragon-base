@@ -1,0 +1,15 @@
+{% stories component with {
+  title: 'Formation/Section/One Column',
+} %}
+  {% story default with {
+    name: '1. Default',
+  } %}
+    {% embed 'kinetic:layout--one-column' %}
+      {% block first %}
+        <div style="height: 100px; width: 100%; background:pink;">
+          First region content
+        </div>
+      {% endblock %}
+    {% endembed %}
+  {% endstory %}
+{% endstories %}
