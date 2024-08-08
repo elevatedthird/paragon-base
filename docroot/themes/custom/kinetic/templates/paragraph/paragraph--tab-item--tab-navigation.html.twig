@@ -1,0 +1,10 @@
+
+{% embed "kinetic:tabs-nav-item" with {
+  id: parent_id ~ '--' ~ index,
+  is_active: index == 0,
+  _tab_navigation: content.field_heading_plain.0
+} only %}
+  {% block _tab_navigation %}
+    {{ _tab_navigation }}
+  {% endblock %}
+{% endembed %}

@@ -1,0 +1,31 @@
+{# Set Alignment #}
+{% if alignment == 'center' %}
+  {% set attributes = attributes.addClass('text-center') %}
+{% elseif alignment == 'left' %}
+  {% set attributes = attributes.addClass('text-start') %}
+{% elseif alignment == 'right' %}
+  {% set attributes = attributes.addClass('text-end') %}
+{% endif %}
+
+<div {{ attributes.addClass('section-intro') }} >
+  {% embed 'kinetic:title' with {
+    heading,
+    eyebrow,
+    heading_style,
+    heading_tag,
+    _description: _description,
+  } only %}
+    {% block _description %}
+      {{ _description }}
+    {% endblock %}
+  {% endembed %}
+
+{#  {% if block(_ctas) is not empty %}#}
+  {% apply spaceless %}
+    <div class="section-intro-ctas mt-4">
+      {%- block _ctas %}
+      {% endblock -%}
+    </div>
+  {% endapply %}
+{#  {% endif %}#}
+</div>

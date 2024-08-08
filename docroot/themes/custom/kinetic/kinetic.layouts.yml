@@ -1,0 +1,70 @@
+kinetic_content_header:
+  label: 'Content Header (Only as first section)'
+  template: templates/layout--content-header
+  class: '\Drupal\kinetic\KineticLayoutNoOptions'
+  default_region: first
+  icon_map:
+    - [ first ]
+  regions:
+    first:
+      label: First
+
+kinetic_one_column:
+  label: 'One Column'
+  template: templates/layout--one-column
+  class: '\Drupal\kinetic\KineticLayout'
+  default_region: first
+  icon_map:
+    - [ first ]
+  regions:
+    first:
+      label: First
+
+kinetic_two_column:
+  label: 'Two Column'
+  template: templates/layout--two-column
+  class: '\Drupal\kinetic\KineticLayoutTwoColumn'
+  default_region: first
+  icon_map:
+    - [ first, second ]
+  regions:
+    first:
+      label: First
+    second:
+      label: Second
+
+# legacy section definitions
+kinetic_banner:
+  label: 'Content Header (Only as first section) -- Deprecated'
+  template: templates/layout--content-header
+  class: '\Drupal\kinetic\KineticLayoutNoOptions'
+  default_region: first
+  icon_map:
+    - [ first ]
+  regions:
+    first:
+      label: First
+
+kinetic_onecol:
+  label: 'One Column -- Deprecated'
+  template: templates/layout--one-column
+  class: '\Drupal\kinetic\KineticLayout'
+  default_region: first
+  icon_map:
+    - [ first ]
+  regions:
+    first:
+      label: First
+
+kinetic_twocol:
+  label: 'Two Column -- Deprecated'
+  template: templates/layout--two-column
+  class: '\Drupal\kinetic\KineticLayoutTwoColumn'
+  default_region: first
+  icon_map:
+    - [ first, second ]
+  regions:
+    first:
+      label: First
+    second:
+      label: Second

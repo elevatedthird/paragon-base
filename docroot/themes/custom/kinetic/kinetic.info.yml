@@ -1,0 +1,51 @@
+name: Kinetic
+type: theme
+'base theme': stable9
+starterkit: true
+# version: VERSION
+description: 'This is the intended starter theme of the Drupal 10 Paragon distribution.'
+dependencies:
+  - drupal:sdc
+  - storybook:storybook
+regions:
+  #  Add regions as needed. We will lean toward being specific with how we render blocks and use the programmatic region for header and footer for now.
+  header: Header
+  content: Content
+  footer: Footer
+  programmatic: 'Programmatically Placed'
+enforce_prop_schemas: true
+ckeditor5-stylesheets:
+  - dist/css/wysiwyg.css
+libraries:
+  - kinetic/base
+  - kinetic/breakpoints
+  - kinetic/messages
+  - kinetic/kinetic
+  - core/normalize
+  - core/once
+libraries-extend:
+  user/drupal.user:
+    - kinetic/user
+  core/drupal.dropbutton:
+    - kinetic/dropbutton
+  core/drupal.dialog:
+    - kinetic/dialog
+  file/drupal.file:
+    - kinetic/file
+  core/drupal.progress:
+    - kinetic/progress
+core_version_requirement: ^10
+generator: 'starterkit_theme:10.0.8'
+preload-fonts:
+# Only include fonts that are used in the theme. Local fonts are preferred over remote fonts.
+# Confirm in the header tags that the fonts are being preloaded.  Local fonts still require font-face declarations.
+#preload-fonts:
+#  - '@kinetic/fonts/Lumanosimo-Regular.ttf'
+#  - '/fonts/Lumanosimo-Regular.ttf'
+#  - "https://fonts.googleapis.com/css2?family=REM:wght@100&family=Roboto:wght@100&display=swap"
+#  - "https://use.typekit.net/<stylesheet>.css"
+
+# Information added by Drupal.org packaging script on 2024-07-12
+version: '1.0.x-dev'
+project: 'kinetic'
+datestamp: 1720795640

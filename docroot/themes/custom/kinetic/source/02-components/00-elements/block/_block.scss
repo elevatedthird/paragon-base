@@ -1,0 +1,11 @@
+[data-component-id="kinetic:block"] {
+  // @todo this should probably live with the block sdc
+  + .block {
+    --block-spacing: 3rem;
+    margin-top: var(--block-spacing);
+  }
+  // @todo this should probably live with the section into sdc?
+  &.block--section-intro {
+    --block-spacing: 16px;
+  }
+}

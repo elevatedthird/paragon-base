@@ -1,0 +1,15 @@
+{% extends '@kinetic/block/block.html.twig' %}
+
+{% block content %}
+  {% embed 'kinetic:carousel' with {_items: content.field_items, item_count: content.field_items['#items']|length} only %}
+    {% block _items %}
+      {% for key, item in _items['#items'] %}
+        {% embed 'kinetic:glide-slide' %}
+          {% block item %}
+            {{ _items[key] }}
+          {% endblock %}
+        {% endembed %}
+      {% endfor %}
+    {% endblock %}
+  {% endembed %}
+{% endblock %}

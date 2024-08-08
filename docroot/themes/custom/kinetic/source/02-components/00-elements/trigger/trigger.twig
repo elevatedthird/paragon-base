@@ -1,0 +1,4 @@
+{% if attribute(attributes, 'addClass') is not defined %}
+  {% set attributes = create_attribute(attributes|default({})) %}
+{% endif %}
+{{ include('kinetic:button', { attributes: attributes.setAttribute('data-bs-target', '#' ~ target_id).setAttribute('data-bs-toggle', toggle_id), text }, with_context = false) }}

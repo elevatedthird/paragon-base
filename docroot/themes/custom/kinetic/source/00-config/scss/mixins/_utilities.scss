@@ -1,0 +1,70 @@
+////
+/// Custom Utilities.
+////
+
+/// Background Media - Helpful mixin when using responsive images or videos as a background
+/// Set to cover the space
+/// @param {String} $size [cover] - valid object fit value (cover/contain)
+/// @param {String} $position [center] - valid position (top/center/bottom)
+/// @param {String} $max-height [null] - max-height with unit
+/// @example
+///   @include bg-media(contain, top, 600px)
+@mixin bg-media($size: cover, $position: center, $max-height: null) {
+  width: 100%;
+  @if $max-height {
+    max-height: $max-height;
+  }
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  overflow: hidden;
+
+  div {
+    height: 100%;
+  }
+
+  img, video {
+    width: 100%;
+    height: 100%;
+    object-fit: $size;
+    object-position: $position;
+  }
+}
+
+/// A mixin wrapper of the selector() function.
+/// @see {function} selectors
+/// @example
+///   @include selectors(active) {
+///     text-decoration: underline;
+///   }
+@mixin selectors($selector-key, $exclude: '') {
+  #{selectors($selector-key, $exclude)} {
+    @content;
+  }
+}
+
+// Screen Reader Only to hide text.
+@mixin sr-only() {
+  border: 0 none;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+@mixin sr-only-focusable() {
+  &:active, &:focus{
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+  }
+}
+
+

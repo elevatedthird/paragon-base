@@ -1,0 +1,14 @@
+<li class="nav-item" role="presentation">
+  <button class="nav-link {{ is_active ? 'active' }}"
+      id="tab-link--{{ id }}"
+      data-bs-toggle="tab"
+      data-bs-target="#tab-pane--{{ id }}"
+      type="button"
+      role="tab"
+      aria-controls="tab-pane--{{ id }}"
+      aria-selected="{{ is_active ? 'true' : 'false' }}">
+    {% block _tab_navigation %}
+
+    {% endblock %}
+  </button>
+</li>

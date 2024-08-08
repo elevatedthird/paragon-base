@@ -1,0 +1,19 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: "Link--Button"
+status: "stable"
+description: "An anchor tag that looks like a button."
+props:
+  type: object
+  properties:
+    text:
+      type: "string"
+      title: Text
+    href:
+      type: "string"
+      title: Href
+    style:
+      type: 'string'
+      title: Style
+      enum:
+        - primary
+        - outline

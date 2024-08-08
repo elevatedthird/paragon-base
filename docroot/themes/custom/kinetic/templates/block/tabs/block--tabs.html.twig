@@ -1,0 +1,15 @@
+{% extends '@kinetic/block/block.html.twig' %}
+
+{% block content %}
+  {% embed 'kinetic:tabs' with {
+    _tab_navigation: tab_navigation,
+    _tab_content: content.field_items,
+  } only %}
+    {% block _tab_navigation %}
+      {{ _tab_navigation }}
+    {% endblock %}
+    {% block _tab_content %}
+      {{ _tab_content }}
+    {% endblock %}
+  {% endembed %}
+{% endblock %}

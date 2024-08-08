@@ -1,0 +1,19 @@
+{% set heading_id =  parent_id ~ "--" ~ "heading"|clean_unique_id %}
+{% set target_id =  parent_id ~ "--" ~ "collapse"|clean_unique_id %}
+{% set heading_level = heading_level|default(3) %}
+{% set open = false %}
+
+<div class="accordion-item">
+  <h{{ heading_level }} class="accordion-header" id="{{ heading_id }}">
+    <button class="accordion-button  {{ open ? '' : 'collapsed' }}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ target_id }}" aria-expanded="{{ key==0 ? 'true' : 'false' }}" aria-controls="{{ target_id }}">
+      {{ heading }}
+    </button>
+  </h{{ heading_level }}>
+  <div id="{{ target_id }}" class="accordion-collapse collapse {{ open ? 'show' : '' }}" aria-labelledby="{{ heading_id }}">
+    <div class="accordion-body">
+      {% block body %}
+        {{ body }}
+      {% endblock %}
+    </div>
+  </div>
+</div>

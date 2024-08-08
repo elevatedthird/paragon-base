@@ -1,0 +1,40 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: "Title"
+status: "stable"
+description: "A title section containing a title and optional description and eyebrow. This is inteneded to be included by other SDCs"
+required:
+  - heading
+slots:
+  _description:
+    title: 'Description'
+    description: 'The description to be displayed in the title'
+  _text:
+    title: 'Text'
+    description: 'The text to be displayed in the title'
+props:
+  type: object
+  properties:
+    eyebrow:
+      type: string
+      title: "Eyebrow"
+    heading:
+      type: string
+      title: "Heading"
+    heading_tag:
+      type: string
+      title: Heading Tag
+      enum:
+        - h1
+        - h2
+        - h3
+        - h4
+        - h5
+    heading_style:
+      type: string
+      title: Heading Style
+      enum:
+        - h1
+        - h2
+        - h3
+        - h4
+        - h5

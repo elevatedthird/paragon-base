@@ -1,0 +1,11 @@
+// Expose the $grid-breakpoints as css variable for use in js (not sure if bootstrap already exposes these in js)
+// Thank you foundation for this idea.
+// https://github.com/foundation/foundation-sites/blob/develop/js/foundation.util.mediaQuery.js
+.bs-breakpoints {
+  $bps: '';
+  @each $breakpoint, $value in $grid-breakpoints {
+    $bps: '#{$bps}#{$breakpoint}:#{$value},';
+  }
+
+  --breakpoints: '#{$bps}';
+}

@@ -1,0 +1,86 @@
+$white:    #fff;
+$gray-100: #FAFAFA;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #262626;
+$gray-900: #18181B;
+$black:    #000;
+// scss-docs-end gray-color-variables
+
+// fusv-disable
+// scss-docs-start gray-colors-map
+$grays: (
+  "100": $gray-100,
+  "200": $gray-200,
+  "300": $gray-300,
+  "400": $gray-400,
+  "500": $gray-500,
+  "600": $gray-600,
+  "700": $gray-700,
+  "800": $gray-800,
+  "900": $gray-900
+);
+
+// scss-docs-start color-variables
+$blue:       #3B82F6;
+$dark-blue:  #1D4ED8;
+$light-blue: #DBEAFE;
+$indigo:  #061CBE;
+$pink:    #FECACA;
+$orange:  #BE4C06;
+$green:   #15803D;
+$teal:    #DCFCE7;
+$red:     #B91C1C;
+$yellow:  #FEF3C7;
+
+// scss-docs-end color-variables
+
+$colors: (
+  "blue":       $blue,
+  "dark-blue":  $dark-blue,
+  "light-blue": $light-blue,
+  "indigo":     $indigo,
+  "pink":       $pink,
+  "orange":     $orange,
+  "green":      $green,
+  "teal":       $teal,
+  "white":      $white,
+  "gray":       $gray-600
+);
+
+
+$primary:       $dark-blue;
+$secondary:     $light-blue;
+$success:       $green;
+$info:          $cyan;
+$warning:       $yellow;
+$danger:        $red;
+// scss-docs-end theme-color-variables
+
+// scss-docs-start theme-colors-map
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+);
+
+// Used in text-color utility.
+// Convert the theme-colors into RGB. This is legacy from BS4 to BS5.
+$theme-colors-rgb: (
+  'primary': to-rgb($primary),
+  'secondary': to-rgb($secondary),
+  'success': to-rgb($success),
+  'info': to-rgb($info),
+  'warning': to-rgb($warning),
+  'danger': to-rgb($danger),
+);
+
+// see how to merge in more colors to a utility at the bottom of this page.
+// https://getbootstrap.com/docs/5.2/customize/color/#generating-utilities

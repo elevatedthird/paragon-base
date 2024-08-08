@@ -1,0 +1,26 @@
+{% stories card with {
+  title: 'Blocks/Accordion'
+} %}
+  {% story default with {
+    name: '1. Default',
+  } %}
+    {% embed 'kinetic:layout--one-column' %}
+      {% block first %}
+        {% embed 'kinetic:accordion' with {
+          accordion_id,
+          behavior_name: 'kinetic-accordion',
+        } only %}
+          {% block _accordion_items %}
+            {% for i in 0..5 %}
+              {% embed 'kinetic:accordion-item' with { heading: "This is the heading", parent_id: 'accorion', open: (i == 0), key: i, } %}
+                {% block body %}
+                  Rhoncus in repellat, fringilla eligendi excepteur, quo amet voluptatibus, doloremque exercitation tempus rutrum cumque, delectus aspernatur! Placeat necessitatibus iste reprehenderit.
+                {% endblock %}
+              {% endembed %}
+            {% endfor %}
+          {% endblock %}
+        {% endembed %}
+      {% endblock %}
+    {% endembed %}
+  {% endstory %}
+{% endstories %}

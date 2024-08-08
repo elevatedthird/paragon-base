@@ -1,0 +1,12 @@
+<header {{ attributes.setAttribute('role', 'banner') }}>
+  {% block branding %}
+    <div class="branding">
+      {{ branding }}
+    </div>
+  {% endblock %}
+  {% block nav %}
+    <div class="navigation">
+      {{ nav }}
+    </div>
+  {% endblock %}
+</header>

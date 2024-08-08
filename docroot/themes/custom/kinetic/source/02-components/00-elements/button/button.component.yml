@@ -1,0 +1,19 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: "Button"
+status: "stable"
+required:
+  - style
+props:
+  type: object
+  properties:
+    text:
+      type: "string"
+    variant:
+      type: 'string'
+      enum:
+        - link
+    style:
+      type: string
+      enum:
+        - primary
+        - outline

@@ -1,0 +1,80 @@
+<?php
+
+/**
+ * @file
+ * block.theme
+ */
+use Drupal\block_content\BlockContentInterface;
+
+/**
+ * Implements template_preprocess_block().
+ *
+ * @param array $variables
+ *   Default preprocess variables.
+ */
+function kinetic_preprocess_block(&$variables) {
+  if (!empty($variables['elements']['content']['#block_content'])) {
+    $block = $variables['elements']['content']['#block_content'];
+
+    // Block Type.
+    $bundle = $block->bundle();
+    $variables['block_type'] = $bundle;
+    // Preprocess common fields that could appear on more than 1 block.
+
+    // Set variables from select lists.
+    $list_option_fields = [
+      'field_alignment',
+      'field_layout',
+      'field_heading_style',
+    ];
+    foreach ($list_option_fields as $field) {
+      if ($block->hasField($field) && !$block->get($field)->isEmpty()) {
+        $key = str_replace('field_', '', $field);
+        $variables[$key] = $block->get($field)->value;
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function kinetic_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  $content = $variables['elements']['content'];
+  if (isset($content['#block_content']) and $content['#block_content'] instanceof BlockContentInterface) {
+    $suggestions = [];
+    $bundle = $content['#block_content']->bundle();
+    $view_mode = $content['#view_mode'];
+    $suggestions[] = 'block__' . $bundle;
+    $suggestions[] = 'block__' . $view_mode;
+    $suggestions[] = 'block__' . $bundle . '__' . $view_mode;
+    if (!empty($variables['elements']['#id'])) {
+      $suggestions[] = 'block__' . $variables['elements']['#id'];
+    }
+  }
+}
+
+/**
+ * Implemnents hook_preprocess_block__type().
+ */
+function kinetic_preprocess_block__accordion(&$variables) {
+  $block = $variables['elements']['content']['#block_content'];
+  // get block uuid
+
+  $variables['accordion_id'] = $block->getEntityTypeId() . '--' . $block->id();
+}
+
+/**
+ * Implemnents hook_preprocess_block__type().
+ */
+function kinetic_preprocess_block__tabs(&$variables) {
+  $block = $variables['elements']['content']['#block_content'];
+  $entity_type_manager = \Drupal::service('entity_type.manager');
+  $view_builder = $entity_type_manager->getViewBuilder('paragraph');
+  if ($block->hasField('field_items') && !$block->get('field_items')->isEmpty()) {
+    foreach ($block->get('field_items')->referencedEntities() as $item) {
+      $variables['tab_navigation'][] = $view_builder->view($item, 'tab_navigation');
+    }
+  }
+}
+

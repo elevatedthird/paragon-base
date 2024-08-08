@@ -1,0 +1,7 @@
+name: 'E3 - Custom list options'
+type: module
+description: 'Provides custom list options'
+package: Fields
+dependencies:
+  - list_predefined_options:list_predefined_options
+core_version_requirement: ^9 || ^10

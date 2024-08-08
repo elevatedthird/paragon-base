@@ -1,0 +1,21 @@
+$schema: >-
+  https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
+name: Dialog
+status: stable
+description: A boostrap 5 modal. Use the trigger SDC to add a trigger to open the modal.
+slots:
+  _dialog_body:
+    title: Modal Content
+    description: The body of the modal.
+props:
+  type: object
+  properties:
+    dialog_title:
+      type: string
+      title: Dialog title
+      description: title to show in this modal
+    behavior_name:
+      type: string
+      title: Name of drupal behavior that needs modal context
+libraryOverrides:
+  dependencies: []

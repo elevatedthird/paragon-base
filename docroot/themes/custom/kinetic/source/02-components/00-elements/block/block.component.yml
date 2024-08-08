@@ -1,0 +1,15 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: "Button"
+status: "stable"
+required:
+  - style
+slots:
+  block_content:
+    title: 'Block Content'
+    description: 'The content of the button'
+props:
+  type: object
+  classes:
+    type: string
+    title: "Classes"
+    description: "Classes to add to the button"

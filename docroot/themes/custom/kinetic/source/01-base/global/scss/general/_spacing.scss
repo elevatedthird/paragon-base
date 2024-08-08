@@ -1,0 +1,6 @@
+// Expose Vertical spacing values as CSS vars.
+:root {
+  @each $key, $value in $spacers {
+    --k-space-#{$key}: #{$value};
+  }
+}

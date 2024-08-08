@@ -1,0 +1,66 @@
+{% stories card with {
+  title: 'Blocks/Section Intro',
+  argTypes: {
+    alignment: {
+      control: 'radio',
+      options: {
+        left: 'left',
+        right: 'right',
+        center: 'center',
+      }
+    },
+    heading_style: {
+      control: 'radio',
+      options: {
+        h2: 'h2',
+        h3: 'h3',
+        h4: 'h4',
+        h5: 'h5',
+      }
+    }
+  }
+} %}
+  {% story default with {
+    name: '1. Default',
+    args: {
+      eyebrow: "Eyebrow",
+      alignment: 'left',
+      heading_style: 'h2',
+      heading: "This is a heading.",
+      _description: "<p>This is a description in a paragraph tag.</p>"
+    }
+  } %}
+    {% embed 'kinetic:layout--one-column' %}
+      {% block first %}
+        {% set _description %}
+          {{ _description|raw }}
+          {% embed 'kinetic:section-intro' with {
+            alignment,
+            heading_style,
+            eyebrow,
+            heading,
+            _description,
+          } only %}
+            {% block _description %}
+              {{ _description }}
+            {% endblock %}
+            {% block _ctas %}
+              {% embed 'kinetic:ctas' %}
+                {% block _ctas %}
+                  {{ include('kinetic:link--button', {
+                    title: 'Link',
+                    attributes: create_attribute({href: '/', class:['btn', 'btn-primary']}),
+                  }, with_context = false )}}
+                  {{ include('kinetic:link--button', {
+                    title: 'Link',
+                    attributes: create_attribute({href: '/', class:['btn', 'btn-outline']}),
+                  }, with_context = false )}}
+                {% endblock %}
+              {% endembed %}
+            {% endblock %}
+          {% endembed %}
+        {% endset %}
+      {% endblock %}
+    {% endembed %}
+  {% endstory %}
+{% endstories %}

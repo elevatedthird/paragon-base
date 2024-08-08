@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * Load include files which contain additional theming logic.
+ */
+foreach (glob(\Drupal::service('extension.list.theme')->getPath('kinetic') . '/includes/*.theme') as $file) {
+  include $file;
+}

@@ -1,0 +1,35 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: "Accordion Item"
+status: "stable"
+description: "A bootstrap accordion item."
+required:
+  - parent_id
+props:
+  type: object
+  properties:
+    parent_id:
+      type: "string"
+      title: "Parent ID"
+      description: "The ID of the accordion element."
+    heading:
+      type: "string"
+      title: "Heading"
+      description: "The heading of the accordion item."
+    heading_level:
+      type: "integer"
+      title: "Heading Type"
+      description: "The heading type of the accordion item."
+      default: 3
+      enum:
+        - 2
+        - 3
+        - 4
+    open:
+      type: boolean
+      title: "Initial Open State"
+      description: "The key of the intially opened item, or false."
+      default: false
+slots:
+  body:
+    title: Body
+    description: "The body of the accordion item."

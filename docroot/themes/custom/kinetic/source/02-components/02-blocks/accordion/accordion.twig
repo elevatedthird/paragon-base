@@ -1,0 +1,14 @@
+{% if behavior_name %}
+  {% set attributes = attributes.setAttribute('data-behavior-name', behavior_name) %}
+{% endif %}
+
+{% set accordion_id =  "accordion--" ~ random() %}
+
+<div {{ attributes }}>
+  <div class="accordion" id="{{ accordion_id|clean_unique_id }}">
+    {% block _accordion_items %}
+
+    {% endblock %}
+  </div>
+</div>
+

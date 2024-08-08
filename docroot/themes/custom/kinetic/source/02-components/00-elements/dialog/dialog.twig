@@ -1,0 +1,30 @@
+{% set aria_labelledby = modal_title ? "label--" ~ target_id : '' %}
+<div {{ attributes.addClass(['modal', 'fade']).setAttribute('id', target_id).setAttribute('aria-labelledby', aria_labelledby).setAttribute('aria-hidden', 'true').setAttribute('tabindex', '-1') }}>
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        {% if dialog_title %}
+          <div class="modal-title" id="label--{{ target_id }}">
+              {{ dialog_title }}
+          </div>
+        {% endif %}
+        {#
+          You must have at least one way to close the modal.
+        #}
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        {% block _dialog_body %}
+          {{ _dialog_body }}
+        {% endblock %}
+      </div>
+      {#
+        You must have at least one way to close the modal.
+      #}
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

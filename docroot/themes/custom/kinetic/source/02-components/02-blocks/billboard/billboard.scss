@@ -1,0 +1,28 @@
+.billboard {
+  position: relative;
+  &-content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    &.alignment--left {
+      left: var(--k-space-5);
+    }
+    &.alignment--right {
+      right: var(--k-space-5);
+    }
+    &.alignment--center {
+      left: var(--k-space-5);
+      right: var(--k-space-5);
+      text-align: center;
+    }
+  }
+  &-ctas {
+    margin-top: var(--k-space-4);
+  }
+  img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+  }
+}

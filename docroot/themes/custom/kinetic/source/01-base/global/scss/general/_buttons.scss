@@ -1,0 +1,112 @@
+// @see ~bootstrap/scss/_variables.scss for all variables. search for the button variables.
+
+// button variables overrides.
+$btn-font-weight: 400;
+$btn-border-radius: 32px;
+$btn-border-radius-sm: 16px;
+$btn-border-radius-lg: 32px;
+$btn-padding-y: 16px;
+$btn-padding-x: 32px;
+
+// bootstrap css variables
+// --bs-btn-padding-x
+// --bs-btn-padding-y
+// --bs-btn-font-family
+// --bs-btn-font-size
+// --bs-btn-font-weight
+// --bs-btn-line-height
+// --bs-btn-color
+// --bs-btn-bg
+// --bs-btn-border-width
+// --bs-btn-border-color
+// --bs-btn-border-radius
+// --bs-btn-box-shadow
+// --bs-btn-disabled-opacity
+// --bs-btn-disabled-bg
+// --bs-btn-focus-box-shadow
+// --bs-btn-focus-box-shadow
+// --bs-btn-border-color
+// --bs-btn-hover-color
+// --bs-btn-hover-bg
+// --bs-btn-hover-border-color
+// --bs-btn-active-color
+// --bs-btn-active-bg
+// --bs-btn-active-border-color
+// --bs-btn-active-shadow
+
+// use bootstrap, import buttons after variables.
+// strip out generation of button colors based on theme-colors;
+$theme-colors: ();
+
+@import "~bootstrap/scss/buttons";
+
+// we are going to use just plain btn on button and have them react to surfaces.
+// Base button styles.
+.btn {
+  --bs-btn-bg: var(--bs-primary);
+  --bs-btn-color: var(--bs-white);
+  --bs-btn-border-color: var(--bs-primary);
+  --bs-btn-active-border-color: var(--bs-primary);
+  --bs-btn-border-width: 2px;
+}
+
+// Button Variant Styles.
+.btn-primary {
+  --bs-btn-hover-bg: var(--bs-gray-900);
+  --bs-btn-hover-border-color: var(--bs-gray-900);
+  --bs-btn-hover-color: var(--bs-white);
+}
+
+.btn-outline {
+  --bs-btn-bg: transparent;
+  --bs-btn-color: var(--bs-primary);
+  --bs-btn-hover-color: var(--bs-white);
+  --bs-btn-hover-bg: var(--bs-gray-900);
+  --bs-btn-hover-border-color: var(--bs-gray-900);
+  &:hover {
+    --bs-btn-bg: var(--bs-gray-900);
+  }
+}
+
+// defaults set above for outside of surfaces. but if light is our default surface we can set the defaults here too. That way if you want to use a light surface in a dark one it will work.
+@include integrate-to-surface(light) {
+  .btn {
+    // stylelint-disable-next-line  scss/at-extend-no-missing-placeholder
+    @extend .btn;
+  }
+
+  .btn-outline {
+    // stylelint-disable-next-line  scss/at-extend-no-missing-placeholder
+    @extend .btn-outline;
+  }
+  .btn-primary {
+    // stylelint-disable-next-line  scss/at-extend-no-missing-placeholder
+    @extend .btn-primary;
+  }
+
+
+}
+
+// Button Styles on Dark surfaces regardless of background.
+@include integrate-to-surface(dark) {
+  .btn {
+    --bs-btn-bg: pink;
+  }
+  .btn-primary {
+    --bs-btn-bg: var(--bs-light-blue);
+    --bs-btn-color: var(--bs-gray-900);
+    --bs-btn-border-color: var(--bs-light-blue);
+    --bs-btn-active-border-color: var(--bs-light-blue);
+    --bs-btn-hover-bg: pink;
+    --bs-btn-hover-border-color: var(--bs-light-blue);
+    --bs-btn-hover-color: var(--bs-gray-900);
+  }
+  .btn-outline {
+    --bs-btn-bg: transparent;
+    --bs-btn-border-color: var(--bs-light-blue);
+    --bs-btn-color: var(--bs-light-blue);
+    --bs-btn-hover-color: var(--bs-light-blue);
+    --bs-btn-hover-bg: pink;
+    --bs-btn-hover-border-color: var(--bs-light-blue);
+  }
+}

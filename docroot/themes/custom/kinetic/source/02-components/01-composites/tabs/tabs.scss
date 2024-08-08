@@ -1,0 +1,16 @@
+$nav-tabs-border-radius: 0;
+$nav-tabs-link-active-color: $white;
+$nav-tabs-link-active-bg: $primary;
+
+@import '~bootstrap/scss/nav';
+
+.kinetic-tabs {
+  .nav-tabs {
+    border-bottom: none;
+    .nav-link {
+      --bs-nav-link-color: var(--bs-body-color);
+
+      border: none;
+    }
+  }
+}

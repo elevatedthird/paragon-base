@@ -1,0 +1,62 @@
+// Links.
+// See source/00-config/scss/settings/_links.scss for BS variable overrides.
+
+// Define all link variants here.
+$kinetic-links: (
+  primary:(
+    color: $link-color,
+    decoration: $link-decoration,
+    hover-color: $link-hover-color,
+  ),
+  underline:(
+    extend: primary,
+    decoration: underline,
+  ),
+  medium: (
+    extend: primary,
+    color: $secondary,
+    font-weight: 500
+  )
+);
+
+// Naming convention: link-{property-name}
+@mixin link($link-key: default) {
+  $link-conf: extend-in-map($kinetic-links, $link-key);
+
+  @each $prop, $rule in $link-conf {
+    --link-#{$prop}: #{$rule};
+  }
+}
+
+// Generate utility classes for links.
+%link {
+  // Define Base link CSS rules.
+  color: var(--link-color);
+  text-decoration: var(--link-decoration);
+  &:hover {
+    color: var(--link-hover-color);
+  }
+}
+
+// Assign CSS variables to each rule.
+@each $link-key, $value in $kinetic-links {
+  .link-#{$link-key} {
+    @include link($link-key);
+
+    // Put custom variant rules here.
+    @if $link-key == 'medium' {
+      font-weight: var(--link-font-weight);
+    }
+
+    // Extend the base styles.
+    @extend %link;
+  }
+}
+
+// Surfaces Integration.
+@include integrate-to-surface(dark) {
+  .link-primary {
+    --link-color: white;
+    --link-hover-color: red;
+  }
+}

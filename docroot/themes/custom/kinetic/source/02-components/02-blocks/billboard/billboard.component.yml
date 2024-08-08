@@ -1,0 +1,41 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: "Billboard"
+status: "stable"
+description: "Provides a media background with text content overlay"
+slots:
+  _ctas:
+    title: 'CTAs'
+    description: 'The CTAs to be displayed in the billboard'
+  _media:
+    title: 'Media'
+    description: 'The media to be displayed in the billboard'
+  _description:
+    title: 'Description'
+    description: 'The description to be displayed in the billboard'
+props:
+  type: object
+  properties:
+    heading:
+      type: string
+      title: "Heading"
+    heading_style:
+      type: string
+      title: Heading Style
+      enum:
+        - h1
+        - h2
+        - h3
+    heading_tag:
+      type: string
+      title: Heading Tag
+      enum:
+        - h1
+        - h2
+        - h3
+    alignment:
+      type: string
+      title: Alignment
+      enum:
+        - left
+        - right
+        - center

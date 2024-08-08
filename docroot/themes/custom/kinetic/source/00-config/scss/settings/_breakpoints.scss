@@ -1,0 +1,10 @@
+// These should match the values in kinetic.breakpoints.yml
+// however, you can add more breakpoints here.
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1366px
+);

@@ -1,0 +1,44 @@
+{% stories card with {
+  title: 'Styleguide/Typography',
+} %}
+  {% story default with {
+    name: '1. Default',
+  } %}
+    {% embed 'kinetic:rich-text' %}
+      {% block _text %}
+        <h2>This is an h2</h2>
+        <p>Sodales adipisci <strong>sodales dolor</strong>, nec <i>quisque inventore?</i> Mollitia, justo interdum laboriosam, quia phasellus rutrum unde torquent duis vestibulum nostrud iaculis.</p>
+
+        <h3>This is an h3</h3>
+        <p>Sodales <a href="/">adipisci sodales dolor</a>, nec quisque inventore? Mollitia, justo interdum laboriosam, quia phasellus rutrum unde torquent duis vestibulum nostrud iaculis.</p>
+
+        <h4>This is an h4</h4>
+        <p>Sodales adipisci <a href="/">adipisci sodales dolor</a> sodales dolor, nec quisque inventore? Mollitia, justo interdum laboriosam, quia phasellus rutrum unde torquent duis vestibulum nostrud iaculis.</p>
+
+        <h5>This is an h5</h5>
+        <p>Sodales adipisci sodales dolor, nec quisque inventore? Mollitia, justo interdum laboriosam, quia phasellus rutrum unde torquent duis vestibulum nostrud iaculis.</p>
+
+        <h6>This is an h6</h6>
+        <p>Sodales adipisci sodales dolor, nec quisque inventore? Mollitia, justo interdum laboriosam, quia phasellus rutrum unde torquent duis vestibulum nostrud iaculis.</p>
+
+        <ul>
+          <li>This is an unordered list.</li>
+          <li>This is an unordered list.</li>
+          <li>This is an unordered list.</li>
+          <li>This is an unordered list.</li>
+          <li>This is an unordered list.</li>
+          <li>This is an unordered list.</li>
+        </ul>
+
+        <ol>
+          <li>This is an ordered list.</li>
+          <li>This is an ordered list.</li>
+          <li>This is an ordered list.</li>
+          <li>This is an ordered list.</li>
+          <li>This is an ordered list.</li>
+          <li>This is an ordered list.</li>
+        </ol>
+      {% endblock %}
+    {% endembed %}
+  {% endstory %}
+{% endstories %}

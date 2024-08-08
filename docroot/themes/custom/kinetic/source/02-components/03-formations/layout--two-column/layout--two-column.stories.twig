@@ -1,0 +1,18 @@
+{% stories component with {
+  title: 'Formation/Section/Two Column',
+} %}
+  {% story default with {
+    name: '1. Default',
+  } %}
+    {% embed 'kinetic:layout--two-column' %}
+      {% block first %}
+        <div style="height: 100px; width: 100%; background:pink;">
+          First region content
+        </div>      {% endblock %}
+      {% block second %}
+        <div style="height: 100px; width: 100%; background:pink;">
+          Second region content
+        </div>      {% endblock %}
+    {% endembed %}
+  {% endstory %}
+{% endstories %}

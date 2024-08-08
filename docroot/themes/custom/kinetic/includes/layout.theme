@@ -1,0 +1,34 @@
+<?php
+
+use Drupal\Core\Render\Element;
+
+/**
+ * Implements template_preprocess_layout().
+ *
+ * Add layout context to components so this can be used to make logic decisions.
+ */
+function kinetic_preprocess_layout(&$variables) {
+  foreach (Element::children($variables['content']) as $key) {
+    $sections = $variables['content'][$key];
+    foreach ($sections as $index => $section) {
+      if (isset($variables['content'][$key][$index]['#base_plugin_id']) && $variables['content'][$key][$index]['#base_plugin_id'] === 'inline_block') {
+        $variables['content'][$key][$index]['content']['#layout'] = $variables['theme_hook_original'];
+        $variables['content'][$key][$index]['content']['#region'] = $key;
+      }
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_region().
+ */
+function kinetic_preprocess_region(&$variables) {
+  if (isset($variables['region']) && $variables['region'] == 'header') {
+    if (isset($variables['elements']['kinetic_branding'])) {
+      $variables['branding'] = $variables['elements']['kinetic_branding'];
+    }
+    if (isset($variables['elements']['kinetic_main_menu'])) {
+      $variables['main_nav'] = $variables['elements']['kinetic_main_menu'];
+    }
+  }
+}

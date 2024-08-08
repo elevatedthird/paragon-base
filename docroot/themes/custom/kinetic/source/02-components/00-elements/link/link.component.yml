@@ -1,0 +1,22 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: "Link"
+status: "stable"
+required:
+  - style
+props:
+  type: object
+  properties:
+    title:
+      type: "string"
+    href:
+      type: "string"
+    variant:
+      # Default is an anchor tag.
+      type: 'string'
+      enum:
+        - nolink
+    style:
+      type: 'string'
+      enum:
+        - primary
+        - underline

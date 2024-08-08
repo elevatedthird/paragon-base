@@ -1,0 +1,34 @@
+{% set attributes = create_attribute().addClass(classes).addClass('glide') %}
+{% if behavior_name %}
+  {% set attributes = attributes.setAttribute('data-behavior-name', behavior_name) %}
+{% endif %}
+
+{% set attributes = attributes.setAttribute('data-slide-length', item_count|length) %}
+
+<div {{ attributes }}>
+  {# Slides #}
+  <div class="glide__track" data-glide-el="track">
+    <ul class="glide__slides">
+      {% block _items %}
+      {% endblock %}
+    </ul>
+  </div>
+  {# Glide bullets #}
+{#
+  @todo we should make the nav stuff into sdcs and insert them via blks.
+#}
+  {% if show_bullets %}
+    <div class="glide__bullets" data-glide-el="controls[nav]">
+      {% for i in 0..(item_count - 1) %}
+        <button class="glide__bullet" data-glide-dir="={{ loop.index0 }}"></button>
+      {% endfor %}
+    </div>
+  {% endif %}
+  {# Glide arrows #}
+  {% if show_arrows %}
+    <div class="glide__arrows" data-glide-el="controls">
+      <button class="glide__arrow glide__arrow--left" data-glide-dir="<"><span class='visually-hidden'>Previous Step</span></button>
+      <button class="glide__arrow glide__arrow--right" data-glide-dir=">"><span class='visually-hidden'>Next Step</span></button>
+    </div>
+  {% endif %}
+</div>

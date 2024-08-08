@@ -1,0 +1,96 @@
+{
+  "name": "kinetic",
+  "version": "1.0.0",
+  "description": "Starter drupal theme.",
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf dist/css; rm -rf dist/js; webpack --config webpack.config.js --mode=production;",
+    "build-all": "npm run build; npm run build-storybook",
+    "dev": "webpack --config webpack.config.js --watch --mode=development; drush cr",
+    "cr": "echo 'Clearing webpack cache\n' && rm -rf node_modules/.cache",
+    "eslint": "eslint",
+    "stylelint": "stylelint",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build --disable-telemetry --output-dir dist/storybook-static; perl -i -p -e 's#<head>#<head>\\n\\t\\t<base href='/themes/custom/kinetic/dist/storybook-static/'>#' ./dist/storybook-static/index.html; mv ./dist/storybook-static/index.html ./dist/storybook-static/index.txt"
+  },
+  "author": "Elevated Third",
+  "license": "ISC",
+  "browserslist": [
+    "last 1 version",
+    "> 1%",
+    "not dead"
+  ],
+  "sideEffects": false,
+  "devDependencies": {
+    "@babel/core": "^7.2",
+    "@babel/preset-env": "^7.19",
+    "@chromatic-com/storybook": "^1.3.3",
+    "@storybook/addon-essentials": "^8.0.8",
+    "@storybook/addon-links": "^8.0.8",
+    "@storybook/addon-webpack5-compiler-swc": "^1.0.2",
+    "@storybook/blocks": "^8.0.8",
+    "@storybook/server": "^8.0.8",
+    "@storybook/server-webpack5": "^8.0.8",
+    "@storybook/test": "^8.0.8",
+    "autoprefixer": "^10.0",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-array-includes": "^2.0.3",
+    "browser-sync": "^2.26.14",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "copy-dir": "^1.3.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.7",
+    "eslint": "^8.23",
+    "eslint-config-airbnb-base": "^15.0",
+    "eslint-import-resolver-webpack": "^0.13.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-storybook": "^0.6.4",
+    "eslint-webpack-plugin": "^3.2.0",
+    "file-loader": "^6.2.0",
+    "glob": "^8.0",
+    "html-webpack-plugin": "^5.5.0",
+    "inquirer": "^8.1.5",
+    "js-yaml": "^4.0.0",
+    "lodash.get": "^4.4.2",
+    "lodash.merge": "^4.6.2",
+    "lodash.set": "^4.3.2",
+    "mini-css-extract-plugin": "^2.6",
+    "normalize-scss": "^7.0.1",
+    "postcss": "^8.0.0",
+    "postcss-loader": "^7.0.0",
+    "postcss-safe-parser": "^6.0",
+    "postcss-scss": "^4.0.0",
+    "purgecss-webpack-plugin": "^5.0.0",
+    "sass": "^1.58.0",
+    "sass-loader": "^13.2.0",
+    "speed-measure-webpack5-plugin": "^1.3.3",
+    "storybook": "^8.0.8",
+    "stylelint": "^15.10.1",
+    "stylelint-config-standard-scss": "^10.0.0",
+    "stylelint-webpack-plugin": "^4.1.1",
+    "webpack": "^5.0.0",
+    "webpack-cli": "^5.0.0",
+    "webpack-fix-style-only-entries": "^0.6.1",
+    "webpack-remove-empty-scripts": "^1.0.4",
+    "write-yaml": "^1.0.0",
+    "yaml": "^2.3.1"
+  },
+  "dependencies": {
+    "@drupal/once": "^1.0.1",
+    "@glidejs/glide": "^3.6.0",
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.2.3",
+    "webpack-hot-middleware": "^2.26.1"
+  },
+  "extra": {
+    "patches": {
+      "drupal/path_redirect_import": {
+        "Fixes path redirect import": "https://www.drupal.org/files/issues/2023-07-06/path_redirect_import-3373025.patch"
+      }
+    }
+  }
+}

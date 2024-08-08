@@ -1,0 +1,57 @@
+// naming convention --k--{property}--{tag}
+:root {
+  @include print-css-vars($typography);
+}
+
+@include integrate-to-surface(dark) {
+  --k--typography--color-h1: var(--bs-white);
+  --k--typography--color-h2: var(--bs-white);
+  --k--typography--color-h3: var(--bs-white);
+  --k--typography--color-h4: var(--bs-white);
+  --k--typography--color-h5: var(--bs-white);
+  --k--typography--color-h6: var(--bs-white);
+  --k--typography--color-p: var(--bs-body-color);
+}
+
+@include integrate-to-surface(light) {
+  --k--typography--color-h1: var(--bs-primary);
+  --k--typography--color-h2: var(--bs-primary);
+  --k--typography--color-h3: var(--bs-primary);
+  --k--typography--color-h4: var(--bs-primary);
+  --k--typography--color-h5: var(--bs-primary);
+  --k--typography--color-h6: var(--bs-primary);
+  --k--typography--color-p: var(--bs-body-color);
+}
+
+// see settings/_typography.scss for variable definitions
+// see mixins/_typography.scss for mixin definitions
+@include print-typography-rules($typography);
+@include kinetic-icons;
+
+// Any one off rules you need to print out.
+// Typography surface.
+
+// set default eyebrow, if light is your main surface you can set its default props too. see below.
+.eyebrow {
+  --k--surface--text-color: var(--bs-gray-600);
+
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 4px;
+  color: var(--k--surface--text-color);
+}
+
+@include integrate-to-surface(light) {
+  .eyebrow {
+    // stylelint-disable-next-line  scss/at-extend-no-missing-placeholder
+    @extend .eyebrow;
+  }
+}
+
+
+@include integrate-to-surface(dark) {
+  .eyebrow {
+    --k--surface--text-color: var(--bs-white);
+  }
+}
+

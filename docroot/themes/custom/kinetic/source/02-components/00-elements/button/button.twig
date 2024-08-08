@@ -1,0 +1,4 @@
+{% if attribute(attributes, 'addClass') is not defined %}
+  {% set attributes = create_attribute(attributes|default({})) %}
+{% endif %}
+<button {{ attributes.setAttribute('type', 'button').addClass(['btn', 'btn-' ~ style]) }}>{{ text }}</button>

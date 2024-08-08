@@ -1,0 +1,24 @@
+{% stories card with {
+  title: 'Styleguide/Container and Grid',
+} %}
+  {% story default with {
+    name: '1. Default Container',
+    description: 'Test'
+  } %}
+    <div class="container" style="height: 300px; background: pink;">
+      default container
+    </div>
+
+  {% endstory %}
+    <div style="padding: 50px"></div>
+  {% story default with {
+    name: '2. Narrow Container',
+    description: 'Test'
+  } %}
+    <div class="container-narrow" style="height: 300px; background: pink;">
+      narrow container
+    </div>
+
+  {% endstory %}
+
+{% endstories %}

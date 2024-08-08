@@ -1,0 +1,20 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: "Card"
+status: "stable"
+description: "A single card."
+slots:
+  media:
+    title: Media
+    description: The media slot.
+  _body:
+    title: Body
+    description: The body slot.
+  _ctas:
+    title: CTAs
+    description: The CTAs slot.
+props:
+  type: object
+  properties:
+    heading:
+      type: string
+      title: Card heading

@@ -1,0 +1,19 @@
+{% extends "kinetic:section" %}
+{% set layout_class = 'two-column' %}
+{% set inner_wrapper_classes = ['container'] %}
+{% block content %}
+    {% set column_classes = ['g-col-12', 'g-col-md-6'] %}
+    <div class="grid">
+      <div class="{{ column_classes|join(' ') }}">
+        {% block first %}
+          {{ first }}
+        {% endblock %}
+      </div>
+      <div class="{{ column_classes|join(' ') }}">
+        {% block second %}
+          {{ second }}
+        {% endblock %}
+      </div>
+    </div>
+{% endblock %}
+

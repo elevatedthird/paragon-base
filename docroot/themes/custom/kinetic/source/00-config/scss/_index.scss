@@ -1,0 +1,35 @@
+@import "~bootstrap/scss/functions";
+@import "functions/utilities";
+
+// use me to go see what variables exist and copy what you need
+// create a file in 'settings' with the appropriate namespace and import down at bottom.
+@import "~bootstrap/scss/variables";
+
+// RFS - Responsive font size config.
+// This must go before mixins import!
+$rfs-base-value: 1.25rem;
+// get value from the breakpoint map.
+$rfs-breakpoint: map-get($grid-breakpoints, lg);
+$rfs-factor: 10;
+$enable-rfs: true;
+// End RFS config.
+
+// Prevent utility classes from adding !important.
+$enable-important-utilities: false;
+
+@import "~bootstrap/scss/maps";
+@import "~bootstrap/scss/mixins";
+
+// Use these to override bootstrap variables that you want to have in a new file for organization and add new ones.
+@import "settings/aspect-ratios";
+@import "settings/breakpoints";
+@import "settings/colors";
+@import "settings/container-and-grid";
+@import "settings/links";
+@import "settings/spacers";
+@import "settings/surfaces";
+@import "settings/typography";
+@import "settings/utilities";
+
+// Import custom mixins last.
+@import "mixins/mixins";

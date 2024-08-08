@@ -1,0 +1,20 @@
+///
+/// Bootstrap utilities.
+/// This file will be processed through PurgeCSS module!
+///
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";
+
+// Helpers.
+@import "~bootstrap/scss/helpers/clearfix";
+@import "~bootstrap/scss/helpers/ratio";
+
+// These must be imported after any variable overrides.
+@import "~bootstrap/scss/utilities";
+// BS Utility overrides.
+// See https://getbootstrap.com/docs/5.0/utilities/api/
+// See https://github.com/twbs/bootstrap/blob/v5.2.0/scss/_utilities.scss
+
+// Import this after the utilities map is modified.
+@import "~bootstrap/scss/utilities/api";

@@ -1,0 +1,44 @@
+ /*
+  Surfaces, the goal is to have a single place to change the styles of elements when they appear
+  on certain background colors or media.
+  All components should be able to be integrated into a surface and change their colors based on the surface.
+  See the Themes README under the "Surfaces" section for more information.
+*/
+
+// Placeholder styles for a surface.
+%surface {
+  --bs-body-bg-rgb: var(--k-surface-text-color);
+  --bs-body-color: var(--k-surface-text-color);
+  --bs-body-color-rgb: var(--k-surface-background-color);
+  --bs-primary-rgb: var(--k-surface-text-color);
+
+  background: var(--k-surface-background-color);
+  color: var(--k-surface-text-color);
+}
+
+// Generate the utility classses.
+@each $key, $value in $surfaces {
+  // stylelint-disable-next-line
+  $background-colors: map.get($value, background-colors);
+
+  .surface--#{$key}, .surface--#{$key}.priority {
+    --k-surface-background-color: #{map.get($background-colors, default)};
+    --k-surface-text-color: #{map.get($value, text-color)};
+    // stylelint-disable-next-line  scss/at-extend-no-missing-placeholder
+    @extend %surface;
+
+  }
+
+  // remove the default key from the map.
+  $background-colors: map.remove($background-colors, default);
+
+  // loop through the rest of the map and add the rest of the background colors.
+  @each $color-key, $color-value in $background-colors {
+    .surface--#{$key}-#{$color-key}, .surface--#{$key}-#{$color-key}.priority {
+      --k-surface-background-color: #{$color-value};
+      // stylelint-disable-next-line  scss/at-extend-no-missing-placeholder
+      @extend .surface--#{$key};
+
+    }
+  }
+}

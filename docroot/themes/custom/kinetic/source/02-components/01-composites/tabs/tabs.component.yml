@@ -1,0 +1,24 @@
+$schema: >-
+  https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json
+name: Tabs
+status: stable
+description: Provides a tabs component
+slots:
+  _tab_content:
+    title: Tab Content
+    description: The content to be displayed in the tab
+  _tab_navigation:
+    title: Tab Navigation
+    description: The navigation to be displayed in the tab
+props:
+  type: object
+  properties:
+    behavior_name:
+      type: string
+      title: >-
+        Drupal beahavior name of the component including this SDC. If no
+        behavior is provided, default accordion behavior will be used.
+libraryOverrides:
+  dependencies:
+    - kinetic/partials.vendors.333.js
+    - kinetic/partials.vendors.259.js

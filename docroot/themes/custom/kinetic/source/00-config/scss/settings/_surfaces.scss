@@ -1,0 +1,20 @@
+// see mixins/surface.scss for validator mixin.
+// see 01-base/scss/general/surfaces.scss for basic print out.
+// see kinetic:button for basic usage.
+// See the Themes README under the "Surfaces" section for more information.
+
+$surfaces: (
+  light: (
+    text-color: var(--bs-gray-900),
+    background-colors: (
+      invert: var(--bs-white),
+    ),
+  ),
+  dark: (
+    text-color: var(--bs-white),
+    background-colors: (
+      gray-900: var(--bs-gray-900),
+      gray-800: var(--bs-gray-800)
+    )
+  ),
+);

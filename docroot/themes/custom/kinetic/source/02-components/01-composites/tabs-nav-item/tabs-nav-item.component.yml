@@ -1,0 +1,21 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: "Tabs Item"
+status: "stable"
+description: "Represents a tabs component pane."
+required:
+  - id
+slots:
+  _tab_navigation:
+    description: "The tab navigation item content."
+    title: "Tab Navigation"
+props:
+  type: object
+  properties:
+    id:
+      type: "string"
+      title: "ID"
+      description: "The machine id of the pane."
+    is_active:
+      type: integer
+      title: Active Item
+      description: The default tab that should be active

@@ -1,0 +1,23 @@
+{# Set Heading tag. Default is H3 #}
+{% set tag = heading_tag ? heading_tag : 'h3' %}
+
+{# Set Heading style #}
+{% set heading_attributes = create_attribute() %}
+{% set heading_attributes = heading_attributes.addClass(heading_style ? heading_style : tag) %}
+
+
+{% if eyebrow %}
+  <p class='eyebrow'> {{ eyebrow }} </p>
+{% endif %}
+{% if heading %}
+  <{{ tag }} {{ heading_attributes.addClass('text-primary') }}> {{ heading }} </{{ tag }}>
+{% endif %}
+{% if block('_description') is not empty %}
+  {% block _description %}
+    {% embed 'kinetic:rich-text' with {_text: _description} %}
+      {% block _text %}
+        {{ _text }}
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+{% endif %}

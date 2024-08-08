@@ -1,0 +1,22 @@
+{% extends '@kinetic/block/block.html.twig' %}
+
+{% block content %}
+
+  {% embed 'kinetic:text-and-media' with {
+    layout,
+    _media: content.field_media,
+    _ctas: content.field_ctas,
+    heading: content.field_heading.0,
+    _description: content.field_description.0
+  } only %}
+    {% block _media %}
+      {{ _media }}
+    {% endblock %}
+    {% block _description %}
+      {{ _description }}
+    {% endblock %}
+    {% block _ctas %}
+      {{ _ctas }}
+    {% endblock %}
+  {% endembed %}
+{% endblock %}

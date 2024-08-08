@@ -1,0 +1,13 @@
+'$schema': 'https://git.drupalcode.org/project/drupal/-/raw/10.1.x/core/modules/sdc/src/metadata.schema.json'
+name: "Rich Text"
+status: "stable"
+description: "Formatted text field"
+slots:
+  _text:
+    title: 'Text'
+    description: 'The text to be displayed in the rich text'
+props:
+  type: object
+  properties: {}
+
+

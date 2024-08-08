@@ -1,0 +1,113 @@
+// Typography.
+// 1. Bootstrap overrides.
+//
+// 1a. Base settings.
+$font-size-base: 1rem;
+$font-family-sans-serif: 'Open Sans', sans-serif;
+$margin-bottom-base: 0px;
+$letter-spacing-base: 0px;
+
+// 1b. Headings.
+$h1-font-size: 5rem;
+$h2-font-size: 4rem;
+$h3-font-size: 3rem;
+$h4-font-size: 2.5rem;
+$h5-font-size: 2rem;
+$h6-font-size: 1.5rem;
+$headings-margin-bottom: 1.5rem;
+$headings-font-family: 'Open Sans', sans-serif;
+$headings-letter-spacing: -1px;
+$headings-line-height: -1.1px;
+$headings-color: $primary;
+
+// 1c. Body Color config. This variable must be a hex value.
+$body-color: $black;
+
+// 2. Mixin Configuration.
+// Each tag has corresponding properties.
+$typography: (
+  h1:(
+    color: $headings-color,
+    font-family: $headings-font-family,
+    font-size: $h1-font-size,
+    font-weight: $headings-font-weight,
+    letter-spacing: $headings-letter-spacing,
+    line-height: $headings-line-height,
+    margin-bottom: $headings-margin-bottom,
+  ),
+  h2:(
+    color: $headings-color,
+    font-family: $headings-font-family,
+    font-size: $h2-font-size,
+    font-weight: $headings-font-weight,
+    letter-spacing: $headings-letter-spacing,
+    line-height: $headings-line-height,
+    margin-bottom: $headings-margin-bottom,
+  ),
+  h3:(
+    color: $headings-color,
+    font-family: $headings-font-family,
+    font-size: $h3-font-size,
+    font-weight: $headings-font-weight,
+    letter-spacing: $headings-letter-spacing,
+    line-height: $headings-line-height,
+    margin-bottom: $headings-margin-bottom,
+  ),
+  h4:(
+    color: $headings-color,
+    font-family: $headings-font-family,
+    font-size: $h4-font-size,
+    font-weight: $headings-font-weight,
+    letter-spacing: $headings-letter-spacing,
+    line-height: $headings-line-height,
+    margin-bottom: $headings-margin-bottom,
+  ),
+  h5:(
+    color: $headings-color,
+    font-family: $headings-font-family,
+    font-size: $h5-font-size,
+    font-weight: $headings-font-weight,
+    letter-spacing: $headings-letter-spacing,
+    line-height: $headings-line-height,
+    margin-bottom: $headings-margin-bottom,
+  ),
+  h6:(
+    color: $headings-color,
+    font-family: $headings-font-family,
+    font-size: $h6-font-size,
+    font-weight: $headings-font-weight,
+    letter-spacing: $headings-letter-spacing,
+    line-height: $headings-line-height,
+    margin-bottom: $headings-margin-bottom,
+  ),
+ p:(
+    color: $body-color,
+    font-family: $font-family-base,
+    font-size: $font-size-base,
+    font-weight: $font-weight-base,
+    letter-spacing: $letter-spacing-base,
+    line-height: $line-height-base,
+    margin-bottom: $margin-bottom-base,
+  )
+);
+
+// 3. Responsive Font Sizes.
+// Declare properties that should be responsive.
+// These properties should exist in the $typography map above.
+$rfs-props: (
+  font-size,
+  margin-bottom,
+);
+
+// 4. Font family utility classes.
+// This map will be used to configure the font family utility classes.
+$utilities: (
+  "font-family": (
+    property: font-family,
+    class: font,
+    values: (
+      heading: $headings-font-family,
+      body: $font-family-sans-serif,
+    )
+  ),
+);

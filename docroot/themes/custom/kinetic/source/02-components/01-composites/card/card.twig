@@ -1,0 +1,25 @@
+<div {{ attributes }}>
+  <div class="card">
+    <div class="card-img-top ratio ratio-16x9">
+      {% block media %}
+        {{ media }}
+      {% endblock %}
+    </div>
+    <div class="card-body">
+      {% if heading %}
+        <h3 class="h4 text-primary">{{ heading }}</h3>
+      {% endif %}
+
+      <div class="body">
+        {% block _body %}
+          {{ _body }}
+        {% endblock %}
+        <div class="card-ctas">
+          {% block _ctas %}
+            {{ _ctas }}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
