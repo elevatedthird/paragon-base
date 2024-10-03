@@ -20,6 +20,9 @@ services:
       # This disables Xdebug during build, but puts all dependencies in place
       # ready for the tooling to enable Xdebug.
       - rm -f /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && /etc/init.d/apache2 reload
+      # Installs Node 18.
+      - curl -sL https://deb.nodesource.com/setup_18.x | bash -
+      - apt-get install -y nodejs
   adminer:
     type: compose
     services:
@@ -62,6 +65,6 @@ tooling:
     cmd: rm -f /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && /etc/init.d/apache2 reload && echo "Xdebug disabled"
     user: root
   node:
-    service: node
+    service: appserver
   npm:
-    service: node
+    service: appserver
