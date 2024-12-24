@@ -1,0 +1,6 @@
+uuid: 2036829e-e838-484c-8dbd-889986ceb43f
+langcode: en
+status: true
+dependencies: {  }
+id: addresses
+label: Addresses

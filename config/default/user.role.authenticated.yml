@@ -10,6 +10,7 @@ dependencies:
     - filter
     - media
     - shortcut
+    - site_settings
     - system
 _core:
   default_config_hash: eOOnKrhRCCCbtd3OuxtPSzdWh4hgPgBcnj43Wx9Y0cw
@@ -24,3 +25,4 @@ permissions:
   - 'use text format basic_html'
   - 'use text format standard_html'
   - 'view media'
+  - 'view published site setting entities'

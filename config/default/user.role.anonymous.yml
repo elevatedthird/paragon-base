@@ -7,6 +7,7 @@ dependencies:
   module:
     - filter
     - media
+    - site_settings
     - system
 _core:
   default_config_hash: JrtDp8Iu4bDYXyEa3b0ibCCP9Lcj-px3BRoEOpg85_Q
@@ -18,3 +19,4 @@ permissions:
   - 'access content'
   - 'use text format restricted_html'
   - 'view media'
+  - 'view published site setting entities'

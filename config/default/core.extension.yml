@@ -3,7 +3,6 @@ _core:
 module:
   action: 0
   address: 0
-  allowed_formats: 0
   backup_migrate: 0
   ban: 0
   better_exposed_filters: 0
@@ -50,7 +49,6 @@ module:
   gin_toolbar: 0
   gtm: 0
   help: 0
-  http_cache_control: 0
   image: 0
   imageapi_optimize: 0
   imageapi_optimize_gd: 0
@@ -77,6 +75,7 @@ module:
   lazy: 0
   link: 0
   link_attributes: 0
+  link_attributes_menu_link_content: 0
   linkit: 0
   list_predefined_options: 0
   login_security: 0
@@ -156,13 +155,12 @@ module:
   views_bulk_operations: 0
   views_ui: 0
   workflows: 0
+  http_cache_control: 1
   pathauto: 1
   views: 10
   paragraphs: 11
   minimal: 1000
 theme:
-  stable: 0
-  classy: 0
   claro: 0
   gin: 0
   stable9: 0
