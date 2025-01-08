@@ -119,13 +119,14 @@ class ScriptHandler {
 
   protected static function copyPlatformFiles($source, $destination) {
     $fs = new Filesystem();
-    $is_file = pathinfo($destination, PATHINFO_EXTENSION) ? TRUE : FALSE;
+    $relative_source = "assets/platform-setup{$source}";
+    $is_file = !is_dir($relative_source);
     $exists = $fs->exists($destination);
     if ($is_file && !$exists) {
-      $fs->copy("assets/platform-setup{$source}", $destination);
+      $fs->copy($relative_source, $destination);
     }
     elseif (!$is_file && !$exists) {
-      $fs->mirror("assets/platform-setup{$source}", $destination);
+      $fs->mirror($relative_source, $destination);
     }
     else {
       echo "{$destination} already exists... skipping\n";
@@ -206,7 +207,7 @@ class ScriptHandler {
         self::copyPlatformFiles('/platform-sh/.environment', './.environment');
         self::copyPlatformFiles('/platform-sh/.platform.app.yaml', './.platform.app.yaml');
         self::copyPlatformFiles('/platform-sh/platformsh_generate_drush_yml.php', './drush/platformsh_generate_drush_yml.php');
-        self::copyPlatformFiles('/platform-sh/settings.platform.sh.php', $drupal_root . '/sites/default/settings.platform.sh.php');
+        self::copyPlatformFiles('/platform-sh/settings.platformsh.php', $drupal_root . '/sites/default/settings.platformsh.php');
         break;
       case 'custom':
         $io->write('Paragon will not create any platform specific files. Run composer setup-platform to see these options again.');
