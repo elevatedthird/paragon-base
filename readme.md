@@ -24,14 +24,10 @@ To create a new Paragon installation follow the steps below:
 
 2. Be sure to rename the the app in the .lando.yml file
 
-### Step #3: Site setup
-1. With a local site running, navigate to http://paragon.lndo.site/ (or whichever URL your local site is running on) and proceed with the Drupal installation. When prompted to select an installation profile be sure to select “Use existing configuration”, which will install from the existing configuration in the  `/config/default` directory.
-
-### Step #4: Database setup
-1. If using Lando, when prompted to add Drupal database connection details. You can find the connection info by running `lando info`
-
-### Step #5: Database setup
-1. Once install completes, be sure to remove the automatically generated database connection details that have most likely been appended to the bottom of `settings.php`, then you should be all set!
+### Step #3: Install Drupal
+1. Verify that you have a settings.lando.php file with the `$databases` array configured
+2. Install the site: `drush si --existing-config --site-name=[SITE_NAME] --account-name=root --account-pass=[PASSWORD] -vv -y`
+3. Once install completes, be sure to remove the automatically generated database connection details that have most likely been appended to the bottom of `settings.php`, then you should be all set!
 
 ### Step #6: Setting up Drush
 1. Run `mkdir -p drush/sites` from the project root
@@ -115,4 +111,5 @@ By default, Paragon creates a `.tugboat` folder containing configuration related
 - [E3 Actions](https://github.com/elevatedthird/actions)
 - [Paragon Core](https://www.drupal.org/project/paragon_core)
 - [Paragon Gin](https://www.drupal.org/project/paragon_gin)
+- [Paragon Mega Menus](https://github.com/elevatedthird/paragon_mega_menus)
 - [Kinetic](https://www.drupal.org/project/kinetic)

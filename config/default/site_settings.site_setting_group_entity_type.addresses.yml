@@ -1,0 +1,6 @@
+uuid: adf13ed6-25a9-4897-906f-d5032084544f
+langcode: en
+status: true
+dependencies: {  }
+id: addresses
+label: Addresses

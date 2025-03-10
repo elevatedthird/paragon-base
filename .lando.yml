@@ -6,7 +6,7 @@ excludes:
   - .vscode
 config:
   webroot: docroot
-  database: mysql:5.7
+  database: mysql:8.0
   php: '8.3'
 proxy:
   mailhog:

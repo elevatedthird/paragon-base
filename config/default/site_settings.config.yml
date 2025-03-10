@@ -1,3 +1,9 @@
 _core:
   default_config_hash: f22rLeNR8H3Q4ruLH001G7YolGDQZNONKnBXfTNEs78
 template_key: site_settings
+loader_plugin: flattened
+hide_description: true
+hide_advanced: true
+hide_group: true
+simple_summary: true
+show_groups_in_menu: true
