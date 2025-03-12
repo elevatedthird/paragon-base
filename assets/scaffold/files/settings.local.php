@@ -2,6 +2,8 @@
 
 $dev_debug = TRUE;
 
+ini_set('zend.assertions', 1);
+
 if ($dev_debug) {
 
   /**
