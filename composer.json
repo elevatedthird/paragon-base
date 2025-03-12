@@ -135,7 +135,8 @@
     "pre-install-cmd": [
       "DrupalProject\\composer\\ScriptHandler::checkComposerVersion",
       "DrupalProject\\composer\\ScriptHandler::downloadAndExtractTheme",
-      "DrupalProject\\composer\\ScriptHandler::createGHActions"
+      "DrupalProject\\composer\\ScriptHandler::createGHActions",
+      "DrupalProject\\composer\\ScriptHandler::copyE3Modules"
     ],
     "pre-update-cmd": [
       "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
@@ -151,14 +152,10 @@
       "DrupalProject\\composer\\ScriptHandler::removeGitSubmodules"
     ],
     "post-create-project-cmd": [
-      "@setup-platform",
-      "@setup-list-options"
+      "@setup-platform"
     ],
     "setup-platform": [
       "DrupalProject\\composer\\ScriptHandler::setupPlatformRequirements"
-    ],
-    "setup-list-options": [
-      "DrupalProject\\composer\\ScriptHandler::setupListOptionsModule"
     ],
     "npm-install": [
       "cd docroot/themes/custom/kinetic && npm install"
@@ -226,6 +223,11 @@
           "path": "assets/scaffold/files/settings.lando.php",
           "overwrite": false
         },
+        "[web-root]/sites/default/settings.local.php": {
+          "mode": "replace",
+          "path": "assets/scaffold/files/settings.local.php",
+          "overwrite": false
+        },
         "[web-root]/sites/default/settings.fast404.php": {
           "mode": "replace",
           "path": "assets/scaffold/files/settings.fast404.php",
@@ -259,7 +261,8 @@
         "Drupal 11 support": "https://git.drupalcode.org/project/imageapi_optimize_gd/-/merge_requests/3.diff"
       },
       "drupal/list_predefined_options": {
-        "Drupal 11 support": "https://git.drupalcode.org/project/list_predefined_options/-/merge_requests/5.diff"
+        "Drupal 11 support": "https://git.drupalcode.org/project/list_predefined_options/-/merge_requests/5.diff",
+        "Add PHP attributes": "https://git.drupalcode.org/project/list_predefined_options/-/merge_requests/7.diff"
       },
       "drupal/media_responsive_thumbnail": {
         "Drupal 11 support": "https://git.drupalcode.org/project/media_responsive_thumbnail/-/merge_requests/5.diff"
@@ -269,7 +272,7 @@
       }
     },
     "drupal-lenient": {
-      "allowed-list": ["drupal/paragon_gin", "drupal/embed", "drupal/entity_embed", "drupal/imageapi_optimize_gd", "drupal/list_predefined_options", "drupal/media_responsive_thumbnail", "drupal/path_redirect_import"]
+      "allowed-list": ["drupal/embed", "drupal/entity_embed", "drupal/imageapi_optimize_gd", "drupal/list_predefined_options", "drupal/media_responsive_thumbnail", "drupal/path_redirect_import"]
     }
   },
   "config": {

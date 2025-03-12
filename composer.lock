@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f26f98378a158fa087e1562199983961",
+    "content-hash": "486a0542e60bfe4e68f7822e6b2ef1b0",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -5397,12 +5397,13 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/paragon_gin.git",
-                "reference": "6c38fea1303329bc84f723801a7c40c7c5f477bc"
+                "reference": "e1f35fa83d764a2f5e723d05d9bef330d63e86cc"
             },
             "require": {
                 "drupal/core": "^8 || ^9 || ^10 || ^11 || ^12",
                 "drupal/gin": "^3.0@RC || ^4.0",
                 "drupal/gin_lb": "^1.0@RC || ^2.0",
+                "drupal/layout_builder_browser": "^1.8",
                 "drupal/paragon_core": "1.0.x-dev"
             },
             "type": "drupal-module",
@@ -5412,7 +5413,7 @@
                 },
                 "drupal": {
                     "version": "1.1.x-dev",
-                    "datestamp": "1741648008",
+                    "datestamp": "1741731380",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
