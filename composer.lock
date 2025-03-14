@@ -5397,10 +5397,10 @@
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/paragon_gin.git",
-                "reference": "e1f35fa83d764a2f5e723d05d9bef330d63e86cc"
+                "reference": "fffe3a29a003de34c5524f67e93026702ab98ea9"
             },
             "require": {
-                "drupal/core": "^8 || ^9 || ^10 || ^11 || ^12",
+                "drupal/core": "^10.3 || ^11",
                 "drupal/gin": "^3.0@RC || ^4.0",
                 "drupal/gin_lb": "^1.0@RC || ^2.0",
                 "drupal/layout_builder_browser": "^1.8",
@@ -5413,7 +5413,7 @@
                 },
                 "drupal": {
                     "version": "1.1.x-dev",
-                    "datestamp": "1741731380",
+                    "datestamp": "1741910685",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"

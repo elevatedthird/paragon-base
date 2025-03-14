@@ -1,6 +1,6 @@
 {
   "name": "elevatedthird/paragon-base",
-  "description": "A Composer-based installation template for the Paragon Drupal 8 Distribution",
+  "description": "A Composer-based installation template for the Paragon Drupal Distribution",
   "type": "project",
   "license": "GPL-2.0-or-later",
   "authors": [
