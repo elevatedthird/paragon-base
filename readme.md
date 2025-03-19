@@ -29,10 +29,6 @@ To create a new Paragon installation follow the steps below:
 2. Install the site: `drush si --existing-config --site-name=[SITE_NAME] --account-name=root --account-pass=[PASSWORD] -vv -y`
 3. Once install completes, be sure to remove the automatically generated database connection details that have most likely been appended to the bottom of `settings.php`, then you should be all set!
 
-### Step #6: Setting up Drush
-1. Run `mkdir -p drush/sites` from the project root
-
-
 ## Common commands
 ### Some common commands that may be helpful
   - `lando start/stop`

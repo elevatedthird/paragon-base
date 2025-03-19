@@ -28,16 +28,17 @@ class ScriptHandler {
     $drupal_root = static::getDrupalRoot();
 
     $dirs = [
-      'modules',
-      'profiles',
-      'themes',
+      $drupal_root . '/modules',
+      $drupal_root . '/profiles',
+      $drupal_root . '/themes',
+      'drush/sites'
     ];
 
     // Required for unit testing
     foreach ($dirs as $dir) {
-      if (!$fs->exists($drupal_root . '/'. $dir)) {
-        $fs->mkdir($drupal_root . '/'. $dir);
-        $fs->touch($drupal_root . '/'. $dir . '/.gitkeep');
+      if (!$fs->exists($dir)) {
+        $fs->mkdir($dir);
+        $fs->touch($dir . '/.gitkeep');
       }
     }
   }
