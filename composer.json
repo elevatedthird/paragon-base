@@ -257,12 +257,16 @@
       "drupal/paragraphs": {
         "Paragraphs do not render: access check for 'view' fail when using layout builder + custom blocks & content revisions because the incorrect parent revision ID is being passed in ParagraphAccessControlHandler::checkAccess(": "https://www.drupal.org/files/issues/2020-07-08/access-controll-issue-3090200-22.patch"
       },
+      "drupal/gin_lb": {
+        "Add support for core Navigation Top Bar": "https://www.drupal.org/files/issues/2025-03-19/2.0.x-3457055-navigation-top-bar.patch"
+      },
       "drupal/imageapi_optimize_gd": {
         "Drupal 11 support": "https://git.drupalcode.org/project/imageapi_optimize_gd/-/merge_requests/3.diff"
       },
       "drupal/list_predefined_options": {
         "Drupal 11 support": "https://git.drupalcode.org/project/list_predefined_options/-/merge_requests/5.diff",
-        "Add PHP attributes": "https://git.drupalcode.org/project/list_predefined_options/-/merge_requests/7.diff"
+        "Add PHP attributes": "https://git.drupalcode.org/project/list_predefined_options/-/merge_requests/7.diff",
+        "Deprecated hook_form_field_storage_config_edit_form_alter": "https://git.drupalcode.org/project/list_predefined_options/-/merge_requests/8.diff"
       },
       "drupal/media_responsive_thumbnail": {
         "Drupal 11 support": "https://git.drupalcode.org/project/media_responsive_thumbnail/-/merge_requests/5.diff"
