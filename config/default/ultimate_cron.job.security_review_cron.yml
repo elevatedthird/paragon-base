@@ -1,16 +1,14 @@
-uuid: f483a22f-c814-4c46-878c-e6e3e68a8740
+uuid: 4b206b39-51a4-4df0-892c-26d97fb1498a
 langcode: en
 status: true
 dependencies:
   module:
     - security_review
-_core:
-  default_config_hash: h2NVuaAXyMMIl9ACiViBu-TrEr1jhZ1hq8HwjnxPGD0
 title: 'Default cron handler'
 id: security_review_cron
 weight: 0
 module: security_review
-callback: security_review_cron
+callback: 'security_review#cron'
 scheduler:
   id: simple
 launcher:

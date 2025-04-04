@@ -13,7 +13,8 @@ use Symfony\Component\Filesystem\Filesystem;
 
 class ScriptHandler {
 
-  protected static function getDrupalRoot($project_root) {
+  protected static function getDrupalRoot() {
+    $project_root = getcwd();
     // Get webroot from composer.json.
     $composer_json = json_decode(file_get_contents($project_root . '/composer.json'), TRUE);
     if (isset($composer_json['extra']['drupal-scaffold']['locations']['web-root'])) {
@@ -24,20 +25,20 @@ class ScriptHandler {
 
   public static function createRequiredFiles(Event $event) {
     $fs = new Filesystem();
-    $project_root = getcwd();
-    $drupal_root = static::getDrupalRoot($project_root);
+    $drupal_root = static::getDrupalRoot();
 
     $dirs = [
-      'modules',
-      'profiles',
-      'themes',
+      $drupal_root . '/modules',
+      $drupal_root . '/profiles',
+      $drupal_root . '/themes',
+      'drush/sites'
     ];
 
     // Required for unit testing
     foreach ($dirs as $dir) {
-      if (!$fs->exists($drupal_root . '/'. $dir)) {
-        $fs->mkdir($drupal_root . '/'. $dir);
-        $fs->touch($drupal_root . '/'. $dir . '/.gitkeep');
+      if (!$fs->exists($dir)) {
+        $fs->mkdir($dir);
+        $fs->touch($dir . '/.gitkeep');
       }
     }
   }
@@ -53,12 +54,12 @@ class ScriptHandler {
 
   public static function createRequiredDirectories (Event $event) {
     $fs = new Filesystem();
-    $project_root = getcwd();
-    $drupal_root = static::getDrupalRoot($project_root);
+    $drupal_root = static::getDrupalRoot();
 
     $dirs = array(
       'private',
       'private/tmp',
+      'translations',
       'media-icons',
       'media-icons/generic'
     );
@@ -133,43 +134,33 @@ class ScriptHandler {
     }
   }
 
-
-  protected static function copyFromE3Repo(Event $event, $source_url, $destination, $detach = TRUE) {
-    $io = $event->getIO();
-    if (strpos($source_url, 'git@github.com:elevatedthird') === 0) {
-      $fs = new Filesystem();
-      $destination = '/modules/custom';
-      // This always runs from same level as composer.json.
-      $project_root = getcwd();
-      $drupal_root = static::getDrupalRoot($project_root);
-      $destination_root = $drupal_root . $destination;
-
-      if (!is_dir($destination_root)) {
-        if (!is_dir($destination_root)) {
-          $fs->mkdir($destination_root);
-          $io->write('Created ' . $destination_root);
-        }
-      }
-      $first_dir =  getcwd();
-      // change dir to the new path
-      $new_dir = chdir($destination_root);
-      // Git clone
-      $git_clone = shell_exec('git clone '. $source_url);
-      $parts = explode('/', $source_url);
-      $end_path = end($parts);
-      $repo_directory_name = pathinfo($end_path, PATHINFO_FILENAME);
-      chdir($destination_root . '/' . $repo_directory_name);
-      $io->write('Cloned ' . $source_url . ' to ' . $destination_root . '/' . $repo_directory_name);
-      if ($detach) {
-        $io->write('Removing .git directory');
-        $fs->remove($destination_root . '/' . $repo_directory_name . '/.git');
-      }
-      // change dir back
-      $change_dir_back = chdir($first_dir);
-      return true;
+  /**
+   * @param string $repo_name
+   * Name of a public project in the Elevated Third GitHub organization.
+   */
+  protected static function copyFromE3Repo(string $repo_name) {
+    $fs = new Filesystem();
+    try {
+      // Assumes we have a public repo with a 'main' branch.
+      $download_link = 'https://github.com/elevatedthird/' . $repo_name . '/archive/refs/heads/main.zip';
+      $drupal_root = static::getDrupalRoot();
+      // Download the module.
+      file_put_contents($repo_name, fopen($download_link, 'r'));
+      $zip = new \ZipArchive();
+      $zip->open($repo_name);
+      $zip->extractTo($drupal_root . '/modules/custom/');
+      $zip->close();
+      // Delete the zip.
+      unlink($repo_name);
+      // Rename the directory to the module name.
+      $fs->rename($drupal_root . "/modules/custom/{$repo_name}-main", $drupal_root . "/modules/custom/$repo_name");
+      // If the module has a .gitignore file, delete it.
+      $fs->remove([ $drupal_root . "/modules/custom/$repo_name/.gitignore" ]);
+      echo "Downloaded $repo_name to modules/custom/$repo_name\n";
     }
-    else {
-      return false;
+    catch (Exception $e) {
+      echo "Failed to download $repo_name. Please download it manually.\n";
+      return;
     }
   }
 
@@ -187,8 +178,7 @@ class ScriptHandler {
     $default = $choices[0];
     $answer = $io->select($question, $choices, $default);
     $platform = $choices[$answer];
-    $project_root = getcwd();
-    $drupal_root = static::getDrupalRoot($project_root);
+    $drupal_root = static::getDrupalRoot();
     switch ($platform) {
       case 'Acquia':
         $io->write('Setting up Acquia specific requirements');
@@ -215,13 +205,25 @@ class ScriptHandler {
     }
   }
 
-  public static function setupListOptionsModule(Event $event) {
+  /**
+   * @param Event $event
+   * Copy modules from the E3 repo. Repos need to be public.
+   */
+  public static function copyE3Modules(Event $event) {
     $io = $event->getIO();
-    $question = 'Do you want to copy the E3 - List Options module(requires git repo access)([y]/n)? ';
-    // Ask a yes/no question:
-    $answer = $io->ask($question, 'y');
-    if ($answer === 'y') {
-      self::copyFromE3Repo($event, 'git@github.com:elevatedthird/e3_list_options.git', '/modules/custom');
+    $modules = [
+      'e3_list_options'
+    ];
+    $drupal_root = static::getDrupalRoot();
+    if (!is_dir($drupal_root . 'modules/custom')) {
+      @mkdir($drupal_root . '/modules/custom');
+    }
+    foreach ($modules as $module) {
+      if (!is_dir($drupal_root . "/modules/custom/$module")) {
+        self::copyFromE3Repo($module);
+      } else {
+        $io->write("Module $module already exists in modules/custom\n");
+      }
     }
   }
   /**
@@ -233,8 +235,7 @@ class ScriptHandler {
     $fs = new Filesystem();
     $theme = 'kinetic';
     // This always runs from same level as composer.json.
-    $project_root = getcwd();
-    $drupal_root = static::getDrupalRoot($project_root);
+    $drupal_root = static::getDrupalRoot();
     $theme_root = $drupal_root . '/themes/custom/' . $theme;
 
     if (!is_dir($drupal_root . "/themes/custom/$theme")) {

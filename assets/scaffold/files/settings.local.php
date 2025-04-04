@@ -2,14 +2,9 @@
 
 $dev_debug = TRUE;
 
+ini_set('zend.assertions', 1);
+
 if ($dev_debug) {
-  /**
-   * The Drupal project primarily uses runtime assertions to enforce the
-   * expectations of the API by failing when incorrect calls are made by code
-   * under development.
-   */
-  assert_options(ASSERT_ACTIVE, TRUE);
-  assert_options(ASSERT_EXCEPTION, TRUE);
 
   /**
    * Enable local development services.
