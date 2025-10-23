@@ -12,14 +12,6 @@ if ($dev_debug) {
   $settings['container_yamls'][] =  $app_root . '/' . $site_path . '/local.services.yml';
 
   /**
-   * Show all error messages, with backtrace information.
-   *
-   * In case the error level could not be fetched from the database, as for
-   * example the database connection failed, we rely only on this value.
-   */
-  $config['system.logging']['error_level'] = 'verbose';
-
-  /**
    * Disable CSS and JS aggregation.
    */
   $config['system.performance']['css']['preprocess'] = FALSE;
@@ -35,20 +27,6 @@ if ($dev_debug) {
   $settings['cache']['bins']['discovery'] = 'cache.backend.null';
 }
 
-$settings['vite'] = [
-  'devServerUrl' => 'https://' . $_ENV['DDEV_HOSTNAME'] . ':5173',
-  'baseUrl' => '/themes/custom/kinetic/dist/',
-  'devDependencies' => [
-    'kinetic/vite-client'
-  ],
-];
-
-/**
- * Local file directory configuration
- */
-$settings['file_public_path'] = 'sites/default/files';
-$settings['file_private_path'] = 'sites/default/files/private';
-$settings['file_temp_path'] = 'sites/default/files/private/tmp';
 /**
  * Allow test modules and themes to be installed.
  *
