@@ -4,49 +4,40 @@ Paragon is a Drupal distribution focused on providing a clean starting point for
 
 The intent of this distribution is to create a Drupal install that will be treated as an artifact and maintained independently of this project after the initial installation. As such, rather than making this an official install profile, Paragon is instead managed as a Composer template that heavily leverages [drupal/core-composer-scaffold](https://github.com/drupal/core-composer-scaffold) and also includes exported configuration that can be used to install the site.
 
-### Prerequisites
-- Lando: See [Lando requirements](https://docs.lando.dev/basics/installation.html).
+## Prerequisites
+- [Download DDEV](https://ddev.com/get-started/) if it is not already installed.
 - Access to Elevated Third Github organization, Paragon-base repository and SSH key setup.
 - You must be using Composer 2.
-  - To install a specific version use this command and pass in the version constraing: `composer self-update 2.0.7` 
-  - If you have already installed and need to switch to compsoer 2 run `composer self-update --2`.
 
 ## Setup instructions
-
-To create a new Paragon installation follow the steps below:
-
 ### Step #1: Clone repository
 1. Run the following command:  `composer create-project elevatedthird/paragon-base [install_directory_name]` which will clone down the composer template and create all necessary files.
 2. You will prompted to select a hosting environment for your project. Select 'custom' if you don't want platform specific files. You can set up hosting requirements later by running `composer setup-platform`
 
 ### Step #2: Project setup
-1. Set up a local site using this newly created site directory. Paragon comes with Lando out of the box, which can be spun up by running `lando start` in the site root. Lando configuration is found in `.lando.yml` , and database settings in `settings.lando.php` are automatically included in `settings.php`.
-
-2. Be sure to rename the the app in the .lando.yml file
+1. Rename the the app in the `.ddev/config.yml` file
+2. `ddev start`
+3. `ddev composer install`
+4. `ddev composer npm-install`
 
 ### Step #3: Install Drupal
-1. Verify that you have a settings.lando.php file with the `$databases` array configured
-2. Install the site: `drush si --existing-config --site-name=[SITE_NAME] --account-name=root --account-pass=[PASSWORD] -vv -y`
-3. Once install completes, be sure to remove the automatically generated database connection details that have most likely been appended to the bottom of `settings.php`, then you should be all set!
+1. Install the site: `ddev drush si --existing-config --site-name=[SITE_NAME] --account-name=root --account-pass=[PASSWORD] -vv -y`
+2. Once install completes, remove the automatically generated database connection details that have most likely been appended to the bottom of `settings.php`.
+3. Build the theme: `ddev vite:build`
 
-## Common commands
-### Some common commands that may be helpful
-  - `lando start/stop`
-  - `lando poweroff`
-  - `lando rebuild` - completely rebuilds the site and project containers. This is most useful if you keep running into lando issues
-  - `composer install`
-  - `composer depends [vendor/package]`
-  - `composer show [vendor/package]`
+### Step #4: Set up Solr Search
+1. `ddev drush pm:enable search_api_solr_admin`
+  - This module is ignored in settings.php
+3. Create a new Solr server connection in the UI
+2. [Follow the ddev-solr steps](https://github.com/ddev/ddev-solr?tab=readme-ov-file#installation-steps) to connect to Solr
+2. Upload the config set to Solr and create the collection. `ddev drush --numShards=1 search-api-solr:upload-configset [YOUR_SERVER_NAME]`
 
-### Xdebug Commands:
-  - `lando xdebug debug`: Enables Step Debugging. This can be used to step through your code while it is running, and analyse values of variables.
-  - `lando xdebug`: Turns off xdebug.
-  - `lando xdebug develop`: Enables Development Helpers including the overloaded var_dump().
-  - `lando xdebug coverage`: Enables Code Coverage Analysis to generate code coverage reports, mainly in combination with PHPUnit.
-  - `lando xdebug gcstats`: Enables Garbage Collection Statistics to collect statistics about PHP's Garbage Collection Mechanism.
-  - `lando xdebug profile`: EnableEnables Profiling, with which you can analyse performance bottlenecks with tools like KCacheGrind.
-  - `lando xdebug trace`: Enables the Function Trace feature, which allows you record every function call, including arguments, variable assignment, and return value that is made during a request to a file.
-The most common xdebug commands are debug and off but these other modes are available as well.
+
+## Essential DDEV commands
+  - `ddev xdebug on`
+  - `ddev xdebug off`
+  - `ddev vite`
+  - `ddev vite:build`
 
 ## E3 Github Workflows
 

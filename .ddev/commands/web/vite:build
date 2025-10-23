@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -e
+
+# Starts the dev server
+cd /var/www/html/docroot/themes/custom/kinetic
+# Build theme
+npm run build
+# Clear the Cache
+drush cr

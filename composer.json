@@ -113,6 +113,7 @@
     "drupal/username_enumeration_prevention": "^1.1",
     "drupal/views_bulk_edit": "^3.0",
     "drupal/views_bulk_operations": "^4.0",
+    "drupal/vite": "^1.5",
     "drush/drush": "^13",
     "mglaman/composer-drupal-lenient": "^1.0",
     "npm-asset/jquery-ui-touch-punch": "dev-master",
@@ -218,9 +219,9 @@
           "path": "assets/scaffold/files/cloud-memcache-d8+.php",
           "overwrite": false
         },
-        "[web-root]/sites/default/settings.lando.php": {
+        "[web-root]/sites/default/settings.ddev.php": {
           "mode": "replace",
-          "path": "assets/scaffold/files/settings.lando.php",
+          "path": "assets/scaffold/files/settings.ddev.php",
           "overwrite": false
         },
         "[web-root]/sites/default/settings.local.php": {

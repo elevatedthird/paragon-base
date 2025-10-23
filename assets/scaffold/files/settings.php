@@ -78,7 +78,11 @@ $settings['entity_update_batch_size'] = 50;
 /**
  * Exclude modules from configuration synchronization.
  */
-$settings['config_exclude_modules'] = ['devel', 'stage_file_proxy'];
+$settings['config_exclude_modules'] = [
+  'devel',
+  'search_api_solr_admin',
+  'stage_file_proxy'
+];
 
 /**
  * Add fast404 settings
@@ -88,11 +92,11 @@ if (file_exists($app_root . '/' . $site_path . '/settings.fast404.php')) {
 }
 
 /**
- * If $_ENV['LANDO_APP_NAME'], load docker settings.
+ * If $_ENV['IS_DDEV_PROJECT'], load docker settings.
  */
-if (isset($_ENV['LANDO_APP_NAME'])) {
-  if (file_exists($app_root . '/' . $site_path . '/settings.lando.php')) {
-    include $app_root . '/' . $site_path . '/settings.lando.php';
+if (isset($_ENV['IS_DDEV_PROJECT'])) {
+  if (file_exists($app_root . '/' . $site_path . '/settings.ddev.php')) {
+    include $app_root . '/' . $site_path . '/settings.ddev.php';
   }
 }
 
