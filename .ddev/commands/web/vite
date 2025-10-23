@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+set -m
+
+# Starts the dev server
+cd /var/www/html/docroot/themes/custom/kinetic
+
+# Run `npm run dev` in the background
+npm run dev &
+# Clear the Cache
+drush cr
+# Bring the dev server back to the foreground
+fg %-

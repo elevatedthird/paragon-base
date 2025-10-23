@@ -218,11 +218,6 @@
           "path": "assets/scaffold/files/cloud-memcache-d8+.php",
           "overwrite": false
         },
-        "[web-root]/sites/default/settings.lando.php": {
-          "mode": "replace",
-          "path": "assets/scaffold/files/settings.lando.php",
-          "overwrite": false
-        },
         "[web-root]/sites/default/settings.local.php": {
           "mode": "replace",
           "path": "assets/scaffold/files/settings.local.php",
