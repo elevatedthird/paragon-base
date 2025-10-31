@@ -23,14 +23,15 @@ The intent of this distribution is to create a Drupal install that will be treat
 ### Step #3: Install Drupal
 1. Install the site: `ddev drush si --existing-config --site-name=[SITE_NAME] --account-name=root --account-pass=[PASSWORD] -vv -y`
 2. Once install completes, remove the automatically generated database connection details that have most likely been appended to the bottom of `settings.php`.
-3. Build the theme: `ddev vite:build`
+3. Install starter components: `ddev drush propel:init`
+4. Build the theme: `ddev vite:build`
 
 ### Step #4: Set up Solr Search
 1. `ddev drush pm:enable search_api_solr_admin`
   - This module is ignored in settings.php
-3. Create a new Solr server connection in the UI
-2. [Follow the ddev-solr steps](https://github.com/ddev/ddev-solr?tab=readme-ov-file#installation-steps) to connect to Solr
-2. Upload the config set to Solr and create the collection. `ddev drush --numShards=1 search-api-solr:upload-configset [YOUR_SERVER_NAME]`
+2. Create a new Solr server connection in the UI
+3. [Follow the ddev-solr steps](https://github.com/ddev/ddev-solr?tab=readme-ov-file#installation-steps) to connect to Solr
+4. Upload the config set to Solr and create the collection. `ddev drush --numShards=1 search-api-solr:upload-configset [YOUR_SERVER_NAME]`
 
 
 ## Essential DDEV commands
