@@ -30,7 +30,7 @@
  *
  * Default value for this setting is shown below.
  */
-$settings['fast404_exts'] = '/^(?!robots).(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i';
+$settings['fast404_exts'] = '/^(?!robots)\.(?:txt|png|gif|jpe?g|css|js|ico|swf|flv|cgi|bat|pl|dll|exe|asp)$/i';
 
 /**
  * If you use a private file system use the settings variable below and change
