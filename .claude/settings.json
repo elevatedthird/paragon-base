@@ -1,5 +1,7 @@
 {
   "permissions": {
+    "defaultMode": "plan",
+    "disableBypassPermissionsMode": "disable",
     "deny": [
       "Read(**/.env)",
       "Read(**/.env.*)",
