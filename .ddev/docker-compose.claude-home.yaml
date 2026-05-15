@@ -1,0 +1,12 @@
+services:
+  web:
+    volumes:
+      # Mount your host ~/.claude read-only into the container.
+      # Uncomment one option below — do not enable both at once.
+      #
+      # Option 1: full ~/.claude (includes settings, history, sessions, etc.)
+      # - ${HOME}/.claude:/root/.claude:ro
+      #
+      # Option 2: granular — share only commands/skills and plugins
+      # - ${HOME}/.claude/commands:/root/.claude/commands:ro
+      # - ${HOME}/.claude/plugins:/root/.claude/plugins:ro
