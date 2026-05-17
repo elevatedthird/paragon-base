@@ -95,6 +95,51 @@ if (isset($_ENV['PLATFORM_PROJECT'])) {
 ## Tugboat Integration
 By default, Paragon creates a `.tugboat` folder containing configuration related to [Tugboat QA](https://www.tugboatqa.com). You must set up a tugboat project and connect the Github repo to it.
 
+## Claude Code
+
+Paragon ships with a Claude Code setup designed to run inside the DDEV web container. The following files drive the integration.
+
+### CLAUDE.md
+
+A `CLAUDE.md` template lives in the project root. It contains project-specific instructions that Claude reads at the start of every session — things like the site name, key modules, hosting environment, and known gotchas. Fill it out before using Claude Code on the project. Claude will refuse to proceed until the template status is marked `complete`.
+
+### Permission rules (`.claude/settings.json`)
+
+The project `.claude/settings.json` defines three tiers of permissions:
+
+**Deny** — Claude is blocked from running these automatically and cannot ask for approval either. Covers destructive or sensitive operations:
+- Reading `.env`, `settings.php`, `settings.local.php`, certificates, and key files
+- `drush sql-drop`, `drush site-install`, and any Drush remote aliases (`@prod`, etc.)
+- `rm -rf`, `git push --force`, `git merge`, `git rebase`
+- Acquia CLI (`acli`) commands and `.acquia` files
+
+**Ask** — Claude must prompt for approval before running:
+- `composer require / update / remove`
+- `git commit` and `git push`
+
+**Allow** — Claude can run these without prompting:
+- Safe Drush read/cache/config commands (`drush status`, `drush cr`, `drush config:*`, `drush pm:list`, `drush updb`, `drush watchdog:show`, etc.)
+- Code quality tools: `phpcs`, `phpstan`, `phpunit`
+
+### Mounting your host `~/.claude` into the container
+
+`docker-compose.claude-home.yaml` provides commented-out volume definitions that shim your host machine's Claude config into the DDEV web container. This lets Claude inside the container share your global commands, skills, and plugins without duplicating them. Two options are available — uncomment one:
+
+```yaml
+# Option 1: full ~/.claude (settings, history, sessions, commands, plugins)
+- ${HOME}/.claude:/root/.claude:ro
+
+# Option 2: granular — commands and plugins only
+- ${HOME}/.claude/commands:/root/.claude/commands:ro
+- ${HOME}/.claude/plugins:/root/.claude/plugins:ro
+```
+
+The volume is mounted read-only so the container cannot modify your host Claude config.
+
+### Per-project `.claude.json` persistence
+
+`config.claude-code.yaml` runs a post-start hook that creates a `.ddev/claude-code/.claude.json` file (if it doesn't exist) and symlinks it to `~/.claude.json` inside the container. This keeps any project-level Claude state (conversation history, approvals) in the repo's `.ddev` folder rather than lost on container rebuild.
+
 ## Related Projects
 - [E3 Actions](https://github.com/elevatedthird/actions)
 - [Paragon Core](https://www.drupal.org/project/paragon_core)
