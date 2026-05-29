@@ -7,17 +7,6 @@ sections:
     layout_settings:
       label: ''
     components:
-      87406479-ee06-4562-bab8-9f6ec8c29ffe:
-        uuid: 87406479-ee06-4562-bab8-9f6ec8c29ffe
-        region: content
-        configuration:
-          id: environment_indicator_navigation
-          label: 'Environment Indicator'
-          label_display: '0'
-          provider: environment_indicator
-          context_mapping: {  }
-        weight: 0
-        additional: {  }
       2622e40b-8786-4b8c-8883-19e49da53023:
         uuid: 2622e40b-8786-4b8c-8883-19e49da53023
         region: content

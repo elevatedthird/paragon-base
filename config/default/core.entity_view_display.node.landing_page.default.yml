@@ -26,6 +26,10 @@ third_party_settings:
           context_mapping: {  }
           bg_color: none
           content_width: default
+          spacing: default
+          v_align: top
+          mobile_order: stacked
+          section_widths: 50-50
         components:
           49de58cb-7215-4024-9a8d-56034e6c3dc5:
             uuid: 49de58cb-7215-4024-9a8d-56034e6c3dc5

@@ -14,6 +14,14 @@ targetEntityType: site_setting_entity
 bundle: main_phone_number
 mode: default
 content:
+  description:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
   field_phone_number:
     type: basic_string
     label: above
@@ -28,6 +36,13 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: -4
+    region: content
+  group:
+    type: author
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
     region: content
   name:
     type: string
@@ -44,4 +59,5 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-hidden: {  }
+hidden:
+  langcode: true

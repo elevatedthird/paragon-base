@@ -5,7 +5,6 @@ dependencies: {  }
 _core:
   default_config_hash: eFcGGk2Fu6YSh0G-yZqRGMJWnzJ2DVx0l8NaPMvveSs
 machine: local
-description: null
 name: Local
 weight: null
 url: 'http://paragon.lndo.site/'

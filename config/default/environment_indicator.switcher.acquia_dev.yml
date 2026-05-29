@@ -5,7 +5,6 @@ dependencies: {  }
 _core:
   default_config_hash: eYG8kuUXsMoA92kae1u8sTFu9_ZnZTutXQt4tn-5X5E
 machine: acquia_dev
-description: null
 name: 'Acquia Dev'
 weight: null
 url: 'http://paragonbhybefranz.devcloud.acquia-sites.com/'
