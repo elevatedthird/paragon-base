@@ -34,6 +34,8 @@ module:
   entity_embed: 0
   entity_reference_revisions: 0
   environment_indicator: 0
+  environment_indicator_navigation: 0
+  environment_indicator_toolbar: 0
   fast404: 0
   field: 0
   field_group: 0
@@ -55,10 +57,6 @@ module:
   inline_block_title_automatic: 0
   inline_entity_form: 0
   inline_form_errors: 0
-  jquery_ui: 0
-  jquery_ui_datepicker: 0
-  jquery_ui_slider: 0
-  jquery_ui_touch_punch: 0
   language: 0
   layout_builder: 0
   layout_builder_browser: 0
@@ -97,12 +95,9 @@ module:
   mysql: 0
   name: 0
   navigation: 0
-  navigation_top_bar: 0
   node: 0
   options: 0
   page_cache: 0
-  paragon_core: 0
-  paragon_gin: 0
   paragraphs_browser: 0
   path: 0
   path_alias: 0

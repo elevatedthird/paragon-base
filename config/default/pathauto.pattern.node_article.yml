@@ -9,7 +9,7 @@ _core:
 id: node_article
 label: 'Node - Article'
 type: 'canonical_entities:node'
-pattern: 'article/[node:title]'
+pattern: '/article/[node:title]'
 selection_criteria:
   4e97ff94-ecad-4d0f-b158-a1ef46a51874:
     id: 'entity_bundle:node'

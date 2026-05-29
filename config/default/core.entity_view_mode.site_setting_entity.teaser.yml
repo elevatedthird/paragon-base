@@ -1,3 +1,4 @@
+uuid: ef36e894-9e17-4381-b409-9fa3047a6d8a
 langcode: en
 status: true
 dependencies:
@@ -8,5 +9,6 @@ dependencies:
       - site_settings
 id: site_setting_entity.teaser
 label: Teaser
+description: null
 targetEntityType: site_setting_entity
 cache: true

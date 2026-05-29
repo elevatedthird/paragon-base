@@ -1,3 +1,4 @@
+uuid: 131a2c84-07b9-4453-b9ca-154df4849473
 langcode: en
 status: true
 dependencies:
@@ -487,9 +488,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              content_editor: '0'
-              administrator: '0'
             placeholder: ''
           is_grouped: false
           group_info:
@@ -532,9 +530,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              content_editor: '0'
-              administrator: '0'
             reduce: false
           is_grouped: false
           group_info:

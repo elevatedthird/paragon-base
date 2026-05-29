@@ -16,8 +16,8 @@ mode: default
 content:
   description:
     type: string_textfield
-    region: content
     weight: 26
+    region: content
     settings:
       size: 60
       placeholder: ''
@@ -40,12 +40,12 @@ content:
   group:
     type: entity_reference_autocomplete
     weight: 5
+    region: content
     settings:
       match_operator: CONTAINS
-      size: '60'
-      placeholder: ''
       match_limit: 10
-    region: content
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   langcode:
     type: language_select
@@ -72,4 +72,5 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  status: true
