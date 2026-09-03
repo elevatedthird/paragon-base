@@ -2,10 +2,7 @@ uuid: 06a81e5e-8fed-487b-9b5d-55e11e7fe582
 langcode: en
 status: true
 dependencies:
-  config:
-    - filter.format.restricted_html
   module:
-    - filter
     - media
     - site_settings
     - system
@@ -17,6 +14,5 @@ weight: 0
 is_admin: false
 permissions:
   - 'access content'
-  - 'use text format restricted_html'
   - 'view media'
   - 'view published site setting entities'

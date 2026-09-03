@@ -211,9 +211,7 @@ class ScriptHandler {
    */
   public static function copyE3Modules(Event $event) {
     $io = $event->getIO();
-    $modules = [
-      'e3_list_options'
-    ];
+    $modules = [];
     $drupal_root = static::getDrupalRoot();
     if (!is_dir($drupal_root . 'modules/custom')) {
       @mkdir($drupal_root . '/modules/custom');

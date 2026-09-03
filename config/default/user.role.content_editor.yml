@@ -1,0 +1,77 @@
+uuid: 22957634-9ee5-4161-8666-32f1d4e4d82a
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.canvas_html_block
+    - filter.format.canvas_html_inline
+    - node.type.article
+    - node.type.page
+    - workflows.workflow.editorial
+  module:
+    - block_content
+    - canvas
+    - content_moderation
+    - contextual
+    - environment_indicator
+    - file
+    - filter
+    - gtm
+    - help
+    - media
+    - navigation
+    - node
+    - taxonomy
+    - toolbar
+id: content_editor
+label: 'Content Editor'
+weight: 3
+is_admin: false
+permissions:
+  - 'access block library'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access environment indicator'
+  - 'access files overview'
+  - 'access help pages'
+  - 'access media overview'
+  - 'access navigation'
+  - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'administer folders'
+  - 'administer gtm'
+  - 'administer nodes'
+  - 'administer patterns'
+  - 'administer taxonomy'
+  - 'bypass node access'
+  - 'create article content'
+  - 'create canvas_page'
+  - 'create media'
+  - 'create page content'
+  - 'delete all taxonomy revisions'
+  - 'delete any article content'
+  - 'delete any file'
+  - 'delete any media'
+  - 'delete any page content'
+  - 'delete canvas_page'
+  - 'delete media'
+  - 'edit canvas_page'
+  - 'publish auto-saves'
+  - 'revert all taxonomy revisions'
+  - 'update any media'
+  - 'update media'
+  - 'use editorial transition archive'
+  - 'use editorial transition archived_draft'
+  - 'use editorial transition archived_published'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition publish'
+  - 'use text format canvas_html_block'
+  - 'use text format canvas_html_inline'
+  - 'view all media revisions'
+  - 'view all taxonomy revisions'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view own unpublished content'
+  - 'view own unpublished media'
+  - 'view unpublished block content'
+  - 'view vocabulary labels'

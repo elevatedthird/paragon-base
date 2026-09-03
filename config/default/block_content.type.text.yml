@@ -1,8 +1,0 @@
-uuid: bf23631c-2b63-48bd-a879-3e4354d762e7
-langcode: en
-status: true
-dependencies: {  }
-id: text
-label: Text
-revision: false
-description: 'Provides a text box'
