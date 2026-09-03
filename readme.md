@@ -142,7 +142,5 @@ The volume is mounted read-only so the container cannot modify your host Claude 
 
 ## Related Projects
 - [E3 Actions](https://github.com/elevatedthird/actions)
-- [Paragon Core](https://www.drupal.org/project/paragon_core)
-- [Paragon Gin](https://www.drupal.org/project/paragon_gin)
 - [Paragon Mega Menus](https://github.com/elevatedthird/paragon_mega_menus)
 - [Kinetic](https://www.drupal.org/project/kinetic)
