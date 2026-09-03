@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ef56d13b658e30fd1d330b61450857a8",
+    "content-hash": "5baecf3e6cb54f8951ac98fca92eda34",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1204,6 +1204,52 @@
                 }
             ],
             "time": "2024-02-05T11:56:58+00:00"
+        },
+        {
+            "name": "drupal/adaptive_images",
+            "version": "dev-1.0.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/adaptive_images.git",
+                "reference": "704d7f2e480bb40b7246dd47e2ba38df0fc3102b"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10 || ^11",
+                "drupal/focal_point": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.0.x": "1.0.x-dev"
+                },
+                "drupal": {
+                    "version": "1.0.0+14-dev",
+                    "datestamp": "1779208896",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "brayn7",
+                    "homepage": "https://www.drupal.org/user/3652991"
+                },
+                {
+                    "name": "yonghua",
+                    "homepage": "https://www.drupal.org/user/3676420"
+                }
+            ],
+            "description": "This module attempts to solve two problems: 1. Adapts the sizes attrbutes on the image tag to use the most optimal size from the src-set for the used space. 2. Utilizes the basic focal point module to find the most important part of the image and uses object rules to move the image around.",
+            "homepage": "https://www.drupal.org/project/adaptive_images",
+            "support": {
+                "source": "https://git.drupalcode.org/project/adaptive_images"
+            }
         },
         {
             "name": "drupal/address",
@@ -14714,6 +14760,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/adaptive_images": 20,
         "drupal/block_field": 5,
         "drupal/config_update": 15,
         "drupal/environment_indicator": 20,

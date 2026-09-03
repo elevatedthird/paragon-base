@@ -40,6 +40,7 @@
   "require": {
     "composer/installers": "^2.0",
     "cweagans/composer-patches": "^1.7",
+    "drupal/adaptive_images": "1.0.x-dev@dev",
     "drupal/address": "^2.0",
     "drupal/admin_toolbar": "^3.0",
     "drupal/better_exposed_filters": "^7.0",
