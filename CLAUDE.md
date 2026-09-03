@@ -16,7 +16,7 @@
 
 ## Key Modules
 <!-- Contrib or custom modules central to this project that Claude should know about -->
--
+- `canvas`
 
 ## Custom Modules
 <!-- Custom modules with a one-line description of what each does -->
@@ -50,16 +50,8 @@ Before editing or creating any files, you must:
 ## Environment
 - Running inside DDEV container
 - Use `drush` directly (not `ddev drush` — already in container)
-- Drupal webroot is `web/`
-- Config sync dir is `config/sync/`
+- Config sync dir is `config/default/`
 - Do not use auto or bypass mode — approval prompts must be respected
-
-## Build & Install Commands
-- **Install dependencies**: `composer install`
-- **Lint**: check for `/phpcs.xml` or `/phpcs.xml.dist` first; if present run `phpcs`, otherwise `phpcs --standard=Drupal path/to/test`
-- **Static analysis**: check for `/phpstan.neon` or `/phpstan.neon.dist` first; if present run `phpstan`, otherwise `phpstan analyse --level 6 path/to/test`
-- **Run single test**: check for `/phpunit.xml` or `/phpunit.xml.dist` first; if present run `phpunit --filter Test path/to/test`, otherwise `phpunit -c web/core/phpunit.xml.dist --filter Test path/to/test`
-- If phpcs/phpstan/phpunit are not available, install with `composer require --dev drupal/core-dev`
 
 ## Configuration Management
 - **Export**: `drush config:export -y`
@@ -107,6 +99,7 @@ Before editing or creating any files, you must:
 ## Composer
 - Always use `composer require` — never manually edit `composer.json`
 - Check `composer outdated` before adding new dependencies
+- Always verify the composer.json file is valid by running `composer validate`
 - Do not delete or regenerate `composer.lock` without approval
 
 ## Git
