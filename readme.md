@@ -21,7 +21,7 @@ The intent of this distribution is to create a Drupal install that will be treat
 4. `ddev composer npm-install`
 
 ### Step #3: Install Drupal
-1. Install the site: `ddev drush si --existing-config --site-name=[SITE_NAME] --account-name=root --account-pass=[PASSWORD] -vv -y`
+1. Install the site: `ddev drush si --existing-config --site-name=SITE_NAME --account-name=root --account-pass=changeme -vv -y`
 2. Once install completes, remove the automatically generated database connection details that have most likely been appended to the bottom of `settings.php`.
 3. Install starter components: `ddev drush propel:init`
 4. Build the theme: `ddev vite:build`
@@ -142,7 +142,4 @@ The volume is mounted read-only so the container cannot modify your host Claude 
 
 ## Related Projects
 - [E3 Actions](https://github.com/elevatedthird/actions)
-- [Paragon Core](https://www.drupal.org/project/paragon_core)
-- [Paragon Gin](https://www.drupal.org/project/paragon_gin)
-- [Paragon Mega Menus](https://github.com/elevatedthird/paragon_mega_menus)
 - [Kinetic](https://www.drupal.org/project/kinetic)

@@ -7,7 +7,6 @@ dependencies:
   module:
     - editor
     - entity_embed
-    - lazy
     - linkit
     - media
 name: 'Standard HTML'
@@ -84,14 +83,6 @@ filters:
     weight: -41
     settings:
       filter_url_length: 72
-  lazy_filter:
-    id: lazy_filter
-    provider: lazy
-    status: false
-    weight: -38
-    settings:
-      image: true
-      iframe: true
   linkit:
     id: linkit
     provider: linkit
@@ -99,16 +90,3 @@ filters:
     weight: -50
     settings:
       title: true
-  media_embed:
-    id: media_embed
-    provider: media
-    status: true
-    weight: -47
-    settings:
-      default_view_mode: entity_embed
-      allowed_view_modes:
-        entity_embed: entity_embed
-      allowed_media_types:
-        image: image
-        remote_video: remote_video
-        video: video

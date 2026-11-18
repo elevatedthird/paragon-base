@@ -4,8 +4,12 @@ shield_enable: true
 credential_provider: shield
 credentials:
   shield:
-    user: paragon
-    pass: 3ditParagon
+    user: '["paragon"]'
+    pass: '["3ditParagon"]'
 allow_cli: true
+log_authentication: false
+basic_auth_bypass: false
 print: ''
+user_agents: ''
+flood_control_enabled: true
 whitelist: ''

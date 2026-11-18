@@ -1,0 +1,11 @@
+uuid: b0179813-faba-4c04-9a58-7d2f22ef7672
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.hero
+label: Hero
+description: null
+targetEntityType: media
+cache: true

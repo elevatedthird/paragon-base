@@ -1,0 +1,17 @@
+uuid: af2127ee-7e88-4bda-9b17-c9bee33bac0f
+langcode: en
+status: true
+dependencies:
+  module:
+    - canvas
+title: 'Default cron handler'
+id: canvas_cron
+weight: 0
+module: canvas
+callback: 'canvas#cron'
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

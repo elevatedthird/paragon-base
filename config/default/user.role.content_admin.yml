@@ -1,0 +1,66 @@
+uuid: 3dc3e9d0-fe69-43fb-890a-622c5692ed55
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.canvas_html_block
+    - filter.format.canvas_html_inline
+    - node.type.article
+    - node.type.page
+    - workflows.workflow.editorial
+  module:
+    - block_content
+    - canvas
+    - content_moderation
+    - contextual
+    - environment_indicator
+    - file
+    - filter
+    - help
+    - media
+    - navigation
+    - node
+    - taxonomy
+    - toolbar
+id: content_admin
+label: 'Content Admin'
+weight: 4
+is_admin: false
+permissions:
+  - 'access block library'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access environment indicator'
+  - 'access files overview'
+  - 'access help pages'
+  - 'access media overview'
+  - 'access navigation'
+  - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'administer folders'
+  - 'administer patterns'
+  - 'administer taxonomy'
+  - 'bypass node access'
+  - 'create article content'
+  - 'create canvas_page'
+  - 'create media'
+  - 'create page content'
+  - 'delete canvas_page'
+  - 'delete media'
+  - 'delete own article content'
+  - 'delete own page content'
+  - 'edit canvas_page'
+  - 'publish auto-saves'
+  - 'update any media'
+  - 'update media'
+  - 'use editorial transition create_new_draft'
+  - 'use text format canvas_html_block'
+  - 'use text format canvas_html_inline'
+  - 'view all media revisions'
+  - 'view all taxonomy revisions'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view own unpublished content'
+  - 'view own unpublished media'
+  - 'view unpublished block content'
+  - 'view vocabulary labels'

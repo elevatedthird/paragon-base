@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - node.type.article
-    - node.type.landing_page
     - node.type.page
   module:
     - content_moderation
@@ -66,6 +65,5 @@ type_settings:
   entity_types:
     node:
       - article
-      - landing_page
       - page
   default_moderation_state: draft

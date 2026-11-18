@@ -1,0 +1,25 @@
+uuid: 15b5026e-b559-4962-803b-77f5dfb4c058
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+active_version: 7d528e00f56b3abf
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: system_branding_block
+        label: 'Site branding'
+        label_display: '0'
+        provider: system
+        use_site_logo: true
+        use_site_name: true
+        use_site_slogan: true
+    fallback_metadata:
+      slot_definitions: null
+label: 'Site branding'
+id: block.system_branding_block
+provider: system
+source: block
+source_local_id: system_branding_block
