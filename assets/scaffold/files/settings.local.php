@@ -58,31 +58,6 @@ $settings['rebuild_access'] = TRUE;
 $settings['skip_permissions_hardening'] = TRUE;
 
 /**
- * Environment Indicator Settings.
- *
- * This should be configured per environment.
- *
- * Local
- * Background: #005093
- * Foreground: #FFFFFF
- *
- * Dev
- * Background: #006002
- * Foreground: #FFFFFF
- *
- * Stage
- * Background: #E7C600
- * Foreground: #000000
- *
- * Prod
- * Background: #930007
- * Foreground: #FFFFFF
- */
-$config['environment_indicator.indicator']['bg_color'] = '#005093';
-$config['environment_indicator.indicator']['fg_color'] = '#ffffff';
-$config['environment_indicator.indicator']['name'] = 'DDEV';
-
-/**
  * Acquia Connector Settings
  *
  * Hide signup messages by default.

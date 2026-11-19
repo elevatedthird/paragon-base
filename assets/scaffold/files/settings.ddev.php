@@ -34,6 +34,7 @@ $settings['file_temp_path'] = 'sites/default/files/private/tmp';
 
 $settings['vite'] = [
   'devServerUrl' => 'https://' . $_ENV['DDEV_HOSTNAME'] . ':5173',
+  'devServerProbeUrl' => 'http://localhost:5173',
   'baseUrl' => '/themes/custom/kinetic/dist/',
   'devDependencies' => [
     'kinetic/vite-client'
@@ -41,7 +42,36 @@ $settings['vite'] = [
 ];
 
 /**
+ * Config ignore pattern debugging.
+ */
+$settings['config_ignore_pattern_debug'] = TRUE;
+
+/**
  * Add DDEV to trusted host patterns.
  */
 $settings['trusted_host_patterns'] = ['.*'];
 
+/**
+ * Environment Indicator Settings.
+ *
+ * This should be configured per environment.
+ *
+ * Local
+ * Background: #005093
+ * Foreground: #FFFFFF
+ *
+ * Dev
+ * Background: #006002
+ * Foreground: #FFFFFF
+ *
+ * Stage
+ * Background: #E7C600
+ * Foreground: #000000
+ *
+ * Prod
+ * Background: #930007
+ * Foreground: #FFFFFF
+ */
+$config['environment_indicator.indicator']['bg_color'] = '#005093';
+$config['environment_indicator.indicator']['fg_color'] = '#ffffff';
+$config['environment_indicator.indicator']['name'] = 'DDEV';

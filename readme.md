@@ -5,7 +5,7 @@ Paragon is a Drupal distribution focused on providing a clean starting point for
 The intent of this distribution is to create a Drupal install that will be treated as an artifact and maintained independently of this project after the initial installation. As such, rather than making this an official install profile, Paragon is instead managed as a Composer template that heavily leverages [drupal/core-composer-scaffold](https://github.com/drupal/core-composer-scaffold) and also includes exported configuration that can be used to install the site.
 
 ## Prerequisites
-- [Download DDEV](https://ddev.com/get-started/) if it is not already installed.
+- [Download DDEV](https://ddev.com/get-started/) or ensure you are on version >= v1.25.5.
 - Access to Elevated Third Github organization, Paragon-base repository and SSH key setup.
 - You must be using Composer 2.
 
@@ -23,14 +23,13 @@ The intent of this distribution is to create a Drupal install that will be treat
 ### Step #3: Install Drupal
 1. Install the site: `ddev drush si --existing-config --site-name=SITE_NAME --account-name=root --account-pass=changeme -vv -y`
 2. Once install completes, remove the automatically generated database connection details that have most likely been appended to the bottom of `settings.php`.
-3. Install starter components: `ddev drush propel:init`
-4. Build the theme: `ddev vite:build`
+3. Build the theme: `ddev vite:build`
 
 ### Step #4: Set up Solr Search
-1. `ddev drush pm:enable search_api_solr_admin`
+1. Follow the steps to set up the [ddev-solor add on](https://github.com/ddev/ddev-solr?tab=readme-ov-file#installation)
+2. `ddev drush pm:enable search_api_solr_admin`
   - This module is ignored in settings.php
-2. Create a new Solr server connection in the UI
-3. [Follow the ddev-solr steps](https://github.com/ddev/ddev-solr?tab=readme-ov-file#installation-steps) to connect to Solr
+3. Create a new Solr server connection in the UI
 4. Upload the config set to Solr and create the collection. `ddev drush --numShards=1 search-api-solr:upload-configset [YOUR_SERVER_NAME]`
 
 
@@ -93,7 +92,7 @@ if (isset($_ENV['PLATFORM_PROJECT'])) {
 ```
 
 ## Tugboat Integration
-By default, Paragon creates a `.tugboat` folder containing configuration related to [Tugboat QA](https://www.tugboatqa.com). You must set up a tugboat project and connect the Github repo to it.
+By default, Paragon creates a `.tugboat` folder containing configuration for [Tugboat QA](https://www.tugboatqa.com). You must set up a tugboat project and connect the Github repo to it. Delete this folder if you don't want tugboat
 
 ## Claude Code
 
@@ -103,36 +102,9 @@ Paragon ships with a Claude Code setup designed to run inside the DDEV web conta
 
 A `CLAUDE.md` template lives in the project root. It contains project-specific instructions that Claude reads at the start of every session — things like the site name, key modules, hosting environment, and known gotchas. Fill it out before using Claude Code on the project. Claude will refuse to proceed until the template status is marked `complete`.
 
-### Permission rules (`.claude/settings.json`)
-
-The project `.claude/settings.json` defines three tiers of permissions:
-
-**Deny** — Claude is blocked from running these automatically and cannot ask for approval either. Covers destructive or sensitive operations:
-- Reading `.env`, `settings.php`, `settings.local.php`, certificates, and key files
-- `drush sql-drop`, `drush site-install`, and any Drush remote aliases (`@prod`, etc.)
-- `rm -rf`, `git push --force`, `git merge`, `git rebase`
-- Acquia CLI (`acli`) commands and `.acquia` files
-
-**Ask** — Claude must prompt for approval before running:
-- `composer require / update / remove`
-- `git commit` and `git push`
-
-**Allow** — Claude can run these without prompting:
-- Safe Drush read/cache/config commands (`drush status`, `drush cr`, `drush config:*`, `drush pm:list`, `drush updb`, `drush watchdog:show`, etc.)
-- Code quality tools: `phpcs`, `phpstan`, `phpunit`
-
 ### Mounting your host `~/.claude` into the container
 
-`docker-compose.claude-home.yaml` provides commented-out volume definitions that shim your host machine's Claude config into the DDEV web container. This lets Claude inside the container share your global commands, skills, and plugins without duplicating them. Two options are available — uncomment one:
-
-```yaml
-# Option 1: full ~/.claude (settings, history, sessions, commands, plugins)
-- ${HOME}/.claude:/root/.claude:ro
-
-# Option 2: granular — commands and plugins only
-- ${HOME}/.claude/commands:/root/.claude/commands:ro
-- ${HOME}/.claude/plugins:/root/.claude/plugins:ro
-```
+`docker-compose.claude-home.yaml` provides commented-out volume definitions that shim your host machine's Claude config into the DDEV web container. This lets Claude inside the container share your global commands, skills, and plugins without duplicating them. Comment in the option that works for this project.
 
 The volume is mounted read-only so the container cannot modify your host Claude config.
 

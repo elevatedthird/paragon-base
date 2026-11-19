@@ -81,7 +81,21 @@ $settings['entity_update_batch_size'] = 50;
 $settings['config_exclude_modules'] = [
   'devel',
   'search_api_solr_admin',
-  'stage_file_proxy'
+  'stage_file_proxy',
+  'upgrade_status',
+];
+
+// Disable Vite Dev server on remote environments.
+$settings['vite'] = [
+  'useDevServer' => FALSE,
+];
+
+// Config Ignore pattern.
+// Ignore Canvas SDCs, patterns, and folders.
+$settings['config_ignore_patterns'] = [
+  '/^canvas\.component\.sdc\..*$/',
+  '/^canvas\.folder\.[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}+$/',
+  '/^canvas\.pattern\.[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}+$/',
 ];
 
 /**
